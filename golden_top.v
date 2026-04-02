@@ -28,7 +28,8 @@
 //                     email: support@terasic.com
 //
 // ============================================================================
-//Date:  Mon Jun  2 00:32:49 2025
+// ECE641 Project 3 - HDMI + SDRAM + UART Integration
+// Base: Terasic PR3 golden_top
 // ============================================================================
 
 
@@ -79,7 +80,6 @@ module golden_top(
       input              HDMI_TX_INT,
       inout              HDMI_I2S0,
 
-
       ///////// I2C for HDMI and ADC /////////
       inout              FPGA_I2C_SCL,
       inout              FPGA_I2C_SDA,
@@ -92,134 +92,252 @@ module golden_top(
       inout    [35: 0]   GPIO_D
 
 );
-//----LED off device
-assign LEDR[9:7] = 3'h7; 
 
-//----HEX off device
-assign HEX0 =7'h7f;
-assign HEX1 =7'h7f;
-assign HEX2 =7'h7f;
-assign HEX3 =7'h7f;
-assign HEX4 =7'h7f;
-assign HEX5 =7'h7f;
+// Wire definitions
 
-//----SDRAM off
-assign DRAM_DQ   =32'hzzzz_zzzzz;
-assign DRAM_CS_n =1'b1;
-assign DRAM_WE_n =1'b1;
-assign DRAM_CAS_n=1'b1;
-assign DRAM_RAS_n=1'b1;
-assign DRAM_DQM  =4'b1111;
-
-//=======================================================
-//  wire define
-//=======================================================
-wire AUD_CTRL_CLK ;
-wire AUD_BCLK   ;
-wire DAC_DACDAT ;
-wire AUD_DACLRCK; 
+// base wires
+wire AUD_CTRL_CLK;
+wire AUD_BCLK;
+wire DAC_DACDAT;
+wire AUD_DACLRCK;
 wire reset_n;
-wire  V_locked ,A_locked ;
-wire  pll_12M288; 
-wire  SYSTEM_50MHZ;
+wire V_locked, A_locked;
+wire pll_12M288;
+wire SYSTEM_50MHZ;
 wire [7:0] vpg_r;
 wire [7:0] vpg_g;
-wire [7:0] vpg_b;				
-wire HDMI_READY ;
-wire HDMI_I2C_SCLK ; 
-//=======================================================
-//  Structural coding
-//=======================================================
-//--RESET 	
-assign reset_n = ~ninit_done;	
-//---INIT RESET 
+wire [7:0] vpg_b;
+wire HDMI_READY;
 wire ninit_done;
-	ResetRelease ResetRelease_inst (
-		.ninit_done (ninit_done)  
-	);
-//-- PLL LOCK
-assign LEDR[5] = ~V_locked	;
-assign LEDR[6] = ~A_locked	;
+wire vpg_pclk;
 
-//-- HDMI SET READY	
-assign LEDR[4] = ~HDMI_READY	 ;
+// UART wires
+wire ar;
+wire [7:0] rx_word;
+wire new_rx_pulse;
+wire [7:0] tx_word;
+wire tx_start;
+wire tx_busy;
+wire tx_done;
 
-//-----heart ----
-CLOCKMEM  ckK0( .RESET_n(1), .CLK(HDMI_TX_CLK    ) ,.CLK_FREQ ( 148_500_000 )  ,.CK_1HZ  (LEDR[0] ) ) ;
-CLOCKMEM  ckK1( .RESET_n(1), .CLK(AUD_DACLRCK    ) ,.CLK_FREQ (      48_000 )  ,.CK_1HZ  (LEDR[1] ) ) ;
-CLOCKMEM  ckK2( .RESET_n(1), .CLK(SYSTEM_50MHZ   ) ,.CLK_FREQ (  50_000_000 )  ,.CK_1HZ  (LEDR[2] ) ) ;
-CLOCKMEM  ckK3( .RESET_n(1), .CLK(AUD_CTRL_CLK   ) ,.CLK_FREQ (  12_280_000 )  ,.CK_1HZ  (LEDR[3] ) ) ;
+// UART / SDRAM manager interface wires
+wire [31:0] control_reg0, control_reg1, control_reg2, control_reg3;
+wire uart_wr_addr_valid;
+wire [23:0] uart_wr_addr;
+wire uart_wr_data_valid;
+wire [31:0] uart_wr_data;
+wire uart_rd_addr_valid;
+wire [23:0] uart_rd_addr;
+wire uart_rd_data_valid;
+wire [31:0] uart_rd_data;
 
-//---AV PLL 
+// SDRAM controller interface wires
+wire sdram_busy;
+wire sdram_rd_req;
+wire sdram_wr_req;
+wire [23:0] sdram_addr;
+wire [31:0] sdram_wr_data;
+wire [31:0] sdram_rd_data;
+wire sdram_rd_valid;
+wire sdram_wr_next;
 
-VEDIO_PLL u_VEDIO_PLL(
-    .refclk       (CLOCK0_50     ),
-    .outclk_0     (vpg_pclk      ),//148.5MHZ
-    .locked       (V_locked      ),
-	 .rst          (~reset_n      )
+// Clock and Reset
+
+// reset from ResetRelease IP (power-on reset sequencer)
+assign reset_n = ~ninit_done;
+
+ResetRelease ResetRelease_inst (
+    .ninit_done (ninit_done)
 );
 
-AUDIO_PLL u_AUDIO_PLL(
-    .refclk       (CLOCK1_50     ),
-    .outclk_0     (pll_12M288    ),//12.288136Mhz
-    .locked       (A_locked     ),
-	 .rst          (~reset_n      )
+// active-low reset: KEY[0] gated with power-on reset
+assign ar = KEY[0] & reset_n;
+
+// SYSTEM_50MHZ used for UART and SDRAM 
+assign SYSTEM_50MHZ = CLOCK0_50;
+
+// SDRAM chip clock: inverted 50 MHz for 180-degree phase shift
+assign DRAM_CLK = ~CLOCK0_50;
+
+assign tx_done = ~tx_busy;
+
+//PLLs
+
+VEDIO_PLL u_VEDIO_PLL (
+    .refclk   (CLOCK0_50),
+    .outclk_0 (vpg_pclk),    // 148.5 MHz for HDMI pixel clock
+    .locked   (V_locked),
+    .rst      (~reset_n)
 );
 
+AUDIO_PLL u_AUDIO_PLL (
+    .refclk   (CLOCK1_50),
+    .outclk_0 (pll_12M288),  // 12.288 MHz for audio
+    .locked   (A_locked),
+    .rst      (~reset_n)
+);
 
+//PR3 HDMI video pattern generator
 
-assign SYSTEM_50MHZ = CLOCK0_50;//
- 
-assign HDMI_TX_D[23:16]	=	vpg_r;
-assign HDMI_TX_D[15:8] 	=	vpg_g;
-assign HDMI_TX_D[7:0]  	=	vpg_b;
+assign HDMI_TX_D[23:16] = vpg_r;
+assign HDMI_TX_D[15:8]  = vpg_g;
+assign HDMI_TX_D[7:0]   = vpg_b;
 
-//--HDMI timing generater & //pattern generator
-vpg	u_vpg (
-	.vpg_pclk    (vpg_pclk   ),//vedio clock input
-	.reset_n     (reset_n    ),    
-	.vpg_de      (HDMI_TX_DE ),
-	.vpg_hs      (HDMI_TX_HS ),
-	.vpg_vs      (HDMI_TX_VS ),
-	.vpg_pclk_out(HDMI_TX_CLK),
-	.vpg_r       (vpg_r),
-	.vpg_g       (vpg_g),
-	.vpg_b       (vpg_b)
-	);
-								
-//--  HDMI I2C	SETTING
+vpg u_vpg (
+    .vpg_pclk    (vpg_pclk),
+    .reset_n     (reset_n),
+    .vpg_de      (HDMI_TX_DE),
+    .vpg_hs      (HDMI_TX_HS),
+    .vpg_vs      (HDMI_TX_VS),
+    .vpg_pclk_out(HDMI_TX_CLK),
+    .vpg_r       (vpg_r),
+    .vpg_g       (vpg_g),
+    .vpg_b       (vpg_b)
+);
+
+//HDMI I2C configuration
+
 I2C_HDMI_Config u_I2C_HDMI_Config (
-	              .iCLK       (SYSTEM_50MHZ  ),
-	              .iRST_N     (reset_n & KEY[0]),
-	              .I2C_SCLK   (FPGA_I2C_SCL  ),
-	              .I2C_SDAT   (FPGA_I2C_SDA  ),
-	              .HDMI_TX_INT(HDMI_TX_INT   ),
-	              .READY      (HDMI_READY    ) 	
-	            );
-			
+    .iCLK       (SYSTEM_50MHZ),
+    .iRST_N     (reset_n & KEY[0]),
+    .I2C_SCLK   (FPGA_I2C_SCL),
+    .I2C_SDAT   (FPGA_I2C_SDA),
+    .HDMI_TX_INT(HDMI_TX_INT),
+    .READY      (HDMI_READY)
+);
 
+//Audio
 
+assign AUD_CTRL_CLK = pll_12M288;
 
-//---Audio Master L/RCLK , BCK ,DATA  generater 
+AUDIO_DAC u_AUDIO_DAC (
+    .oAUD_BCK   (AUD_BCLK),
+    .oAUD_DATA  (DAC_DACDAT),
+    .oAUD_LRCK  (AUD_DACLRCK),
+    .iSrc_Select(2'b00),
+    .iCLK_18_4  (AUD_CTRL_CLK),
+    .iRST_N     (HDMI_READY)
+);
 
-assign AUD_CTRL_CLK =pll_12M288;
-
-AUDIO_DAC 	u_AUDIO_DAC	(	//	Audio Side
-					.oAUD_BCK       (AUD_BCLK        ),
-					.oAUD_DATA      (DAC_DACDAT      ),
-					.oAUD_LRCK      (AUD_DACLRCK     ),
-					//	Control Signals
-					.iSrc_Select    (2'b00           ),
-			      .iCLK_18_4      (AUD_CTRL_CLK    ),//12.288000MHz --12.288136Mhz
-					.iRST_N         (HDMI_READY      )
-					);
-										
-// HDMI I2S out
 assign HDMI_MCLK  = AUD_CTRL_CLK;
-assign HDMI_SCLK  = AUD_BCLK     ;
-assign HDMI_LRCLK = AUD_DACLRCK  ;	
+assign HDMI_SCLK  = AUD_BCLK;
+assign HDMI_LRCLK = AUD_DACLRCK;
+assign HDMI_I2S0  = KEY[3] ? 0 : DAC_DACDAT;
 
-//--key-in KEY3 ,HDMI out 1k sin-tone	
-assign HDMI_I2S0 = KEY[3]? 0 : DAC_DACDAT	;
+//clock heartbeat monitors
+
+CLOCKMEM ckK0 (.RESET_n(1), .CLK(HDMI_TX_CLK),  .CLK_FREQ(148_500_000), .CK_1HZ(LEDR[0]));
+CLOCKMEM ckK1 (.RESET_n(1), .CLK(AUD_DACLRCK),  .CLK_FREQ(     48_000), .CK_1HZ(LEDR[1]));
+CLOCKMEM ckK2 (.RESET_n(1), .CLK(SYSTEM_50MHZ), .CLK_FREQ( 50_000_000), .CK_1HZ(LEDR[2]));
+CLOCKMEM ckK3 (.RESET_n(1), .CLK(AUD_CTRL_CLK), .CLK_FREQ( 12_280_000), .CK_1HZ(LEDR[3]));
+
+// LEDR[4] = HDMI ready, LEDR[5] = video PLL locked, LEDR[6] = audio PLL locked
+assign LEDR[4] = ~HDMI_READY;
+assign LEDR[5] = ~V_locked;
+assign LEDR[6] = ~A_locked;
+
+// LEDR[7] = UART RX activity, LEDR[8] = UART TX activity, LEDR[9] = SDRAM free
+assign LEDR[7] = ~new_rx_pulse;
+assign LEDR[8] = ~tx_busy;
+assign LEDR[9] = ~sdram_busy;
+
+//UART modules
+
+uart_tx uart_tx_inst (
+    .ar      (ar),
+    .clk     (SYSTEM_50MHZ),
+    .data    (tx_word),
+    .tx_start(tx_start),
+    .tx      (FPGA_UART_TX),
+    .tx_busy (tx_busy)
+);
+
+uart_rx uart_rx_inst (
+    .ar    (ar),
+    .clk   (SYSTEM_50MHZ),
+    .rx    (FPGA_UART_RX),
+    .data  (rx_word),
+    .new_rx(new_rx_pulse)
+);
+
+uart_mgr mgr_inst (
+    .ar                 (ar),
+    .clk                (SYSTEM_50MHZ),
+    .new_rx             (new_rx_pulse),
+    .tx_done            (tx_done),
+    .tx_start           (tx_start),
+    .rx_word            (rx_word),
+    .tx_word            (tx_word),
+    .control_reg0       (control_reg0),
+    .control_reg1       (control_reg1),
+    .control_reg2       (control_reg2),
+    .control_reg3       (control_reg3),
+    .sdram_wr_addr_valid(uart_wr_addr_valid),
+    .sdram_wr_addr      (uart_wr_addr),
+    .sdram_wr_data_valid(uart_wr_data_valid),
+    .sdram_wr_data      (uart_wr_data),
+    .sdram_rd_addr_valid(uart_rd_addr_valid),
+    .sdram_rd_addr      (uart_rd_addr),
+    .sdram_rd_data_valid(uart_rd_data_valid),
+    .sdram_rd_data      (uart_rd_data)
+);
+
+// SDRAM manager
+
+sdram_mgr sdram_mgr_inst (
+    .ar            (ar),
+    .clk           (SYSTEM_50MHZ),
+    .wr_addr_valid (uart_wr_addr_valid),
+    .wr_addr       (uart_wr_addr),
+    .wr_data_valid (uart_wr_data_valid),
+    .wr_data       (uart_wr_data),
+    .rd_addr_valid (uart_rd_addr_valid),
+    .rd_addr       (uart_rd_addr),
+    .rd_data_valid (uart_rd_data_valid),
+    .rd_data       (uart_rd_data),
+    .sdram_busy    (sdram_busy),
+    .sdram_rd_req  (sdram_rd_req),
+    .sdram_wr_req  (sdram_wr_req),
+    .sdram_addr    (sdram_addr),
+    .sdram_wr_data (sdram_wr_data),
+    .sdram_rd_data (sdram_rd_data),
+    .sdram_rd_valid(sdram_rd_valid),
+    .sdram_wr_next (sdram_wr_next)
+);
+
+// SDRAM controller v3
+
+sdram_controller_32bit sdram_ctrl_inst (
+    .clk          (SYSTEM_50MHZ),
+    .rst_n        (ar),
+    .start_refresh(HDMI_TX_VS),   
+    .num_words    (10'd8),        
+    .wr_req       (sdram_wr_req),
+    .rd_req       (sdram_rd_req),
+    .addr         (sdram_addr),
+    .wr_data      (sdram_wr_data),
+    .rd_data      (sdram_rd_data),
+    .rd_valid     (sdram_rd_valid),
+    .busy         (sdram_busy),
+    .wr_next      (sdram_wr_next),
+    .sdram_a      (DRAM_ADDR),
+    .sdram_ba     (DRAM_BA),
+    .sdram_dq     (DRAM_DQ),
+    .sdram_dqm    (DRAM_DQM),
+    .sdram_cke    (DRAM_CKE),
+    .sdram_cs_n   (DRAM_CS_n),
+    .sdram_ras_n  (DRAM_RAS_n),
+    .sdram_cas_n  (DRAM_CAS_n),
+    .sdram_we_n   (DRAM_WE_n)
+);
+
+// Seven segment displays
+
+sevseg_dec hex0_inst (.x_in(rx_word[3:0]),         .segs(HEX0));
+sevseg_dec hex1_inst (.x_in(rx_word[7:4]),         .segs(HEX1));
+sevseg_dec hex2_inst (.x_in(control_reg0[7:4]),   .segs(HEX2));
+sevseg_dec hex3_inst (.x_in(control_reg0[11:8]),  .segs(HEX3));
+sevseg_dec hex4_inst (.x_in(control_reg0[15:12]), .segs(HEX4));
+sevseg_dec hex5_inst (.x_in(control_reg0[19:16]), .segs(HEX5));
 
 endmodule

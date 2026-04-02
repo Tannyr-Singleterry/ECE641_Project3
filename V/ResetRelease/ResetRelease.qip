@@ -1,5 +1,5 @@
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOOL_NAME "QsysPrimePro"
-set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOOL_VERSION "25.1"
+set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOOL_VERSION "25.3.1"
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOOL_ENV "QsysPrimePro"
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOOL_VENDOR_NAME "Altera"
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_TOP_LEVEL_COMPONENT_NAME "intel_user_rst_clkgate"
@@ -7,7 +7,7 @@ set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name PRE_C
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name OCS_IP_FILE [file join $::quartus(qip_path) "../ResetRelease.ip"]
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name OCS_IP_TYPE "intel_user_rst_clkgate"
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name OCS_IP_VERSION "1.0.1"
-set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name OCS_IP_HASH "hevnruy"
+set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name OCS_IP_HASH "sgbj2iq"
 set_global_assignment -library "ResetRelease" -name SOPCINFO_FILE [file join $::quartus(qip_path) "ResetRelease.sopcinfo"]
 set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name SLD_INFO "QSYS_NAME ResetRelease HAS_SOPCINFO 1 GENERATION_ID 0"
 set_global_assignment -library "ResetRelease" -name MISC_FILE [file join $::quartus(qip_path) "ResetRelease.cmp"]
@@ -18,9 +18,9 @@ set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "ResetRelease" -name MISC_FILE [file join $::quartus(qip_path) "../ResetRelease.ip"]
 
 set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_NAME "aW50ZWxfdXNlcl9yc3RfY2xrZ2F0ZQ=="
-set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_DISPLAY_NAME "QWdpbGV4IFJlc2V0IFJlbGVhc2UgSVA="
+set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_DISPLAY_NAME "UmVzZXQgUmVsZWFzZSBJUA=="
 set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
-set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_INTERNAL "On"
 set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_AUTHOR "QWx0ZXJh"
 set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_VERSION "MS4wLjE="
 set_global_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name IP_COMPONENT_DESCRIPTION "VGhpcyBJUCBvdXRwdXRzIG5JTklUX0RPTkUgYWZ0ZXIgZmluaXNoaW5nIGRldmljZSBpbml0YWxpemF0aW9uLiBVc2VyIG1vZGUgaW5pdGlhbGl6YXRpb24gY2FuIGJlZ2luIGFzIHNvb24gYXMgdGhlIG5JTklUX0RPTkUgc2lnbmFsIGFzc2VydHMu"
@@ -34,6 +34,7 @@ set_global_assignment -entity "ResetRelease" -library "ResetRelease" -name IP_CO
 
 
 set_global_assignment -library "intel_user_rst_clkgate_101" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_user_rst_clkgate_101/synth/intel_user_rst_clkgate.sv"]
+set_instance_assignment -entity "intel_user_rst_clkgate" -library "intel_user_rst_clkgate_101" -name SDC_ENTITY_FILE [file join $::quartus(qip_path) "intel_user_rst_clkgate_101/synth/intel_user_rst_clkgate_agilex.sdc"] -no_sdc_promotion  -no_auto_inst_discovery 
 set_global_assignment -library "ResetRelease" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/ResetRelease.v"]
 
 

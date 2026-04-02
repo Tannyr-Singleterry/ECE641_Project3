@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.08.18.10:50:43"
- outputDirectory="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/AUDIO_PLL/">
+ date="2026.04.02.13:18:31"
+ outputDirectory="D:/altera/ECE641/ECE641_Project3/V/AUDIO_PLL/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -95,31 +95,29 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
   <generatedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\synth\AUDIO_PLL.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\synth\AUDIO_PLL.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\synth\AUDIO_PLL.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\synth\AUDIO_PLL.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
-   <file
-       path="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/AUDIO_PLL.ip" />
+   <file path="D:/altera/ECE641/ECE641_Project3/V/AUDIO_PLL.ip" />
   </sourceFiles>
   <childSourceFiles>
-   <file
-       path="D:/altera_pro/25.1/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
+   <file path="D:/altera/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="AUDIO_PLL">"Generating: AUDIO_PLL"</message>
-   <message level="Info" culprit="AUDIO_PLL">"Generating: AUDIO_PLL_altera_iopll_2000_3iwbo5y"</message>
+   <message level="Info" culprit="AUDIO_PLL">"Generating: AUDIO_PLL_altera_iopll_2100_nuov5va"</message>
   </messages>
  </entity>
  <entity
    kind="altera_iopll"
-   version="20.0.0"
-   name="AUDIO_PLL_altera_iopll_2000_3iwbo5y">
+   version="21.0.0"
+   name="AUDIO_PLL_altera_iopll_2100_nuov5va">
   <parameter name="set_phase" value="SET_PHASE_NUM_SHIFTS" />
   <parameter name="hp_actual_phase_shift_fp5" value="0.0" />
   <parameter name="hp_actual_phase_shift_fp6" value="0.0" />
@@ -340,6 +338,7 @@
   <parameter name="divide_factor4" value="1" />
   <parameter name="divide_factor1" value="1" />
   <parameter name="divide_factor2" value="1" />
+  <parameter name="gui_use_slvs_refclk" value="false" />
   <parameter name="out_clk_2_phase_shifts" value="0" />
   <parameter name="pll_m_cnt" value="1" />
   <parameter name="out_clk_4_delay" value="0" />
@@ -347,7 +346,7 @@
   <parameter name="gui_device_iobank_rev" value="IO96B_REVB1" />
   <parameter name="gui_number_of_clocks" value="1" />
   <parameter name="out_clk_3_delay" value="0" />
-  <parameter name="gui_cascade_outclk_index" value="0" />
+  <parameter name="gui_cascade_outclk_index" value="5" />
   <parameter name="gui_c_cnt_in_src8" value="c_m_cnt_in_src_ph_mux_clk" />
   <parameter name="gui_c_cnt_in_src4" value="c_m_cnt_in_src_ph_mux_clk" />
   <parameter name="gui_c_cnt_in_src5" value="c_m_cnt_in_src_ph_mux_clk" />
@@ -692,6 +691,7 @@
   <parameter name="out_clk_5_core_en" value="true" />
   <parameter name="clock_name_global" value="false" />
   <parameter name="m_cnt_lo_div" value="43" />
+  <parameter name="gui_use_fractional_division" value="false" />
   <parameter name="out_clk_1_delay" value="0" />
   <parameter name="pll_m_cnt_basic" value="1" />
   <parameter name="pll_clk_loss_sw_en" value="false" />
@@ -933,6 +933,7 @@
   <parameter name="gui_simulation_type" value="true" />
   <parameter name="hp_actual_phase_shift_fp12" value="0.0" />
   <parameter name="hp_actual_phase_shift_fp13" value="0.0" />
+  <parameter name="gui_use_slvs_refclk1" value="false" />
   <parameter name="pll_cp_current" value="pll_cp_setting21" />
   <parameter name="out_clk_0_dutycycle_den" value="2" />
   <parameter name="gui_usr_device_speed_grade" value="1" />
@@ -951,6 +952,7 @@
   <parameter name="c_cnt_ph_mux_prst10" value="0" />
   <parameter name="number_of_clocks" value="1" />
   <parameter name="fb_clk_fractional_div_num" value="1" />
+  <parameter name="gui_multiply_fraction" value="0" />
   <parameter name="n_cnt_hi_div" value="1" />
   <parameter name="fb_clk_fractional_div_value" value="1" />
   <parameter name="cal_converge" value="false" />
@@ -970,46 +972,45 @@
   <parameter name="output_clock_frequency2" value="0 ps" />
   <generatedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va.v"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_all_ip_params.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_all_ip_params.tcl"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_parameters.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_parameters.tcl"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y.sdc"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_pin_map.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_pin_map.tcl"
        attributes="" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va.v"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_all_ip_params.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_all_ip_params.tcl"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_parameters.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_parameters.tcl"
        attributes="" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y.sdc"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va.sdc"
        attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION READ_DURING_POST_SYN_AND_POST_FIT_TIMING_ANALYSIS" />
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\AUDIO_PLL\altera_iopll_2000\synth\AUDIO_PLL_altera_iopll_2000_3iwbo5y_pin_map.tcl"
+       path="D:\altera\ECE641\ECE641_Project3\V\AUDIO_PLL\altera_iopll_2100\synth\AUDIO_PLL_altera_iopll_2100_nuov5va_pin_map.tcl"
        attributes="" />
   </childGeneratedFiles>
   <sourceFiles>
-   <file
-       path="D:/altera_pro/25.1/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
+   <file path="D:/altera/ip/altera/altera_iopll/top/altera_iopll_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="AUDIO_PLL" as="iopll_0" />
   <messages>
-   <message level="Info" culprit="AUDIO_PLL">"Generating: AUDIO_PLL_altera_iopll_2000_3iwbo5y"</message>
+   <message level="Info" culprit="AUDIO_PLL">"Generating: AUDIO_PLL_altera_iopll_2100_nuov5va"</message>
   </messages>
  </entity>
 </deploy>

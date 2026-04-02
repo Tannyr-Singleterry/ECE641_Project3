@@ -1869,6 +1869,10 @@
             <value>6</value>
           </parameter>
           <parameter>
+            <name>gui_multiply_fraction</name>
+            <value>0</value>
+          </parameter>
+          <parameter>
             <name>gui_new_mif_file_path</name>
             <value>~/pll.mif</value>
           </parameter>
@@ -2349,11 +2353,23 @@
             <value>false</value>
           </parameter>
           <parameter>
+            <name>gui_use_fractional_division</name>
+            <value>false</value>
+          </parameter>
+          <parameter>
             <name>gui_use_locked</name>
             <value>true</value>
           </parameter>
           <parameter>
             <name>gui_use_logical</name>
+            <value>false</value>
+          </parameter>
+          <parameter>
+            <name>gui_use_slvs_refclk</name>
+            <value>false</value>
+          </parameter>
+          <parameter>
+            <name>gui_use_slvs_refclk1</name>
             <value>false</value>
           </parameter>
           <parameter>
@@ -3323,9 +3339,9 @@
         </parameters>
         <interconnectAssignments></interconnectAssignments>
         <className>altera_iopll</className>
-        <version>20.0.0</version>
+        <version>21.0.0</version>
         <name>iopll_0</name>
-        <uniqueName>VEDIO_PLL_altera_iopll_2000_tuy4cha</uniqueName>
+        <uniqueName>VEDIO_PLL_altera_iopll_2100_arv3eqq</uniqueName>
         <nonce>0</nonce>
         <incidentConnections></incidentConnections>
         <path>VEDIO_PLL.iopll_0</path>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="ResetRelease" kind="ResetRelease" version="1.0" fabric="QSYS">
- <!-- Format version 25.1 129 (Future versions may contain additional information.) -->
- <!-- 2025.08.18.10:50:41 -->
+ <!-- Format version 25.3.1 100 (Future versions may contain additional information.) -->
+ <!-- 2026.04.02.13:18:27 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
@@ -118,7 +118,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="ninit_done" kind="conduit_end" version="25.1">
+  <interface name="ninit_done" kind="conduit_end" version="25.3">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -178,7 +178,7 @@ parameters are a RESULT of the module parameters. -->
   <name>intel_user_rst_clkgate</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Agilex Reset Release IP</displayName>
+  <displayName>Reset Release IP</displayName>
   <version>1.0.1</version>
  </plugin>
  <plugin>
@@ -187,8 +187,8 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Conduit</displayName>
-  <version>25.1</version>
+  <version>25.3</version>
  </plugin>
- <reportVersion>25.1 129</reportVersion>
+ <reportVersion>25.3.1 100</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2025.08.18.10:50:41"
- outputDirectory="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/ResetRelease/">
+ date="2026.04.02.13:18:27"
+ outputDirectory="D:/altera/ECE641/ECE641_Project3/V/ResetRelease/">
  <perimeter>
   <parameter
      name="AUTO_GENERATION_ID"
@@ -55,21 +55,20 @@
   <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
   <generatedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\synth\ResetRelease.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\synth\ResetRelease.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\synth\ResetRelease.v"
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\synth\ResetRelease.v"
        attributes="CONTAINS_INLINE_CONFIGURATION" />
   </childGeneratedFiles>
   <sourceFiles>
-   <file
-       path="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/ResetRelease.ip" />
+   <file path="D:/altera/ECE641/ECE641_Project3/V/ResetRelease.ip" />
   </sourceFiles>
   <childSourceFiles>
    <file
-       path="D:/altera_pro/25.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+       path="D:/altera/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
   </childSourceFiles>
   <messages>
    <message level="Info" culprit="ResetRelease">"Generating: ResetRelease"</message>
@@ -85,17 +84,23 @@
   <parameter name="outputType" value="Conduit Interface" />
   <generatedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
        attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
+       attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </generatedFiles>
   <childGeneratedFiles>
    <file
-       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
        attributes="TOP_LEVEL_FILE" />
+   <file
+       path="D:\altera\ECE641\ECE641_Project3\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate_agilex.sdc"
+       attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
   </childGeneratedFiles>
   <sourceFiles>
    <file
-       path="D:/altera_pro/25.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+       path="D:/altera/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
   </sourceFiles>
   <childSourceFiles/>
   <instantiator instantiator="ResetRelease" as="intel_user_rst_clkgate_0" />

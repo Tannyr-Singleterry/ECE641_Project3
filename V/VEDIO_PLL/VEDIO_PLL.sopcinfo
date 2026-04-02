@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="VEDIO_PLL" kind="VEDIO_PLL" version="1.0" fabric="QSYS">
- <!-- Format version 25.1 129 (Future versions may contain additional information.) -->
- <!-- 2025.08.18.10:50:43 -->
+ <!-- Format version 25.3.1 100 (Future versions may contain additional information.) -->
+ <!-- 2026.04.02.13:18:31 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
@@ -107,9 +107,9 @@
  <module
    name="iopll_0"
    kind="altera_iopll"
-   version="20.0.0"
-   entity="VEDIO_PLL_altera_iopll_2000_tuy4cha"
-   library="altera_iopll_2000"
+   version="21.0.0"
+   entity="VEDIO_PLL_altera_iopll_2100_arv3eqq"
+   library="altera_iopll_2100"
    path="iopll_0"
    hpath="iopll_0"
    className="altera_iopll">
@@ -559,6 +559,14 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
+  <parameter name="gui_use_fractional_division">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="gui_pll_bandwidth_preset">
    <type>java.lang.String</type>
    <value>Low</value>
@@ -685,6 +693,30 @@ the requested settings for a module instance. -->
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_multiply_fraction">
+   <type>int</type>
+   <value>0</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_use_slvs_refclk">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="gui_use_slvs_refclk1">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>false</enabled>
+   <visible>true</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="gui_divide_factor_n">
@@ -6759,7 +6791,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="refclk" kind="clock_sink" version="25.1">
+  <interface name="refclk" kind="clock_sink" version="25.3">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6825,7 +6857,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="locked" kind="conduit_end" version="25.1">
+  <interface name="locked" kind="conduit_end" version="25.3">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6883,7 +6915,7 @@ parameters are a RESULT of the module parameters. -->
     <role>export</role>
    </port>
   </interface>
-  <interface name="reset" kind="reset_sink" version="25.1">
+  <interface name="reset" kind="reset_sink" version="25.3">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6933,7 +6965,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="outclk0" kind="clock_source" version="25.1">
+  <interface name="outclk0" kind="clock_source" version="25.3">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7013,8 +7045,8 @@ parameters are a RESULT of the module parameters. -->
   <name>altera_iopll</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>IOPLL FPGA IP</displayName>
-  <version>20.0.0</version>
+  <displayName>IOPLL IP</displayName>
+  <version>21.0.0</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -7022,7 +7054,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Input</displayName>
-  <version>25.1</version>
+  <version>25.3</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -7030,7 +7062,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Conduit</displayName>
-  <version>25.1</version>
+  <version>25.3</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -7038,7 +7070,7 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Reset Input</displayName>
-  <version>25.1</version>
+  <version>25.3</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -7046,8 +7078,8 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Output</displayName>
-  <version>25.1</version>
+  <version>25.3</version>
  </plugin>
- <reportVersion>25.1 129</reportVersion>
+ <reportVersion>25.3.1 100</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>
