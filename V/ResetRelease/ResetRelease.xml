@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2025.08.18.10:50:41"
+ outputDirectory="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/ResetRelease/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Agilex 3"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="A3CZ135BB18AE7S"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_BOARD"
+     type="String"
+     defaultValue="default"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="ninit_done" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <property name="prSafe" value="false" />
+   <port name="ninit_done" direction="output" role="ninit_done" width="1" />
+  </interface>
+ </perimeter>
+ <entity kind="ResetRelease" version="1.0" name="ResetRelease">
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="A3CZ135BB18AE7S" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex 3" />
+  <parameter name="AUTO_BOARD" value="default" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <generatedFiles>
+   <file
+       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\synth\ResetRelease.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\synth\ResetRelease.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="G:/joe/DE23_Lite/mp_cd_dauther/cd/HDMI_out_RTL_testpass/V/ResetRelease.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="D:/altera_pro/25.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="ResetRelease">"Generating: ResetRelease"</message>
+   <message level="Info" culprit="ResetRelease">"Generating: intel_user_rst_clkgate"</message>
+   <message level="Info" culprit="intel_user_rst_clkgate_0">generating top-level entity intel_user_rst_clkgate</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_user_rst_clkgate"
+   version="1.0.1"
+   name="intel_user_rst_clkgate">
+  <parameter name="DEVICE_FAMILY" value="Agilex 3" />
+  <parameter name="outputType" value="Conduit Interface" />
+  <generatedFiles>
+   <file
+       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="G:\joe\DE23_Lite\mp_cd_dauther\cd\HDMI_out_RTL_testpass\V\ResetRelease\intel_user_rst_clkgate_101\synth\intel_user_rst_clkgate.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="D:/altera_pro/25.1/ip/altera/pgm/intel_user_rst_clkgate/intel_user_rst_clkgate_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="ResetRelease" as="intel_user_rst_clkgate_0" />
+  <messages>
+   <message level="Info" culprit="ResetRelease">"Generating: intel_user_rst_clkgate"</message>
+   <message level="Info" culprit="intel_user_rst_clkgate_0">generating top-level entity intel_user_rst_clkgate</message>
+  </messages>
+ </entity>
+</deploy>
