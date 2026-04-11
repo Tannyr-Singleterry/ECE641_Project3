@@ -32,10 +32,11 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 	input [31:0] sdram_rd_data;
 	
 	reg [3:0] data_value;
-	wire R, W, A, C;
+	wire R, W, W_bulk, A, C;
 	
 	assign R = (rx_word == 8'h52 || rx_word == 8'h72) ? 1'b1 : 1'b0;
-	assign W = (rx_word == 8'h57 || rx_word == 8'h77) ? 1'b1 : 1'b0;
+	assign W = (rx_word == 8'h57) ? 1'b1 : 1'b0;
+	assign W_bulk = (rx_word == 8'h77) ? 1'b1 : 1'b0;
 	assign A = (rx_word == 8'h41 || rx_word == 8'h61) ? 1'b1 : 1'b0;
 	assign C = (rx_word == 8'h43 || rx_word == 8'h63) ? 1'b1 : 1'b0;
 	
@@ -81,18 +82,19 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 			txdone_old <= tx_done;
 		end
 		
-	assign rxnew_posedge = new_rx ^ rxnew_old;
+	assign rxnew_posedge = new_rx & ~rxnew_old;
 	assign txdone_posedge = tx_done & ~txdone_old;
 	
 	parameter [4:0] Idle = 5'd0, Command_Type = 5'd1, Read_Mem = 5'd2, Write_Mem = 5'd3,
 					Address_Mem = 5'd4, Control_Reg = 5'd5, Wait_Mem = 5'd6, 
 					Tx_Mem_Byte = 5'd7, Wait_Tx_Mem = 5'd8, Mem_Incr_Addr = 5'd9, 
 					Get_Write_Data_Mem = 5'd10, Write_Mem_Cmd = 5'd11, Get_Mem_Addr = 5'd12, 
-					Reg_Num = 5'd13, CR_Ror_W = 5'd14, Tx_CR_Byte = 5'd15,
-					Wait_Tx_CR = 5'd16, Rx_CR_Byte = 5'd17;
+					Reg_Num = 5'd13, CR_Ror_W = 5'd14, Prep_Tx_CR = 5'd15, Tx_CR_Byte = 5'd18,
+					Wait_Tx_CR = 5'd16, Rx_CR_Byte = 5'd17, Prep_Tx_Mem = 5'd19, Tx_Mem_Fire = 5'd20,
+					Bulk_Write = 5'd21, Bulk_Get_Addr = 5'd22, Bulk_Get_Data = 5'd23;
 					
 	reg [4:0] cs;
-	reg [3:0] ctr;
+	reg [11:0] ctr;
 	reg [1:0] idx;
 	reg [31:0] tx_reg;
 	reg [31:0] buffer;
@@ -115,7 +117,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 			cs <= Idle;
 			tx_word <= 8'd0;
 			tx_start <= 1'b0;
-			ctr <= 4'd0;
+			ctr <= 12'd0;
 			idx <= 2'b00;
 			tx_reg <= 32'd0;
 			buffer <= 32'd0;
@@ -149,7 +151,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					else
 					begin
 						cs <= Idle;
-						ctr <= 4'd0;
+						ctr <= 12'd0;
 					end
 				end
 				
@@ -159,6 +161,8 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 						cs <= Read_Mem;
 					else if(W)
 						cs <= Write_Mem;
+					else if(W_bulk)
+						cs <= Bulk_Write;
 					else if(A)
 						cs <= Address_Mem;
 					else if(C)
@@ -179,15 +183,20 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					if(sdram_rd_data_valid)
 					begin
 						tx_reg <= sdram_rd_data;
-						ctr <= 4'd0;
-						cs <= Tx_Mem_Byte;
+						ctr <= 12'd0;
+						cs <= Prep_Tx_Mem;
 					end
 				end
 				
-				Tx_Mem_Byte:
+				Prep_Tx_Mem:
 				begin
 					tx_word <= binary_to_hex(tx_reg[31:28]);
 					tx_reg <= {tx_reg[27:0], 4'h0};
+					cs <= Tx_Mem_Byte;
+				end
+
+				Tx_Mem_Byte:
+				begin
 					tx_start <= 1'b1;
 					cs <= Wait_Tx_Mem;
 				end
@@ -199,7 +208,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 						if(ctr < 7)
 						begin
 							ctr <= ctr + 1;
-							cs <= Tx_Mem_Byte;
+							cs <= Prep_Tx_Mem;
 						end
 						else
 							cs <= Mem_Incr_Addr;
@@ -215,7 +224,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 				
 				Write_Mem:
 				begin
-					ctr <= 4'd0;
+					ctr <= 12'd0;
 					buffer <= 32'd0;
 					cs <= Get_Write_Data_Mem;
 				end
@@ -243,7 +252,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 				
 				Address_Mem:
 				begin
-					ctr <= 4'd0;
+					ctr <= 12'd0;
 					buffer <= 32'd0;
 					cs <= Get_Mem_Addr;
 				end
@@ -257,9 +266,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 							ctr <= ctr + 1;
 						else
 						begin
-							// 6 nibbles collected (including this one) = 24 bits
 							current_addr <= {buffer[19:0], data_value};
-							// Mirror to control_reg0 immediately so seven-seg updates
 							control_reg0 <= {8'd0, buffer[19:0], data_value};
 							cs <= Idle;
 						end
@@ -293,13 +300,13 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 								2'd2: tx_reg <= control_reg2;
 								2'd3: tx_reg <= control_reg3;
 							endcase
-							ctr <= 4'd0;
-							cs <= Tx_CR_Byte;
+							ctr <= 12'd0;
+							cs <= Prep_Tx_CR;
 						end
 						else if(W)
 						begin
 							is_read <= 1'b0;
-							ctr <= 4'd0;
+							ctr <= 12'd0;
 							buffer <= 32'd0;
 							cs <= Rx_CR_Byte;
 						end
@@ -308,10 +315,15 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
-				Tx_CR_Byte: 
+				Prep_Tx_CR:
 				begin
 					tx_word <= binary_to_hex(tx_reg[31:28]);
 					tx_reg <= {tx_reg[27:0], 4'h0};
+					cs <= Tx_CR_Byte;
+				end
+				
+				Tx_CR_Byte:
+				begin
 					tx_start <= 1'b1;
 					cs <= Wait_Tx_CR;
 				end
@@ -323,7 +335,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 						if(ctr < 7)
 						begin
 							ctr <= ctr + 1;
-							cs <= Tx_CR_Byte;
+							cs <= Prep_Tx_CR;
 						end
 						else
 							cs <= Idle;
@@ -350,6 +362,51 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				Bulk_Write:
+				begin
+					// Start of lowercase 'w' bulk write: read 6-char address then 512 words
+					ctr <= 12'd0;
+					buffer <= 32'd0;
+					cs <= Bulk_Get_Addr;
+				end
+
+				Bulk_Get_Addr:
+				begin
+					if(rxnew_posedge)
+					begin
+						buffer <= {buffer[19:0], data_value};
+						if(ctr < 5)
+							ctr <= ctr + 1;
+						else
+						begin
+							sdram_wr_addr <= {buffer[19:0], data_value};
+							sdram_wr_addr_valid <= 1'b1;
+							current_addr <= {buffer[19:0], data_value};
+							control_reg0 <= {8'd0, buffer[19:0], data_value};
+							ctr <= 12'd0;
+							buffer <= 32'd0;
+							cs <= Bulk_Get_Data;
+						end
+					end
+				end
+
+				Bulk_Get_Data:
+				begin
+					if(rxnew_posedge)
+					begin
+						buffer <= {buffer[27:0], data_value};
+						if(ctr[2:0] == 3'd7)
+						begin
+							sdram_wr_data <= {buffer[27:0], data_value};
+							sdram_wr_data_valid <= 1'b1;
+						end
+						if(ctr < 12'd4095)
+							ctr <= ctr + 1;
+						else
+							cs <= Idle;
+					end
+				end
+
 				default:
 					cs <= Idle;
 				

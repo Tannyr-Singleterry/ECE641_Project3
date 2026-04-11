@@ -109,9 +109,13 @@ wire [7:0] vpg_g;
 wire [7:0] vpg_b;
 wire HDMI_READY;
 wire ninit_done;
-wire vpg_pclk;
 
-// UART wires
+// Clock wires from VEDIO_PLL
+wire vpg_pclk;        // 148.5 MHz — SDRAM controller, manager, UART
+wire clk_sdram_148;   // 148.5 MHz, 180 degree phase — DRAM_CLK
+wire clk_hdmi_74;     // 74.25 MHz — HDMI read port of dual clock data FIFOs
+
+// PR2 UART wires
 wire ar;
 wire [7:0] rx_word;
 wire new_rx_pulse;
@@ -120,7 +124,7 @@ wire tx_start;
 wire tx_busy;
 wire tx_done;
 
-// UART / SDRAM manager interface wires
+// PR2 UART / SDRAM manager interface wires
 wire [31:0] control_reg0, control_reg1, control_reg2, control_reg3;
 wire uart_wr_addr_valid;
 wire [23:0] uart_wr_addr;
@@ -130,6 +134,12 @@ wire uart_rd_addr_valid;
 wire [23:0] uart_rd_addr;
 wire uart_rd_data_valid;
 wire [31:0] uart_rd_data;
+
+// HDMI pixel output from sdram_mgr
+wire [7:0] hdmi_pixel_r;
+wire [7:0] hdmi_pixel_g;
+wire [7:0] hdmi_pixel_b;
+wire hdmi_pixel_valid;
 
 // SDRAM controller interface wires
 wire sdram_busy;
@@ -143,45 +153,66 @@ wire sdram_wr_next;
 
 // Clock and Reset
 
-// reset from ResetRelease IP (power-on reset sequencer)
+// PR3 reset from ResetRelease IP (power-on reset sequencer)
 assign reset_n = ~ninit_done;
 
 ResetRelease ResetRelease_inst (
     .ninit_done (ninit_done)
 );
 
-// active-low reset: KEY[0] gated with power-on reset
+// Active-low reset: KEY[0] gated with power-on reset
 assign ar = KEY[0] & reset_n;
 
-// SYSTEM_50MHZ used for UART and SDRAM 
+// 50 MHz kept only for I2C_HDMI_Config
 assign SYSTEM_50MHZ = CLOCK0_50;
 
-// SDRAM chip clock: inverted 50 MHz for 180-degree phase shift
-assign DRAM_CLK = ~CLOCK0_50;
+// SDRAM chip clock from PLL 180-degree output
+assign DRAM_CLK = clk_sdram_148;
 
 assign tx_done = ~tx_busy;
+
+reg [10:0] wr_addr_count;
+reg image_loaded_reg;
+wire image_loaded;
+assign image_loaded = image_loaded_reg;
+
+always @(posedge vpg_pclk or negedge ar)
+    if(~ar)
+    begin
+        wr_addr_count    <= 11'd0;
+        image_loaded_reg <= 1'b0;
+    end
+    else if(uart_wr_addr_valid && !image_loaded_reg)
+    begin
+        if(wr_addr_count < 11'd1799)
+            wr_addr_count <= wr_addr_count + 11'd1;
+        else
+            image_loaded_reg <= 1'b1;
+    end
 
 //PLLs
 
 VEDIO_PLL u_VEDIO_PLL (
     .refclk   (CLOCK0_50),
-    .outclk_0 (vpg_pclk),    // 148.5 MHz for HDMI pixel clock
+    .outclk_0 (vpg_pclk),       // 148.5 MHz, 0 deg   -> SDRAM/UART system clock
+    .outclk_1 (clk_sdram_148),  // 148.5 MHz, 5000 ps -> DRAM_CLK (180 degree)
+    .outclk_2 (clk_hdmi_74),    // 74.25 MHz, 0 deg   -> HDMI read side of data FIFOs
     .locked   (V_locked),
     .rst      (~reset_n)
 );
 
 AUDIO_PLL u_AUDIO_PLL (
     .refclk   (CLOCK1_50),
-    .outclk_0 (pll_12M288),  // 12.288 MHz for audio
+    .outclk_0 (pll_12M288),
     .locked   (A_locked),
     .rst      (~reset_n)
 );
 
 //PR3 HDMI video pattern generator
 
-assign HDMI_TX_D[23:16] = vpg_r;
-assign HDMI_TX_D[15:8]  = vpg_g;
-assign HDMI_TX_D[7:0]   = vpg_b;
+assign HDMI_TX_D[23:16] = hdmi_pixel_valid ? hdmi_pixel_r : vpg_r;
+assign HDMI_TX_D[15:8]  = hdmi_pixel_valid ? hdmi_pixel_g : vpg_g;
+assign HDMI_TX_D[7:0]   = hdmi_pixel_valid ? hdmi_pixel_b : vpg_b;
 
 vpg u_vpg (
     .vpg_pclk    (vpg_pclk),
@@ -231,12 +262,10 @@ CLOCKMEM ckK1 (.RESET_n(1), .CLK(AUD_DACLRCK),  .CLK_FREQ(     48_000), .CK_1HZ(
 CLOCKMEM ckK2 (.RESET_n(1), .CLK(SYSTEM_50MHZ), .CLK_FREQ( 50_000_000), .CK_1HZ(LEDR[2]));
 CLOCKMEM ckK3 (.RESET_n(1), .CLK(AUD_CTRL_CLK), .CLK_FREQ( 12_280_000), .CK_1HZ(LEDR[3]));
 
-// LEDR[4] = HDMI ready, LEDR[5] = video PLL locked, LEDR[6] = audio PLL locked
 assign LEDR[4] = ~HDMI_READY;
 assign LEDR[5] = ~V_locked;
 assign LEDR[6] = ~A_locked;
 
-// LEDR[7] = UART RX activity, LEDR[8] = UART TX activity, LEDR[9] = SDRAM free
 assign LEDR[7] = ~new_rx_pulse;
 assign LEDR[8] = ~tx_busy;
 assign LEDR[9] = ~sdram_busy;
@@ -245,7 +274,7 @@ assign LEDR[9] = ~sdram_busy;
 
 uart_tx uart_tx_inst (
     .ar      (ar),
-    .clk     (SYSTEM_50MHZ),
+    .clk     (vpg_pclk),
     .data    (tx_word),
     .tx_start(tx_start),
     .tx      (FPGA_UART_TX),
@@ -254,7 +283,7 @@ uart_tx uart_tx_inst (
 
 uart_rx uart_rx_inst (
     .ar    (ar),
-    .clk   (SYSTEM_50MHZ),
+    .clk   (vpg_pclk),
     .rx    (FPGA_UART_RX),
     .data  (rx_word),
     .new_rx(new_rx_pulse)
@@ -262,7 +291,7 @@ uart_rx uart_rx_inst (
 
 uart_mgr mgr_inst (
     .ar                 (ar),
-    .clk                (SYSTEM_50MHZ),
+    .clk                (vpg_pclk),
     .new_rx             (new_rx_pulse),
     .tx_done            (tx_done),
     .tx_start           (tx_start),
@@ -285,33 +314,42 @@ uart_mgr mgr_inst (
 // SDRAM manager
 
 sdram_mgr sdram_mgr_inst (
-    .ar            (ar),
-    .clk           (SYSTEM_50MHZ),
-    .wr_addr_valid (uart_wr_addr_valid),
-    .wr_addr       (uart_wr_addr),
-    .wr_data_valid (uart_wr_data_valid),
-    .wr_data       (uart_wr_data),
-    .rd_addr_valid (uart_rd_addr_valid),
-    .rd_addr       (uart_rd_addr),
-    .rd_data_valid (uart_rd_data_valid),
-    .rd_data       (uart_rd_data),
-    .sdram_busy    (sdram_busy),
-    .sdram_rd_req  (sdram_rd_req),
-    .sdram_wr_req  (sdram_wr_req),
-    .sdram_addr    (sdram_addr),
-    .sdram_wr_data (sdram_wr_data),
-    .sdram_rd_data (sdram_rd_data),
-    .sdram_rd_valid(sdram_rd_valid),
-    .sdram_wr_next (sdram_wr_next)
+    .ar              (ar),
+    .clk             (vpg_pclk),
+    .clk_hdmi        (vpg_pclk),
+    .wr_addr_valid   (uart_wr_addr_valid),
+    .wr_addr         (uart_wr_addr),
+    .wr_data_valid   (uart_wr_data_valid),
+    .wr_data         (uart_wr_data),
+    .rd_addr_valid   (uart_rd_addr_valid),
+    .rd_addr         (uart_rd_addr),
+    .rd_data_valid   (uart_rd_data_valid),
+    .rd_data         (uart_rd_data),
+    .hdmi_vsync      (HDMI_TX_VS),
+    .hdmi_hsync      (HDMI_TX_HS),
+    .hdmi_de         (HDMI_TX_DE),
+    .image_loaded    (image_loaded),
+    .hdmi_pixel_r    (hdmi_pixel_r),
+    .hdmi_pixel_g    (hdmi_pixel_g),
+    .hdmi_pixel_b    (hdmi_pixel_b),
+    .hdmi_pixel_valid(hdmi_pixel_valid),
+    .sdram_busy      (sdram_busy),
+    .sdram_rd_req    (sdram_rd_req),
+    .sdram_wr_req    (sdram_wr_req),
+    .sdram_addr      (sdram_addr),
+    .sdram_wr_data   (sdram_wr_data),
+    .sdram_rd_data   (sdram_rd_data),
+    .sdram_rd_valid  (sdram_rd_valid),
+    .sdram_wr_next   (sdram_wr_next)
 );
 
 // SDRAM controller v3
 
 sdram_controller_32bit sdram_ctrl_inst (
-    .clk          (SYSTEM_50MHZ),
+    .clk          (vpg_pclk),
     .rst_n        (ar),
-    .start_refresh(HDMI_TX_VS),   
-    .num_words    (10'd8),        
+    .start_refresh(HDMI_TX_HS),   // hsync triggers refresh bursts
+    .num_words    (10'd512),       
     .wr_req       (sdram_wr_req),
     .rd_req       (sdram_rd_req),
     .addr         (sdram_addr),
@@ -331,13 +369,14 @@ sdram_controller_32bit sdram_ctrl_inst (
     .sdram_we_n   (DRAM_WE_n)
 );
 
+
 // Seven segment displays
 
-sevseg_dec hex0_inst (.x_in(rx_word[3:0]),         .segs(HEX0));
-sevseg_dec hex1_inst (.x_in(rx_word[7:4]),         .segs(HEX1));
-sevseg_dec hex2_inst (.x_in(control_reg0[7:4]),   .segs(HEX2));
-sevseg_dec hex3_inst (.x_in(control_reg0[11:8]),  .segs(HEX3));
-sevseg_dec hex4_inst (.x_in(control_reg0[15:12]), .segs(HEX4));
-sevseg_dec hex5_inst (.x_in(control_reg0[19:16]), .segs(HEX5));
+sevseg_dec hex0_inst (.x_in(control_reg0[3:0]),   .segs(HEX0));
+sevseg_dec hex1_inst (.x_in(control_reg0[7:4]),   .segs(HEX1));
+sevseg_dec hex2_inst (.x_in(control_reg0[11:8]),  .segs(HEX2));
+sevseg_dec hex3_inst (.x_in(control_reg0[15:12]), .segs(HEX3));
+sevseg_dec hex4_inst (.x_in(control_reg0[19:16]), .segs(HEX4));
+sevseg_dec hex5_inst (.x_in(control_reg0[23:20]), .segs(HEX5));
 
 endmodule

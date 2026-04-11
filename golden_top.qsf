@@ -487,3 +487,4 @@ set_global_assignment -name SDC_FILE golden_top.sdc
 set_global_assignment -name VERILOG_FILE golden_top.v
 set_global_assignment -name IP_FILE V/AUDIO_PLL.ip
 set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+set_global_assignment -name BOARD default

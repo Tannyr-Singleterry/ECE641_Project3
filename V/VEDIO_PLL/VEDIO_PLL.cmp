@@ -3,7 +3,9 @@
 			refclk   : in  std_logic := 'X'; -- clk
 			locked   : out std_logic;        -- export
 			rst      : in  std_logic := 'X'; -- reset
-			outclk_0 : out std_logic         -- clk
+			outclk_0 : out std_logic;        -- clk
+			outclk_1 : out std_logic;        -- clk
+			outclk_2 : out std_logic         -- clk
 		);
 	end component VEDIO_PLL;
 
