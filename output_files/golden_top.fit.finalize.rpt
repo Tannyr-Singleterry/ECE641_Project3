@@ -1,0 +1,95 @@
+Fitter Finalize Stage Report for golden_top
+Fri Apr 10 23:32:54 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Routing Usage Summary
+  3. Finalize Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------------------------------+
+; Routing Usage Summary                                            ;
++--------------------------------------+---------------------------+
+; Routing Resource Type                ; Usage                     ;
++--------------------------------------+---------------------------+
+; Block Input Mux Wrapbacks            ; 19 / 43,616 ( < 1 % )     ;
+; Block Input Muxes                    ; 7,146 / 500,456 ( 1 % )   ;
+; Block interconnects                  ; 5,473 / 526,400 ( 1 % )   ;
+; C1 interconnects                     ; 1,897 / 234,240 ( < 1 % ) ;
+; C4 interconnects                     ; 714 / 229,360 ( < 1 % )   ;
+; C8 interconnects                     ; 34 / 22,936 ( < 1 % )     ;
+; DCM_muxes                            ; 5 / 216 ( 2 % )           ;
+; DELAY_CHAINs                         ; 0 / 1,262 ( 0 % )         ;
+; Direct links                         ; 1,314 / 526,400 ( < 1 % ) ;
+; HIO Buffers                          ; 38 / 10,528 ( < 1 % )     ;
+; IO75XDDRFMXCKTREE_CLKDRV_BIG_VCO_REs ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_GM0_REs     ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_INPUTs  ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_OUTPUTs ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_FB_MUX31_REs       ; 0 / 24 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_INPUTs            ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_OUTPUTs           ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_FRZ_BUFS_REs              ; 0 / 308 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_INPUTs            ; 0 / 142 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_OUTPUTs           ; 0 / 142 ( 0 % )           ;
+; Programmable Invert Buffers          ; 0 / 208 ( 0 % )           ;
+; Programmable Invert Inputs           ; 436 / 57,078 ( < 1 % )    ;
+; Programmable Inverts                 ; 436 / 57,078 ( < 1 % )    ;
+; R0 interconnects                     ; 2,860 / 401,380 ( < 1 % ) ;
+; R1 interconnects                     ; 1,927 / 229,360 ( < 1 % ) ;
+; R12 interconnects                    ; 16 / 34,404 ( < 1 % )     ;
+; R2 interconnects                     ; 633 / 115,620 ( < 1 % )   ;
+; R4 interconnects                     ; 279 / 117,500 ( < 1 % )   ;
+; R6 interconnects                     ; 142 / 118,440 ( < 1 % )   ;
+; Redundancy Muxes                     ; 182 / 20,728 ( < 1 % )    ;
+; Row Clock Tap-Offs                   ; 146 / 34,404 ( < 1 % )    ;
+; Switchbox_clock_muxes                ; 13 / 1,920 ( < 1 % )      ;
+; VIO Buffers                          ; 2 / 8,320 ( < 1 % )       ;
+; Vertical_seam_tap_muxes              ; 12 / 576 ( 2 % )          ;
++--------------------------------------+---------------------------+
+
+
++-------------------+
+; Finalize Messages ;
++-------------------+
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+    Info: Processing started: Fri Apr 10 23:29:35 2026
+    Info: System process ID: 11852
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = golden_top
+Info: Revision = golden_top
+Info (18258): Fitter Physical Synthesis operations beginning
+Info (18259): Fitter Physical Synthesis operations ending: elapsed time is 00:00:00
+Info (24604): Global preservation of unused transceiver channels is enabled. All unused transceiver channels will be preserved.
+Info (16557): Fitter post-fit operations ending: elapsed time is 00:00:14
+
+

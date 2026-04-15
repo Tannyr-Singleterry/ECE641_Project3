@@ -1,0 +1,416 @@
+Fitter Place Stage Report for golden_top
+Fri Apr 10 23:31:59 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Fitter Resource Usage Summary
+  3. Fitter Resource Utilization by Entity
+  4. Fitter Partition Statistics
+  5. Global & Other Fast Signals Summary
+  6. Global Signal Visualization
+  7. Global & Other Fast Signals Details
+  8. Non-Global High Fan-Out Signals
+  9. Fitter RAM Summary
+ 10. Fitter Physical RAM Information
+ 11. Place Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++------------------------------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                                            ;
++-------------------------------------------------------------+--------------------+-------+
+; Resource                                                    ; Usage              ; %     ;
++-------------------------------------------------------------+--------------------+-------+
+; Usage Report Generated after: Place                         ;                    ;       ;
+;                                                             ;                    ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 1,074 / 45,800     ; 2 %   ;
+; ALMs needed [=A-B+C]                                        ; 1,074              ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 1,203 / 45,800     ; 3 %   ;
+;         [a] ALMs used for LUT logic and register circuitry  ; 485                ;       ;
+;         [b] ALMs used for LUT logic                         ; 471                ;       ;
+;         [c] ALMs used for register circuitry                ; 247                ;       ;
+;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 135 / 45,800       ; < 1 % ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 6 / 45,800         ; < 1 % ;
+;         [a] Due to location constrained logic               ; 0                  ;       ;
+;         [b] Due to LAB-wide signal conflicts                ; 1                  ;       ;
+;         [c] Due to LAB input limits                         ; 5                  ;       ;
+;         [d] Due to virtual I/Os                             ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; Difficulty packing design                                   ; Low                ;       ;
+;                                                             ;                    ;       ;
+; Total LABs:  partially or completely used                   ; 154 / 4,580        ; 3 %   ;
+;     -- Logic LABs                                           ; 154                ;       ;
+;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; Combinational ALUT usage for logic                          ; 1,622              ;       ;
+;     -- 8 input functions                                    ; 68                 ;       ;
+;     -- 7 input functions                                    ; 16                 ;       ;
+;     -- 6 input functions                                    ; 144                ;       ;
+;     -- 5 input functions                                    ; 222                ;       ;
+;     -- 4 input functions                                    ; 278                ;       ;
+;     -- <=3 input functions                                  ; 894                ;       ;
+; Combinational ALUT usage for route-throughs                 ; 121                ;       ;
+;                                                             ;                    ;       ;
+; Dedicated logic registers                                   ; 1,572              ;       ;
+;     -- By type:                                             ;                    ;       ;
+;         -- LAB logic registers:                             ;                    ;       ;
+;             -- Primary logic registers                      ; 1,462 / 91,600     ; 2 %   ;
+;             -- Secondary logic registers                    ; 97 / 91,600        ; < 1 % ;
+;         -- Hyper-Registers:                                 ; 13                 ;       ;
+;                                                             ;                    ;       ;
+; Register control circuitry for power estimation             ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; ALMs adjustment for power estimation                        ; 114                ;       ;
+;                                                             ;                    ;       ;
+; I/O pins                                                    ; 198 / 208          ; 95 %  ;
+;     -- Clock pins                                           ; 1 / 4              ; 25 %  ;
+;     -- Dedicated input pins                                 ; 0 / 6              ; 0 %   ;
+;                                                             ;                    ;       ;
+; M20K blocks                                                 ; 6 / 353            ; 2 %   ;
+; Total MLAB memory bits                                      ; 0                  ;       ;
+; Total block memory bits                                     ; 66,304 / 7,229,440 ; < 1 % ;
+;                                                             ;                    ;       ;
+; DSP Blocks Needed [=A+B+C-D]                                ; 0 / 184            ; 0 %   ;
+;     [A] Total Fixed Point DSP Blocks                        ; 0                  ;       ;
+;     [B] Total Floating Point DSP Blocks                     ; 0                  ;       ;
+;     [C] Total DSP_PRIME Blocks                              ; 0                  ;       ;
+;     [D] Estimate of DSP Blocks recoverable by dense merging ; 0                  ;       ;
+;                                                             ;                    ;       ;
+; IOPLLs                                                      ; 2 / 11             ; 18 %  ;
+; Global signals                                              ; 5                  ;       ;
+; LVDS_RX blocks                                              ; 0 / 96             ; 0 %   ;
+; HMC blocks                                                  ; 0 / 4              ; 0 %   ;
+; Maximum fan-out                                             ; 1483               ;       ;
+; Highest non-global fan-out                                  ; 1141               ;       ;
+; Total fan-out                                               ; 13062              ;       ;
+; Average fan-out                                             ; 3.84               ;       ;
++-------------------------------------------------------------+--------------------+-------+
+The Fitter Resource Usage Summary report displays a detailed analysis of logic utilization based on calculations of ALM usage. Refer to <a class="xref" href="https://www.intel.com/content/www/us/en/programmable/quartushelp/current/index.htm#mapIdTopics/mwh1465496451103.htm" target="_blank">Fitter Resource Usage Summary Report</a> in the <i>Intel® Quartus® Prime Pro Edition Help</i> for more information.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ;
++---------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------+---------------------------------------------------------------------------+---------------------------------------------------------------+-------------------+
+; Compilation Hierarchy Node            ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M20Ks ; DSP Blocks needed [=A-B] ; [A] DSP Blocks used in final placement ; [B] Estimate of DSPs recoverable by dense merging ; Pins ; IOPLLs ; Full Hierarchy Name                                                       ; Entity Name                                                   ; Library Name      ;
++---------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------+---------------------------------------------------------------------------+---------------------------------------------------------------+-------------------+
+; |                                     ; 1074.0 (17.4)        ; 1201.5 (19.9)                    ; 132.5 (2.7)                                       ; 5.0 (0.2)                        ; 0.0 (0.0)            ; 1622 (44)           ; 1572 (12)                 ; 0 (0)         ; 66304             ; 6     ; 0                        ; 0                                      ; 0                                                 ; 396  ; 2 (0)  ; |                                                                         ; golden_top                                                    ; altera_work       ;
+;    |auto_fab_0|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; auto_fab_0                                                                ; alt_sld_fab_0                                                 ; alt_sld_fab_0     ;
+;       |alt_sld_fab_0|                 ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; auto_fab_0|alt_sld_fab_0                                                  ; alt_sld_fab_0_alt_sld_fab_0_10_fkimwiy                        ; N/A               ;
+;          |alt_sld_fab_0|              ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0                                    ; alt_sld_fab_0_alt_sld_fab_1920_2l5ev4q                        ; N/A               ;
+;             |agilexconfigreset|       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset                  ; alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_poqcpxq ; N/A               ;
+;                |user_reset|           ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset       ; intel_agilex_reset_release_from_sdm_atom                      ; N/A               ;
+;    |ckK0|                             ; 24.4 (24.4)          ; 24.5 (24.5)                      ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 41 (41)             ; 38 (38)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; ckK0                                                                      ; CLOCKMEM                                                      ; altera_work       ;
+;    |ckK1|                             ; 23.4 (23.4)          ; 23.5 (23.5)                      ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 41 (41)             ; 33 (33)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; ckK1                                                                      ; CLOCKMEM                                                      ; altera_work       ;
+;    |ckK2|                             ; 23.9 (23.9)          ; 24.0 (24.0)                      ; 0.1 (0.1)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 43 (43)             ; 38 (38)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; ckK2                                                                      ; CLOCKMEM                                                      ; altera_work       ;
+;    |ckK3|                             ; 23.6 (23.6)          ; 24.5 (24.5)                      ; 0.9 (0.9)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 43 (43)             ; 38 (38)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; ckK3                                                                      ; CLOCKMEM                                                      ; altera_work       ;
+;    |hex0_inst|                        ; 2.7 (2.7)            ; 3.5 (3.5)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex0_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |hex1_inst|                        ; 3.5 (3.5)            ; 3.5 (3.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex1_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |hex2_inst|                        ; 3.2 (3.2)            ; 3.2 (3.2)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex2_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |hex3_inst|                        ; 2.7 (2.7)            ; 3.5 (3.5)                        ; 0.8 (0.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex3_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |hex4_inst|                        ; 3.2 (3.2)            ; 3.5 (3.5)                        ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex4_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |hex5_inst|                        ; 2.5 (2.5)            ; 3.5 (3.5)                        ; 1.0 (1.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; hex5_inst                                                                 ; sevseg_dec                                                    ; altera_work       ;
+;    |mgr_inst|                         ; 211.5 (211.5)        ; 247.0 (247.0)                    ; 38.8 (38.8)                                       ; 3.3 (3.3)                        ; 0.0 (0.0)            ; 314 (314)           ; 344 (344)                 ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; mgr_inst                                                                  ; uart_mgr                                                      ; altera_work       ;
+;    |sdram_ctrl_inst|                  ; 165.5 (165.5)        ; 181.7 (181.7)                    ; 16.7 (16.7)                                       ; 0.5 (0.5)                        ; 0.0 (0.0)            ; 242 (242)           ; 198 (198)                 ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_ctrl_inst                                                           ; sdram_controller_32bit                                        ; altera_work       ;
+;    |sdram_mgr_inst|                   ; 364.8 (108.6)        ; 416.0 (119.6)                    ; 52.2 (11.6)                                       ; 1.0 (0.6)                        ; 0.0 (0.0)            ; 478 (178)           ; 635 (185)                 ; 0 (0)         ; 66304             ; 6     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst                                                            ; sdram_mgr                                                     ; altera_work       ;
+;       |rd_addr_fifo|                  ; 58.6 (58.6)          ; 71.9 (71.9)                      ; 13.4 (13.4)                                       ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 57 (57)             ; 96 (96)                   ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_addr_fifo                                               ; fifo_24_dc                                                    ; altera_work       ;
+;          |mem_rtl_0|                  ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0                                     ; altera_syncram                                                ; work              ;
+;             |auto_generated|          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0|auto_generated                      ; altera_syncram_hf8v                                           ; altera_work       ;
+;                |altera_syncram_impl1| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1 ; altera_syncram_impl_j4u22                                     ; altera_work       ;
+;       |rd_data_fifo|                  ; 88.2 (88.2)          ; 99.6 (99.6)                      ; 11.7 (11.7)                                       ; 0.4 (0.4)                        ; 0.0 (0.0)            ; 114 (114)           ; 172 (172)                 ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_data_fifo                                               ; fifo_32_dc                                                    ; altera_work       ;
+;          |mem_rtl_0|                  ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0                                     ; altera_syncram                                                ; work              ;
+;             |auto_generated|          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0|auto_generated                      ; altera_syncram_o7qj                                           ; altera_work       ;
+;                |altera_syncram_impl1| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1 ; altera_syncram_impl_4hm32                                     ; altera_work       ;
+;       |wr_addr_fifo|                  ; 63.9 (63.9)          ; 71.8 (71.8)                      ; 7.9 (7.9)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 58 (58)             ; 96 (96)                   ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_addr_fifo                                               ; fifo_24_dc                                                    ; altera_work       ;
+;          |mem_rtl_0|                  ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0                                     ; altera_syncram                                                ; work              ;
+;             |auto_generated|          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0|auto_generated                      ; altera_syncram_hf8v                                           ; altera_work       ;
+;                |altera_syncram_impl1| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 384               ; 1     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1 ; altera_syncram_impl_j4u22                                     ; altera_work       ;
+;       |wr_data_fifo|                  ; 45.5 (45.5)          ; 53.1 (53.1)                      ; 7.6 (7.6)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 71 (71)             ; 86 (86)                   ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_data_fifo                                               ; fifo_32_dc                                                    ; altera_work       ;
+;          |mem_rtl_0|                  ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_data_fifo|mem_rtl_0                                     ; altera_syncram                                                ; work              ;
+;             |auto_generated|          ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_data_fifo|mem_rtl_0|auto_generated                      ; altera_syncram_r9ek1                                          ; altera_work       ;
+;                |altera_syncram_impl1| ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 32768             ; 2     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; sdram_mgr_inst|wr_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1 ; altera_syncram_impl_sq0i                                      ; altera_work       ;
+;    |u_AUDIO_DAC|                      ; 31.2 (31.2)          ; 31.5 (31.5)                      ; 0.3 (0.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 41 (41)             ; 24 (24)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; u_AUDIO_DAC                                                               ; AUDIO_DAC                                                     ; altera_work       ;
+;    |u_AUDIO_PLL|                      ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 1 (0)  ; u_AUDIO_PLL                                                               ; AUDIO_PLL                                                     ; AUDIO_PLL         ;
+;       |iopll_0|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 1 (1)  ; u_AUDIO_PLL|iopll_0                                                       ; AUDIO_PLL_altera_iopll_2100_nuov5va                           ; altera_iopll_2100 ;
+;    |u_I2C_HDMI_Config|                ; 62.9 (38.0)          ; 68.0 (39.3)                      ; 5.1 (1.3)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 90 (57)             ; 72 (44)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; u_I2C_HDMI_Config                                                         ; I2C_HDMI_Config                                               ; altera_work       ;
+;       |u0|                            ; 24.9 (24.9)          ; 28.7 (28.7)                      ; 3.8 (3.8)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 33 (33)             ; 28 (28)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; u_I2C_HDMI_Config|u0                                                      ; I2C_Controller                                                ; altera_work       ;
+;    |u_VEDIO_PLL|                      ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 1 (0)  ; u_VEDIO_PLL                                                               ; VEDIO_PLL                                                     ; VEDIO_PLL         ;
+;       |iopll_0|                       ; 0.0 (0.0)            ; 0.0 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 0 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 1 (1)  ; u_VEDIO_PLL|iopll_0                                                       ; VEDIO_PLL_altera_iopll_2100_jlvhsxq                           ; altera_iopll_2100 ;
+;    |u_vpg|                            ; 47.8 (0.0)           ; 47.8 (0.0)                       ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 92 (0)              ; 69 (0)                    ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; u_vpg                                                                     ; vpg                                                           ; altera_work       ;
+;       |u_vga_generator|               ; 47.8 (47.8)          ; 47.8 (47.8)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 92 (92)             ; 69 (69)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; u_vpg|u_vga_generator                                                     ; vga_generator                                                 ; altera_work       ;
+;    |uart_rx_inst|                     ; 32.8 (32.8)          ; 40.7 (40.7)                      ; 8.0 (8.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 59 (59)             ; 40 (40)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; uart_rx_inst                                                              ; uart_rx                                                       ; altera_work       ;
+;    |uart_tx_inst|                     ; 27.0 (27.0)          ; 31.7 (31.7)                      ; 4.7 (4.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 52 (52)             ; 31 (31)                   ; 0 (0)         ; 0                 ; 0     ; 0                        ; 0                                      ; 0                                                 ; 0    ; 0 (0)  ; uart_tx_inst                                                              ; uart_tx                                                       ; altera_work       ;
++---------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+--------------------------+----------------------------------------+---------------------------------------------------+------+--------+---------------------------------------------------------------------------+---------------------------------------------------------------+-------------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                           ;
++-------------------------------------------------------+-------------------------+---------------------+
+; Statistic                                             ; |                       ; auto_fab_0          ;
++-------------------------------------------------------+-------------------------+---------------------+
+; ALMs needed [=A-B+C]                                  ; 1074.0 / 45800 ( 2 % )  ; 0.0 / 45800 ( 0 % ) ;
+;     [A] ALMs used in final placement                  ; 1201.5 / 45800 ( 2 % )  ; 0.0 / 45800 ( 0 % ) ;
+;     [B] Estimate of ALMs recoverable by dense packing ; 132.5 / 45800 ( < 1 % ) ; 0.0 / 45800 ( 0 % ) ;
+;     [C] Estimate of ALMs unavailable                  ; 5.0 / 45800 ( < 1 % )   ; 0.0 / 45800 ( 0 % ) ;
+; ALMs used for memory                                  ; 0.0                     ; 0.0                 ;
+; Combinational ALUTs                                   ; 1622                    ; 0                   ;
+; Dedicated Logic Registers                             ; 1572 / 183200 ( < 1 % ) ; 0 / 183200 ( 0 % )  ;
+; I/O Registers                                         ; 0                       ; 0                   ;
+; Block Memory Bits                                     ; 66304                   ; 0                   ;
+; M20Ks                                                 ; 6 / 353 ( 1 % )         ; 0 / 353 ( 0 % )     ;
+; DSP Blocks needed [=A-B]                              ; 0 / 184 ( 0 % )         ; 0 / 184 ( 0 % )     ;
+;     [A] DSP Blocks used in final placement            ; 0 / 184 ( 0 % )         ; 0 / 184 ( 0 % )     ;
+;     [B] Estimate of DSPs recoverable by dense merging ; 0 / 184 ( 0 % )         ; 0 / 184 ( 0 % )     ;
+; Pins                                                  ; 396                     ; 0                   ;
+; IOPLLs                                                ; 2                       ; 0                   ;
+;                                                       ;                         ;                     ;
+; Region Placement                                      ; -                       ; -                   ;
+;                                                       ;                         ;                     ;
+; Partition Ports                                       ;                         ;                     ;
+;     -- Input Ports                                    ; 92                      ; 0                   ;
+;     -- Output Ports                                   ; 106                     ; 1                   ;
+;                                                       ;                         ;                     ;
+; Connections                                           ;                         ;                     ;
+;     -- Input Connections                              ; 0                       ; 62                  ;
+;     -- Registered Input Connections                   ; 0                       ; 0                   ;
+;     -- Output Connections                             ; 62                      ; 0                   ;
+;     -- Registered Output Connections                  ; 45                      ; 0                   ;
+;                                                       ;                         ;                     ;
+; Internal Connections                                  ;                         ;                     ;
+;     -- Total Connections                              ; 14977                   ; 62                  ;
+;     -- Registered Connections                         ; 5856                    ; 0                   ;
+;                                                       ;                         ;                     ;
+; External Connections                                  ;                         ;                     ;
+;     -- |                                              ; 0                       ; 62                  ;
+;     -- auto_fab_0                                     ; 62                      ; 0                   ;
++-------------------------------------------------------+-------------------------+---------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals Summary                                                              ;
++--------------------------------------------------+---------------------+---------+---------------+
+; Name                                             ; Location            ; Fan-Out ; Clock Region  ;
++--------------------------------------------------+---------------------+---------+---------------+
+; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0   ; IOPLL_X63_Y53_N0    ; 1480    ; Sector (1, 0) ;
+; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK1   ; IOPLL_X63_Y53_N0    ; 1       ; Sector (1, 0) ;
+; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_FB_CLK_OUT ; IOPLL_X63_Y53_N0    ; 1       ; Sector (1, 0) ;
+; u_AUDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0   ; IOPLL_X106_Y53_N346 ; 52      ; Sector (1, 0) ;
+; u_I2C_HDMI_Config|mI2C_CTRL_CLK                  ; FF_X61_Y50_N29      ; 55      ; Sector (1, 0) ;
+; CLOCK0_50                                        ; PIN_K43             ; 56      ; Sector (1, 0) ;
++--------------------------------------------------+---------------------+---------+---------------+
+
+
+-------------------------------
+; Global Signal Visualization ;
+-------------------------------
+This report is unavailable in plain text report export.
+
+
++------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals Details                                                                  ;
++---------------------------------------------------+--------------------------------------------------+
+; Property                                          ; Value                                            ;
++---------------------------------------------------+--------------------------------------------------+
+; Name                                              ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0   ;
+;     -- SDC Name                                   ; u_VEDIO_PLL|iopll_0_outclk0                      ;
+;     -- Source Node                                ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll              ;
+;     -- Source Type                                ; IOPLL                                            ;
+;     -- Source Location                            ; IOPLL_X63_Y53_N0                                 ;
+;     -- Fan-Out                                    ; 1480                                             ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 6                                                ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
+;                                                   ;                                                  ;
+; Name                                              ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK1   ;
+;     -- SDC Name                                   ; u_VEDIO_PLL|iopll_0_outclk1                      ;
+;     -- Source Node                                ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll              ;
+;     -- Source Type                                ; IOPLL                                            ;
+;     -- Source Location                            ; IOPLL_X63_Y53_N0                                 ;
+;     -- Fan-Out                                    ; 1                                                ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 1                                                ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
+;                                                   ;                                                  ;
+; Name                                              ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_FB_CLK_OUT ;
+;     -- SDC Name                                   ; u_VEDIO_PLL|iopll_0_m_cnt_clk                    ;
+;     -- Source Node                                ; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll              ;
+;     -- Source Type                                ; IOPLL                                            ;
+;     -- Source Location                            ; IOPLL_X63_Y53_N0                                 ;
+;     -- Fan-Out                                    ; 1                                                ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 3                                                ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
+;                                                   ;                                                  ;
+; Name                                              ; u_AUDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0   ;
+;     -- SDC Name                                   ; u_AUDIO_PLL|iopll_0_outclk0                      ;
+;     -- Source Node                                ; u_AUDIO_PLL|iopll_0|tennm_ph2_iopll              ;
+;     -- Source Type                                ; IOPLL                                            ;
+;     -- Source Location                            ; IOPLL_X106_Y53_N346                              ;
+;     -- Fan-Out                                    ; 52                                               ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 29                                               ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
+;                                                   ;                                                  ;
+; Name                                              ; u_I2C_HDMI_Config|mI2C_CTRL_CLK                  ;
+;     -- Source Node                                ; u_I2C_HDMI_Config|mI2C_CTRL_CLK                  ;
+;     -- Source Type                                ; Register cell                                    ;
+;     -- Source Location                            ; FF_X61_Y50_N29                                   ;
+;     -- Fan-Out                                    ; 55                                               ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 12                                               ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
+;                                                   ;                                                  ;
+; Name                                              ; CLOCK0_50                                        ;
+;     -- Source Node                                ; CLOCK0_50~pad                                    ;
+;     -- Source Type                                ; I/O pad                                          ;
+;     -- Source Location                            ; PIN_K43                                          ;
+;     -- Fan-Out                                    ; 56                                               ;
+;     -- Promotion Reason                           ; Mandatory                                        ;
+;     -- Clock Region                               ; Sector (1, 0)                                    ;
+;     -- Clock Partition Ownership for Preservation ; root_partition                                   ;
+;     -- Clock Region Size (in Sectors)             ; 1 x 1 (1 total)                                  ;
+;     -- Clock Region Bounding Box                  ; (61, 5) to (121, 51)                             ;
+;     -- Clock Region Constraint                    ; SX1 SY0 SX1 SY0                                  ;
+;     -- Terminating Spine Index                    ; 30                                               ;
+;     -- Path Length                                ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Length from Clock Source to Clock Tree ; 0.5 clock sector wire(s) and 0 layer jump(s)     ;
+;         -- Clock Tree Length                      ; 0.0 clock sector wire(s) and 0 layer jump(s)     ;
++---------------------------------------------------+--------------------------------------------------+
+To visualize how these signals are routed, use the Chip Planner task "Report Clock Details".
+To manually specify the size and placement of these signals, use the Assignment Editor to make Clock Region assignments.
+
+
++-----------------------------------+
+; Non-Global High Fan-Out Signals   ;
++------+---------+------------------+
+; Name ; Fan-Out ; Physical Fan-Out ;
++------+---------+------------------+
+; ar   ; 1141    ; 113              ;
+; ~GND ; 736     ; 20               ;
++------+---------+------------------+
+Fan-Out is the number of connections the specified signal drives on the netlist.
+Physical Fan-Out is the number of connections needed to route the signal, which may be lower if multiple netlist destinations share the same routing port.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter RAM Summary                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------+------------------------------------+---------------------+-----------------+-----------------+----------+------------------------+------------------+-----------------------------+
+; Name                                                                                     ; Type ; Mode             ; Clock Mode   ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Port A Input Registers ; Port A Output Registers ; Port B Input Registers ; Port B Output Registers ; Logical Size ; Implementation Port A Depth ; Implementation Port A Width ; Implementation Port B Depth ; Implementation Port B Width ; Implementation Bits ; M20K blocks ; MLABs ; MIF  ; Location                           ; Mixed Port RDW Mode ; Port A RDW Mode ; Port B RDW Mode ; ECC Mode ; ECC Pipeline Registers ; Performance Mode ; Fits in MLABs               ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------+------------------------------------+---------------------+-----------------+-----------------+----------+------------------------+------------------+-----------------------------+
+; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ; M20K ; Simple Dual Port ; Single Clock ; 16           ; 24           ; 16           ; 24           ; yes                    ; no                      ; yes                    ; no                      ; 384          ; 16                          ; 24                          ; 16                          ; 24                          ; 384                 ; 1.000       ; 0.000 ; None ; M20K_X116_Y14_N0                   ; Don't care          ; New data        ; New data        ; Off      ; No                     ; High Speed       ; No - Unsupported Port Usage ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ; M20K ; Simple Dual Port ; Single Clock ; 1024         ; 32           ; 1024         ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 32768        ; 1024                        ; 32                          ; 1024                        ; 32                          ; 32768               ; 2.000       ; 0.000 ; None ; M20K_X116_Y23_N0, M20K_X116_Y22_N0 ; Don't care          ; New data        ; New data        ; Off      ; No                     ; High Speed       ; No - Size Too Big           ;
+; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ; M20K ; Simple Dual Port ; Single Clock ; 16           ; 24           ; 16           ; 24           ; yes                    ; no                      ; yes                    ; no                      ; 384          ; 16                          ; 24                          ; 16                          ; 24                          ; 384                 ; 1.000       ; 0.000 ; None ; M20K_X116_Y13_N0                   ; Don't care          ; New data        ; New data        ; Off      ; No                     ; High Speed       ; No - Unsupported Port Usage ;
+; sdram_mgr_inst|wr_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ; M20K ; Simple Dual Port ; Single Clock ; 1024         ; 32           ; 1024         ; 32           ; yes                    ; no                      ; yes                    ; no                      ; 32768        ; 1024                        ; 32                          ; 1024                        ; 32                          ; 32768               ; 2.000       ; 0.000 ; None ; M20K_X116_Y17_N0, M20K_X116_Y18_N0 ; Old data            ; New data        ; New data        ; Off      ; No                     ; High Speed       ; No - Size Too Big           ;
++------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------------+------------------------+-------------------------+------------------------+-------------------------+--------------+-----------------------------+-----------------------------+-----------------------------+-----------------------------+---------------------+-------------+-------+------+------------------------------------+---------------------+-----------------+-----------------+----------+------------------------+------------------+-----------------------------+
+Note: Fitter may spread logical memories into multiple blocks to improve timing. The actual required RAM blocks can be found in the Fitter Resource Usage section.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Physical RAM Information                                                                                                                                            ;
++-----------------------+-------------------------+-------------------------------+------------------------------------------------------------------------------------------+
+; Physical RAM Location ; Physical RAM Usage Bits ; Physical RAM Usage Percentage ; Logical RAM Name                                                                         ;
++-----------------------+-------------------------+-------------------------------+------------------------------------------------------------------------------------------+
+; M20K_X116_Y13_N0      ; 384                     ; 1.9                           ; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
+; M20K_X116_Y14_N0      ; 384                     ; 1.9                           ; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
+; M20K_X116_Y18_N0      ; 12288                   ; 60.0                          ; sdram_mgr_inst|wr_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
+; M20K_X116_Y22_N0      ; 12288                   ; 60.0                          ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
+; M20K_X116_Y17_N0      ; 20480                   ; 100.0                         ; sdram_mgr_inst|wr_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
+; M20K_X116_Y23_N0      ; 20480                   ; 100.0                         ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ;
++-----------------------+-------------------------+-------------------------------+------------------------------------------------------------------------------------------+
+Note: This table shows up to 500 physical rams that are least utilized. You can change this number by setting PHYSICAL_RAM_RPT_MAX_ROW in qsf file.
+
+
++----------------+
+; Place Messages ;
++----------------+
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+    Info: Processing started: Fri Apr 10 23:29:35 2026
+    Info: System process ID: 11852
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = golden_top
+Info: Revision = golden_top
+Info (11165): Fitter preparation operations ending: elapsed time is 00:01:13
+Info (18252): The Fitter is using Physical Synthesis.
+Info (18258): Fitter Physical Synthesis operations beginning
+Info (18259): Fitter Physical Synthesis operations ending: elapsed time is 00:00:00
+Info (11178): Promoted 6 clocks 
+    Info (18386): u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0 (1480 fanout) drives clock sector (1, 0)
+    Info (18386): u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK1 (1 fanout) drives clock sector (1, 0)
+    Info (18386): u_AUDIO_PLL|iopll_0|tennm_ph2_iopll~O_OUT_CLK0 (52 fanout) drives clock sector (1, 0)
+    Info (18386): u_I2C_HDMI_Config|mI2C_CTRL_CLK (55 fanout) drives clock sector (1, 0)
+    Info (18386): u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_FB_CLK_OUT (1 fanout) drives clock sector (1, 0)
+    Info (18386): CLOCK0_50 (56 fanout) drives clock sector (1, 0)
+Info (22300): Design uses Placement Effort Multiplier = 0.8.
+Info (170189): Fitter placement preparation operations beginning
+Info (11888): Total time spent on timing analysis during Physical Synthesis is 0.00 seconds.
+Info (22300): Design uses Placement Effort Multiplier = 0.8.
+Info (170191): Fitter placement operations beginning
+Info (170137): Fitter placement was successful
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:03
+Info (11888): Total time spent on timing analysis during Placement is 0.00 seconds.
+
+

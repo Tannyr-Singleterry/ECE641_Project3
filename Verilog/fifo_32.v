@@ -17,7 +17,7 @@ module fifo_32_dc(wrclk, rdclk, aclr, wrreq, rdreq, data, q, wrempty, wrfull, rd
 	output wrfull;
 	output rdempty;
 	output rdfull;
-	output [10:0] usedw;
+	output [10:0] usedw; //Number of words currently stored. 
 
 	parameter DEPTH = 1024;
 	parameter AW    = 10;
@@ -32,17 +32,20 @@ module fifo_32_dc(wrclk, rdclk, aclr, wrreq, rdreq, data, q, wrempty, wrfull, rd
 	reg [AW:0] rd_ptr;
 	reg [AW:0] rd_ptr_gray;
 
-	// Synchronizers
+	// Synchronizers for gray code
 	reg [AW:0] wr_ptr_gray_s1, wr_ptr_gray_s2;
 	reg [AW:0] rd_ptr_gray_s1, rd_ptr_gray_s2;
 
+	//Converts binary to Gray code so only one bit changes per increment
+	//mkaing easier to synch clock domains
 	function [AW:0] bin2gray;
 		input [AW:0] b;
 		begin
 			bin2gray = b ^ (b >> 1);
 		end
 	endfunction
-
+	
+	//Converts gray code to binary.
 	function [AW:0] gray2bin;
 		input [AW:0] g;
 		integer i;
@@ -107,7 +110,8 @@ module fifo_32_dc(wrclk, rdclk, aclr, wrreq, rdreq, data, q, wrempty, wrfull, rd
 			rd_ptr_gray_s1 <= rd_ptr_gray;
 			rd_ptr_gray_s2 <= rd_ptr_gray_s1;
 		end
-
+	
+	//Convert synched read pointer back to binary so usedw substration works
 	wire [AW:0] rd_ptr_synced_wr;
 	assign rd_ptr_synced_wr = gray2bin(rd_ptr_gray_s2);
 

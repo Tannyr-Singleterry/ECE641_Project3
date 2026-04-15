@@ -1,0 +1,455 @@
+Synthesis Analysis & Elaboration Stage Report for golden_top
+Fri Apr 10 23:29:27 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Source Assignments for User Entity VEDIO_PLL_altera_iopll_2100_jlvhsxq Instance: u_VEDIO_PLL|iopll_0
+  3. Source Assignments for User Entity AUDIO_PLL_altera_iopll_2100_nuov5va Instance: u_AUDIO_PLL|iopll_0
+  4. Parameter Settings for User Entity I2C_HDMI_Config Instance: u_I2C_HDMI_Config
+  5. Parameter Settings for User Entity AUDIO_DAC Instance: u_AUDIO_DAC
+  6. Parameter Settings for User Entity uart_tx Instance: uart_tx_inst
+  7. Parameter Settings for User Entity uart_rx Instance: uart_rx_inst
+  8. Parameter Settings for User Entity uart_mgr Instance: mgr_inst
+  9. Parameter Settings for User Entity sdram_mgr Instance: sdram_mgr_inst
+ 10. Parameter Settings for User Entity sdram_controller_32bit Instance: sdram_ctrl_inst
+ 11. Parameter Settings for User Entity fifo_24_dc Instance: sdram_mgr_inst|rd_addr_fifo
+ 12. Parameter Settings for User Entity fifo_32_dc Instance: sdram_mgr_inst|rd_data_fifo
+ 13. System Level Debug Agent Report
+ 14. Top Causes of Logic Optimized Away During Sweep
+ 15. Analysis & Elaboration Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source Assignments for User Entity VEDIO_PLL_altera_iopll_2100_jlvhsxq Instance: u_VEDIO_PLL|iopll_0               ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+; Assignment                        ; Value     ; From ; To              ; Source Location                           ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+; IGNORE_LCELL_BUFFERS              ; OFF       ; -    ; gnd             ; VEDIO_PLL_altera_iopll_2100_jlvhsxq.v:80  ;
+; REMOVE_REDUNDANT_LOGIC_CELLS      ; OFF       ; -    ; gnd             ; VEDIO_PLL_altera_iopll_2100_jlvhsxq.v:80  ;
+; DESIGN_ASSISTANT_EXCLUDE          ; RES-50002 ; -    ; tennm_ph2_iopll ; VEDIO_PLL_altera_iopll_2100_jlvhsxq.v:184 ;
+; IMPLEMENT_AS_OUTPUT_OF_LOGIC_CELL ; ON        ; -    ; gnd             ; VEDIO_PLL_altera_iopll_2100_jlvhsxq.v:80  ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+All Instances:
+u_VEDIO_PLL|iopll_0
+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source Assignments for User Entity AUDIO_PLL_altera_iopll_2100_nuov5va Instance: u_AUDIO_PLL|iopll_0               ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+; Assignment                        ; Value     ; From ; To              ; Source Location                           ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+; IGNORE_LCELL_BUFFERS              ; OFF       ; -    ; gnd             ; AUDIO_PLL_altera_iopll_2100_nuov5va.v:74  ;
+; REMOVE_REDUNDANT_LOGIC_CELLS      ; OFF       ; -    ; gnd             ; AUDIO_PLL_altera_iopll_2100_nuov5va.v:74  ;
+; DESIGN_ASSISTANT_EXCLUDE          ; RES-50002 ; -    ; tennm_ph2_iopll ; AUDIO_PLL_altera_iopll_2100_nuov5va.v:178 ;
+; IMPLEMENT_AS_OUTPUT_OF_LOGIC_CELL ; ON        ; -    ; gnd             ; AUDIO_PLL_altera_iopll_2100_nuov5va.v:74  ;
++-----------------------------------+-----------+------+-----------------+-------------------------------------------+
+All Instances:
+u_AUDIO_PLL|iopll_0
+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity I2C_HDMI_Config Instance: u_I2C_HDMI_Config ;
++----------------+----------+----------------------------------------------------+
+; Parameter Name ; Value    ; Type                                               ;
++----------------+----------+----------------------------------------------------+
+; CLK_Freq       ; 50000000 ; Signed Integer                                     ;
+; I2C_Freq       ; 20000    ; Signed Integer                                     ;
+; LUT_SIZE       ; 33       ; Signed Integer                                     ;
++----------------+----------+----------------------------------------------------+
+All Instances:
+u_I2C_HDMI_Config
+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity AUDIO_DAC Instance: u_AUDIO_DAC ;
++------------------+----------+--------------------------------------+
+; Parameter Name   ; Value    ; Type                                 ;
++------------------+----------+--------------------------------------+
+; CHANNEL_NUM      ; 2        ; Signed Integer                       ;
+; DATA_WIDTH       ; 16       ; Signed Integer                       ;
+; FLASH_ADDR_WIDTH ; 20       ; Signed Integer                       ;
+; FLASH_DATA       ; 1        ; Signed Integer                       ;
+; FLASH_DATA_NUM   ; 1048576  ; Signed Integer                       ;
+; FLASH_DATA_WIDTH ; 8        ; Signed Integer                       ;
+; REF_CLK          ; 12288136 ; Signed Integer                       ;
+; SAMPLE_RATE      ; 48000    ; Signed Integer                       ;
+; SDRAM_ADDR_WIDTH ; 22       ; Signed Integer                       ;
+; SDRAM_DATA       ; 2        ; Signed Integer                       ;
+; SDRAM_DATA_NUM   ; 4194304  ; Signed Integer                       ;
+; SDRAM_DATA_WIDTH ; 16       ; Signed Integer                       ;
+; SIN_SAMPLE_DATA  ; 48       ; Signed Integer                       ;
+; SIN_SANPLE       ; 0        ; Signed Integer                       ;
+; SRAM_ADDR_WIDTH  ; 18       ; Signed Integer                       ;
+; SRAM_DATA        ; 3        ; Signed Integer                       ;
+; SRAM_DATA_NUM    ; 262144   ; Signed Integer                       ;
+; SRAM_DATA_WIDTH  ; 16       ; Signed Integer                       ;
++------------------+----------+--------------------------------------+
+All Instances:
+u_AUDIO_DAC
+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity uart_tx Instance: uart_tx_inst ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; Data           ; 10    ; Unsigned Binary                          ;
+; Idle           ; 00    ; Unsigned Binary                          ;
+; Start          ; 01    ; Unsigned Binary                          ;
+; Stop           ; 11    ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+All Instances:
+uart_tx_inst
+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity uart_rx Instance: uart_rx_inst ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; Data           ; 10    ; Unsigned Binary                          ;
+; Idle           ; 00    ; Unsigned Binary                          ;
+; Start          ; 01    ; Unsigned Binary                          ;
+; Stop           ; 11    ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+All Instances:
+uart_rx_inst
+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity uart_mgr Instance: mgr_inst ;
++--------------------+-------+-----------------------------------+
+; Parameter Name     ; Value ; Type                              ;
++--------------------+-------+-----------------------------------+
+; Address_Mem        ; 00100 ; Unsigned Binary                   ;
+; Bulk_Get_Addr      ; 10110 ; Unsigned Binary                   ;
+; Bulk_Get_Data      ; 10111 ; Unsigned Binary                   ;
+; Bulk_Write         ; 10101 ; Unsigned Binary                   ;
+; CR_Ror_W           ; 01110 ; Unsigned Binary                   ;
+; Command_Type       ; 00001 ; Unsigned Binary                   ;
+; Control_Reg        ; 00101 ; Unsigned Binary                   ;
+; Get_Mem_Addr       ; 01100 ; Unsigned Binary                   ;
+; Get_Write_Data_Mem ; 01010 ; Unsigned Binary                   ;
+; Idle               ; 00000 ; Unsigned Binary                   ;
+; Mem_Incr_Addr      ; 01001 ; Unsigned Binary                   ;
+; Prep_Tx_CR         ; 01111 ; Unsigned Binary                   ;
+; Prep_Tx_Mem        ; 10011 ; Unsigned Binary                   ;
+; Read_Mem           ; 00010 ; Unsigned Binary                   ;
+; Reg_Num            ; 01101 ; Unsigned Binary                   ;
+; Rx_CR_Byte         ; 10001 ; Unsigned Binary                   ;
+; Tx_CR_Byte         ; 10010 ; Unsigned Binary                   ;
+; Tx_Mem_Byte        ; 00111 ; Unsigned Binary                   ;
+; Tx_Mem_Fire        ; 10100 ; Unsigned Binary                   ;
+; Wait_Mem           ; 00110 ; Unsigned Binary                   ;
+; Wait_Tx_CR         ; 10000 ; Unsigned Binary                   ;
+; Wait_Tx_Mem        ; 01000 ; Unsigned Binary                   ;
+; Write_Mem          ; 00011 ; Unsigned Binary                   ;
+; Write_Mem_Cmd      ; 01011 ; Unsigned Binary                   ;
++--------------------+-------+-----------------------------------+
+All Instances:
+mgr_inst
+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity sdram_mgr Instance: sdram_mgr_inst ;
++------------------+--------------------------+-------------------------+
+; Parameter Name   ; Value                    ; Type                    ;
++------------------+--------------------------+-------------------------+
+; BURSTS_PER_FRAME ; 011100001000             ; Unsigned Binary         ;
+; Check_Read       ; 100                      ; Unsigned Binary         ;
+; Check_Write      ; 001                      ; Unsigned Binary         ;
+; FRAME_START_ADDR ; 000000000000000000000000 ; Unsigned Binary         ;
+; HDMI_Idle        ; 00                       ; Unsigned Binary         ;
+; HDMI_Prefill     ; 01                       ; Unsigned Binary         ;
+; HDMI_Stream      ; 10                       ; Unsigned Binary         ;
+; IMAGE_HEIGHT     ; 01011010000              ; Unsigned Binary         ;
+; IMAGE_WIDTH      ; 10100000000              ; Unsigned Binary         ;
+; Idle             ; 000                      ; Unsigned Binary         ;
+; Read_Burst       ; 110                      ; Unsigned Binary         ;
+; Start_Read       ; 101                      ; Unsigned Binary         ;
+; Start_Write      ; 010                      ; Unsigned Binary         ;
+; Write_Burst      ; 011                      ; Unsigned Binary         ;
++------------------+--------------------------+-------------------------+
+All Instances:
+sdram_mgr_inst
+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity sdram_controller_32bit Instance: sdram_ctrl_inst ;
++----------------+----------+---------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                    ;
++----------------+----------+---------------------------------------------------------+
+; CAS_LATENCY    ; 3        ; Signed Integer                                          ;
+; CLK_PERIOD     ; 6.670000 ; Signed Float                                            ;
++----------------+----------+---------------------------------------------------------+
+All Instances:
+sdram_ctrl_inst
+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity fifo_24_dc Instance: sdram_mgr_inst|rd_addr_fifo ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; AW             ; 4     ; Signed Integer                                             ;
+; DEPTH          ; 16    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+All Instances:
+sdram_mgr_inst|wr_addr_fifo
+sdram_mgr_inst|rd_addr_fifo
+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity fifo_32_dc Instance: sdram_mgr_inst|rd_data_fifo ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; AW             ; 10    ; Signed Integer                                             ;
+; DEPTH          ; 1024  ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+All Instances:
+sdram_mgr_inst|wr_data_fifo
+sdram_mgr_inst|rd_data_fifo
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; System Level Debug Agent Report                                                                                                ;
++-----------------------------------------------------------------------------+----------------+-----------+---------------------+
+; Agent Hierarchy Path                                                        ; Instance Index ; Host Name ; Host Hierarchy Path ;
++-----------------------------------------------------------------------------+----------------+-----------+---------------------+
+; ResetRelease_inst|intel_user_rst_clkgate_0|config_reset_release_endpoint|ep ;                ;           ;                     ;
++-----------------------------------------------------------------------------+----------------+-----------+---------------------+
+
+
+Top root causes of logic optimization that have been identified during sweep. For more details and filtering options, ensure that you have compiled with the "Enable RTL Analysis Debug Mode " setting turned on under Assignments->Settings->Compiler Settings, then go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer ".
++--------------------------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                                            ;
++-------------------------------------+------------------+-------------+---------------------+
+; Root Object Path                    ; Root Object Type ; Root Reason ; Swept Objects Count ;
++-------------------------------------+------------------+-------------+---------------------+
+; u_AUDIO_DAC|oSDRAM_ADDR[21]         ; OUTPUT_INST_PORT ; lost_fanout ; 65                  ;
+; u_AUDIO_DAC|oFLASH_ADDR[19]         ; OUTPUT_INST_PORT ; lost_fanout ; 59                  ;
+; u_AUDIO_DAC|oSRAM_ADDR[17]          ; OUTPUT_INST_PORT ; lost_fanout ; 57                  ;
+; sdram_mgr_inst|wr_addr_fifo|wrempty ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|rd_addr_fifo|wrempty ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|wr_data_fifo|wrempty ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|rd_data_fifo|wrempty ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|wr_addr_fifo|rdfull  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|rd_addr_fifo|rdfull  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; sdram_mgr_inst|wr_data_fifo|rdfull  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
++-------------------------------------+------------------+-------------+---------------------+
+Table limited at 10 items. To change the number of top root causes reported, set the "Number of Top Root Causes Reported in Synthesis Report " option under Assignments->Settings->Compiler Settings->Advanced Settings (Synthesis)
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+    Info: Processing started: Fri Apr 10 23:28:48 2026
+    Info: System process ID: 1452
+Info: Command: quartus_syn --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+Info: qis_default_flow_script.tcl version: #2
+Info: Initializing Synthesis...
+Info: Project = "golden_top"
+Info: Revision = "golden_top"
+Info (21958): Initialized Quartus Message Database
+Info: Analyzing source files
+Warning (16752): Verilog HDL warning at I2C_HDMI_Config.v(194): potential always loop found File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_HDMI_Config.v Line: 194
+Warning (16749): Verilog HDL warning at I2C_Controller.v(77): identifier I2C_SCLK_ is used before its declaration File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_Controller.v Line: 77
+Warning (16752): Verilog HDL warning at I2C_AV_Config.v(163): potential always loop found File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_AV_Config.v Line: 163
+Info: Elaborating from top-level entity "golden_top"
+Info (18235): Library search order is as follows: "altera_iopll_2100; VEDIO_PLL; intel_user_rst_clkgate_101; ResetRelease; AUDIO_PLL". Quartus will look for undefined design units in your libraries in that order. To modify the ordering, please specify a semi-colon separated library list using the assignment LIBRARY_SEARCH_ORDER.
+Info (19337): VHDL info at altera_agilex_config_reset_release_endpoint.vhd(122): executing entity "altera_agilex_config_reset_release_endpoint" with architecture "rtl" File: d:/altera/quartus/libraries/megafunctions/altera_agilex_config_reset_release_endpoint.vhd Line: 122
+Info (19337): VHDL info at altera_fabric_endpoint.vhd(126): executing entity "altera_fabric_endpoint(send_width=0,receive_width=1,settings="{fabric agilex_config_reset_release dir agent psig 142e1a3c}")(1,60)" with architecture "rtl" File: d:/altera/quartus/libraries/megafunctions/altera_fabric_endpoint.vhd Line: 126
+Warning (13469): Verilog HDL assignment warning at I2C_HDMI_Config.v(48): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_HDMI_Config.v Line: 48
+Warning (13469): Verilog HDL assignment warning at I2C_Controller.v(79): truncated value with size 32 to match size of target (1) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_Controller.v Line: 79
+Warning (13469): Verilog HDL assignment warning at I2C_Controller.v(92): truncated value with size 7 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_Controller.v Line: 92
+Warning (13469): Verilog HDL assignment warning at I2C_HDMI_Config.v(98): truncated value with size 7 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/I2C_HDMI_Config.v Line: 98
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(101): truncated value with size 5 to match size of target (4) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 101
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(126): truncated value with size 10 to match size of target (9) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 126
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(134): truncated value with size 9 to match size of target (8) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 134
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(142): truncated value with size 8 to match size of target (7) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 142
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(166): truncated value with size 8 to match size of target (7) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 166
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(193): truncated value with size 7 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 193
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(207): truncated value with size 21 to match size of target (20) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 207
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(245): truncated value with size 23 to match size of target (22) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 245
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(276): truncated value with size 19 to match size of target (18) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 276
+Warning (13469): Verilog HDL assignment warning at AUDIO_DAC.v(305): truncated value with size 5 to match size of target (4) File: D:/altera/ECE641/ECE641_Project3/V_HDMI/AUDIO_DAC.v Line: 305
+Warning (24541): Verilog HDL warning at golden_top.v(262): actual bit length 32 differs from formal bit length 1 for port "RESET_n" File: D:/altera/ECE641/ECE641_Project3/golden_top.v Line: 262
+Warning (24541): Verilog HDL warning at golden_top.v(263): actual bit length 32 differs from formal bit length 1 for port "RESET_n" File: D:/altera/ECE641/ECE641_Project3/golden_top.v Line: 263
+Warning (24541): Verilog HDL warning at golden_top.v(264): actual bit length 32 differs from formal bit length 1 for port "RESET_n" File: D:/altera/ECE641/ECE641_Project3/golden_top.v Line: 264
+Warning (24541): Verilog HDL warning at golden_top.v(265): actual bit length 32 differs from formal bit length 1 for port "RESET_n" File: D:/altera/ECE641/ECE641_Project3/golden_top.v Line: 265
+Warning (13469): Verilog HDL assignment warning at uart_tx.v(55): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_tx.v Line: 55
+Warning (13469): Verilog HDL assignment warning at uart_tx.v(67): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_tx.v Line: 67
+Warning (13469): Verilog HDL assignment warning at uart_tx.v(72): truncated value with size 4 to match size of target (3) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_tx.v Line: 72
+Warning (13469): Verilog HDL assignment warning at uart_tx.v(82): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_tx.v Line: 82
+Warning (13469): Verilog HDL assignment warning at uart_rx.v(50): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_rx.v Line: 50
+Warning (13469): Verilog HDL assignment warning at uart_rx.v(61): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_rx.v Line: 61
+Warning (13469): Verilog HDL assignment warning at uart_rx.v(67): truncated value with size 4 to match size of target (3) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_rx.v Line: 67
+Warning (13469): Verilog HDL assignment warning at uart_rx.v(76): truncated value with size 17 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_rx.v Line: 76
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(110): truncated value with size 32 to match size of target (8) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 110
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(210): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 210
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(220): truncated value with size 25 to match size of target (24) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 220
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(238): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 238
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(266): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 266
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(339): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 339
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(353): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 353
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(382): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 382
+Warning (13469): Verilog HDL assignment warning at uart_mgr.v(411): truncated value with size 13 to match size of target (12) File: D:/altera/ECE641/ECE641_Project3/Verilog/uart_mgr.v Line: 411
+Info (22567): Verilog HDL info at fifo_24.v(25): extracting RAM for identifier 'mem' File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_24.v Line: 25
+Warning (13469): Verilog HDL assignment warning at fifo_24.v(68): truncated value with size 6 to match size of target (5) File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_24.v Line: 68
+Warning (13469): Verilog HDL assignment warning at fifo_24.v(81): truncated value with size 6 to match size of target (5) File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_24.v Line: 81
+Info (22567): Verilog HDL info at fifo_32.v(25): extracting RAM for identifier 'mem' File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_32.v Line: 25
+Warning (13469): Verilog HDL assignment warning at fifo_32.v(68): truncated value with size 12 to match size of target (11) File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_32.v Line: 68
+Warning (13469): Verilog HDL assignment warning at fifo_32.v(81): truncated value with size 12 to match size of target (11) File: D:/altera/ECE641/ECE641_Project3/Verilog/fifo_32.v Line: 81
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(259): truncated value with size 32 to match size of target (16) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 259
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(274): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 274
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(291): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 291
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(308): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 308
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(339): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 339
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(392): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 392
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(403): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 403
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(416): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 416
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(418): truncated value with size 11 to match size of target (10) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 418
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(457): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 457
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(473): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 473
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(501): truncated value with size 11 to match size of target (10) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 501
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(540): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 540
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(557): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 557
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(568): truncated value with size 32 to match size of target (14) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 568
+Warning (13469): Verilog HDL assignment warning at sdram_ctrl_v3.v(586): truncated value with size 32 to match size of target (6) File: D:/altera/ECE641/ECE641_Project3/Verilog/sdram_ctrl_v3.v Line: 586
+Info: Found 26 design entities
+Info: There are 33 partitions after elaboration.
+Info: Running rule checking for Agilex5 protocol IPs...
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab_0.
+Info (11172): ***************************************************************
+Info (11172): Quartus is a registered trademark of Altera Corporation in the
+Info (11172): US and other countries.  Portions of the Quartus Prime software
+Info (11172): Code, and other portions of the code included in this download
+Info (11172): Or on this DVD, are licensed to Altera Corporation and are the
+Info (11172): Copyrighted property of third parties. For license details,
+Info (11172): Refer to the Altera Software License Subscription Agreements 
+Info (11172): On the Quartus Prime software download page.
+Info (11172): ***************************************************************
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Deploying alt_sld_fab_0 to D:\altera\ECE641\ECE641_Project3\dni\sandboxes\TannyrsLaptop_1452_0\sld\ipgen\alt_sld_fab_0.ip
+Info (11172): ***************************************************************
+Info (11172): Quartus is a registered trademark of Altera Corporation in the
+Info (11172): US and other countries.  Portions of the Quartus Prime software
+Info (11172): Code, and other portions of the code included in this download
+Info (11172): Or on this DVD, are licensed to Altera Corporation and are the
+Info (11172): Copyrighted property of third parties. For license details,
+Info (11172): Refer to the Altera Software License Subscription Agreements 
+Info (11172): On the Quartus Prime software download page.
+Info (11172): ***************************************************************
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Saving generation log to D:/altera/ECE641/ECE641_Project3/dni/sandboxes/TannyrsLaptop_1452_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_0_generation.rpt
+Info (11172): Generated by version: 25.3.1 build 100
+Info (11172): Starting: Create HDL design files for synthesis
+Info (11172): Qsys-generate D:\altera\ECE641\ECE641_Project3\dni\sandboxes\TannyrsLaptop_1452_0\sld\ipgen\alt_sld_fab_0.ip --synthesis=VERILOG --output-directory=D:\altera\ECE641\ECE641_Project3\dni\sandboxes\TannyrsLaptop_1452_0\sld\ipgen\alt_sld_fab_0 --family="Agilex 3" --part=A3CZ135BB18AE7S
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Add_instance splitter altera_sld_splitter
+Info (11172): Set_instance_parameter_value splitter ADD_INTERFACE_ASGN 1
+Info (11172): Add_instance agilexconfigreset intel_agilex_reset_release_from_sdm
+Info (11172): Set_instance_parameter_value agilexconfigreset SETTINGS {{type_name 0 instance_name 0} }
+Info (11172): Set_instance_parameter_value agilexconfigreset COUNT 1
+Info (11172): Set_instance_parameter_value splitter FRAGMENTS {{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } }
+Info (11172): Add_connection agilexconfigreset.conf_reset_0 splitter.conf_reset_0 reset
+Info (11172): Set_parameter_value COMPOSED_SETTINGS {{fabric agilex_config_reset_release dir agent type_name 0 instance_name 0} }
+Info (11172): Alt_sld_fab_0: "Transforming system: alt_sld_fab_0"
+Info (11172): Alt_sld_fab_0: "Naming system components in system: alt_sld_fab_0"
+Info (11172): Alt_sld_fab_0: "Processing generation queue"
+Info (11172): Alt_sld_fab_0: "Generating: alt_sld_fab_0"
+Info (11172): Alt_sld_fab_0: "Generating: alt_sld_fab_0_alt_sld_fab_0_10_fkimwiy"
+Info (11172): Alt_sld_fab_0: "Generating: alt_sld_fab_0_alt_sld_fab_1920_2l5ev4q"
+Info (11172): Alt_sld_fab_0: "Generating: alt_sld_fab_0_altera_sld_splitter_1920_tbvre7y"
+Info (11172): Alt_sld_fab_0: "Generating: alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_poqcpxq"
+Info (11172): Alt_sld_fab_0: Done "alt_sld_fab_0" with 5 modules, 6 files
+Info (11172): Finished: Create HDL design files for synthesis
+Info (11172): Generation of D:/altera/ECE641/ECE641_Project3/dni/sandboxes/TannyrsLaptop_1452_0/sld/ipgen/alt_sld_fab_0.ip (alt_sld_fab_0) took 1075 ms
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab_0.
+Info: DA report generation in native DNI mode
+Info (21615): Running Design Assistant Rules for snapshot 'partitioned'
+Info: No waiver waived any violations
+Info (22360): Design Assistant Results: 28 of 29 enabled rules passed, and 1 rules was disabled, in snapshot 'partitioned'
+Info (21660): Design Assistant Results: 0 of 19 Critical severity rules issued violations in snapshot 'partitioned'
+Info (21661): Design Assistant Results: 0 of 1 High severity rules issued violations in snapshot 'partitioned'
+Info (21621): Design Assistant Results: 1 of 1 Medium severity rules issued violations in snapshot 'partitioned'. Please refer to DRC report 'D:/altera/ECE641/ECE641_Project3/output_files/golden_top.drc.partitioned.rpt' for more information
+Info (21622): Design Assistant Results: 0 of 8 Low severity rules issued violations in snapshot 'partitioned'
+
+

@@ -1,0 +1,9 @@
+Synthesis Status : Successful - Fri Apr 10 23:29:31 2026
+Revision Name : golden_top
+Top-level Entity Name : golden_top
+Family : Agilex 3
+Quartus Prime Version : 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+Device : A3CZ135BB18AE7S
+Logic utilization estimate (in ALMs) : -,691 / 45,800 ( < 1 % )
+Total dedicated logic registers : 1557
+Estimated DSP Blocks Post-Merging : 0

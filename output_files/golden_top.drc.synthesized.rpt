@@ -1,0 +1,234 @@
+Design Assistant report for golden_top
+Fri Apr 10 23:29:32 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant (Synthesized) Results - 2 of 13 Rules Failed
+  3. RES-30134 - Registers Not Reachable from Reset Release IP
+  4. FLP-10500 - Non Driving Top Level Inputs Found
+  5. LNT-30011 - Design Contains Combinational Loops
+  6. LNT-30017 - Register Output Driving Its Own Asynchronous Control Signal Directly or Through Combinational Logic
+  7. LNT-30023 - Reset Nets with Polarity Conflict
+  8. RES-30132 - Registers May Not Be Properly Reset
+  9. RES-30133 - Embedded Memory Blocks with Initialized Content That Might be Modified Before the FPGA Enters User Mode
+ 10. TMC-20052 - Paths with Post Synthesis Inferred Latches
+ 11. LNT-30010 - Nets Driving both Reset and Clock Enable Signals
+ 12. LNT-50006 - DSP Control Signal Registers Reset Mode Mismatch
+ 13. TMC-20053 - DSP Inputs Driven by High Fan-Out Net
+ 14. TMC-20500 - Hierarchical Tree Duplication was Shallower than Possible
+ 15. TMC-20501 - Hierarchical Tree Duplication was Shallower than Requested
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant (Synthesized) Results - 2 of 13 Rules Failed                                                                                                                          ;
++---------------------------------------------------------------------------------------------------------------------+----------+------------+--------+---------------------------------+
+; Rule                                                                                                                ; Severity ; Violations ; Waived ; Tags                            ;
++---------------------------------------------------------------------------------------------------------------------+----------+------------+--------+---------------------------------+
+; RES-30134 - Registers Not Reachable from Reset Release IP                                                           ; Medium   ; 33         ; 0      ; reset-usage, reset-reachability ;
+; FLP-10500 - Non Driving Top Level Inputs Found                                                                      ; Low      ; 2          ; 0      ; system                          ;
+; LNT-30011 - Design Contains Combinational Loops                                                                     ; High     ; 0          ; 0      ; nonstandard-timing              ;
+; LNT-30017 - Register Output Driving Its Own Asynchronous Control Signal Directly or Through Combinational Logic     ; Medium   ; 0          ; 0      ; nonstandard-timing              ;
+; LNT-30023 - Reset Nets with Polarity Conflict                                                                       ; Medium   ; 0          ; 0      ; reset-usage                     ;
+; RES-30132 - Registers May Not Be Properly Reset                                                                     ; Medium   ; 0          ; 0      ; reset-usage, reset-reachability ;
+; RES-30133 - Embedded Memory Blocks with Initialized Content That Might be Modified Before the FPGA Enters User Mode ; Medium   ; 0          ; 0      ; ram, reset-usage                ;
+; TMC-20052 - Paths with Post Synthesis Inferred Latches                                                              ; Medium   ; 0          ; 0      ; nonstandard-timing, latch       ;
+; LNT-30010 - Nets Driving both Reset and Clock Enable Signals                                                        ; Low      ; 0          ; 0      ; reset-usage                     ;
+; LNT-50006 - DSP Control Signal Registers Reset Mode Mismatch                                                        ; Low      ; 0          ; 0      ; dsp, reset-usage                ;
+; TMC-20053 - DSP Inputs Driven by High Fan-Out Net                                                                   ; Low      ; 0          ; 0      ; dsp                             ;
+; TMC-20500 - Hierarchical Tree Duplication was Shallower than Possible                                               ; Low      ; 0          ; 0      ; register-duplication, synthesis ;
+; TMC-20501 - Hierarchical Tree Duplication was Shallower than Requested                                              ; Low      ; 0          ; 0      ; register-duplication, synthesis ;
++---------------------------------------------------------------------------------------------------------------------+----------+------------+--------+---------------------------------+
+
+
+Status:		FAIL
+Severity:		Medium
+Number of violations: 	33
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------------+
+; RES-30134 - Registers Not Reachable from Reset Release IP ;
++--------------------+--------------------------------------+
+; Register Node      ; Waived                               ;
++--------------------+--------------------------------------+
+; ckK2|CLK_DELAY[0]  ;                                      ;
+; ckK2|CLK_DELAY[9]  ;                                      ;
+; ckK2|CLK_DELAY[10] ;                                      ;
+; ckK2|CLK_DELAY[11] ;                                      ;
+; ckK2|CLK_DELAY[12] ;                                      ;
+; ckK2|CLK_DELAY[13] ;                                      ;
+; ckK2|CLK_DELAY[14] ;                                      ;
+; ckK2|CLK_DELAY[15] ;                                      ;
+; ckK2|CLK_DELAY[31] ;                                      ;
+; ckK2|CLK_DELAY[30] ;                                      ;
+; ckK2|CLK_DELAY[29] ;                                      ;
+; ckK2|CLK_DELAY[1]  ;                                      ;
+; ckK2|CLK_DELAY[28] ;                                      ;
+; ckK2|CLK_DELAY[27] ;                                      ;
+; ckK2|CLK_DELAY[26] ;                                      ;
+; ckK2|CLK_DELAY[25] ;                                      ;
+; ckK2|CLK_DELAY[18] ;                                      ;
+; ckK2|CLK_DELAY[19] ;                                      ;
+; ckK2|CLK_DELAY[20] ;                                      ;
+; ckK2|CLK_DELAY[21] ;                                      ;
+; ckK2|CLK_DELAY[22] ;                                      ;
+; ckK2|CLK_DELAY[23] ;                                      ;
+; ckK2|CLK_DELAY[2]  ;                                      ;
+; ckK2|CLK_DELAY[24] ;                                      ;
+; ckK2|CLK_DELAY[16] ;                                      ;
+; ckK2|CLK_DELAY[17] ;                                      ;
+; ckK2|CK_1HZ        ;                                      ;
+; ckK2|CLK_DELAY[3]  ;                                      ;
+; ckK2|CLK_DELAY[4]  ;                                      ;
+; ckK2|CLK_DELAY[5]  ;                                      ;
+; ckK2|CLK_DELAY[6]  ;                                      ;
+; ckK2|CLK_DELAY[7]  ;                                      ;
+; ckK2|CLK_DELAY[8]  ;                                      ;
++--------------------+--------------------------------------+
+
+
+Status:		FAIL
+Severity:		Low
+Number of violations: 	2
+Rule Parameters:      	max_violations = 5000
++------------------------------------------------+
+; FLP-10500 - Non Driving Top Level Inputs Found ;
++------------+-----------------------------------+
+; Input Name ; Waived                            ;
++------------+-----------------------------------+
+; KEY[1..2]  ;                                   ;
+; SW[0..9]   ;                                   ;
++------------+-----------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------+
+; LNT-30011 - Design Contains Combinational Loops ;
++-------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------------------------------------------------------------------+
+; LNT-30017 - Register Output Driving Its Own Asynchronous Control Signal Directly or Through Combinational Logic ;
++-----------------------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------+
+; LNT-30023 - Reset Nets with Polarity Conflict ;
++-----------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------+
+; RES-30132 - Registers May Not Be Properly Reset ;
++-------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		exclude_ram_blocks_without_mif = True
++---------------------------------------------------------------------------------------------------------------------+
+; RES-30133 - Embedded Memory Blocks with Initialized Content That Might be Modified Before the FPGA Enters User Mode ;
++---------------------------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------+
+; TMC-20052 - Paths with Post Synthesis Inferred Latches ;
++--------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------+
+; LNT-30010 - Nets Driving both Reset and Clock Enable Signals ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		DSP_Chain_Threshold = 2
+		DSP_Check_User_WYSIWYGs = True
++--------------------------------------------------------------+
+; LNT-50006 - DSP Control Signal Registers Reset Mode Mismatch ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		DSP_High_Fanout_Net_Threshold = 500
+		DSP_Chain_Threshold = 2
+		DSP_Check_User_WYSIWYGs = True
++---------------------------------------------------+
+; TMC-20053 - DSP Inputs Driven by High Fan-Out Net ;
++---------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------------------------+
+; TMC-20500 - Hierarchical Tree Duplication was Shallower than Possible ;
++-----------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++------------------------------------------------------------------------+
+; TMC-20501 - Hierarchical Tree Duplication was Shallower than Requested ;
++------------------------------------------------------------------------+
+
+

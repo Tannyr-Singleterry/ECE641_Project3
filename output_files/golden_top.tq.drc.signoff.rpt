@@ -1,0 +1,1316 @@
+Design Assistant report for golden_top
+Fri Apr 10 23:33:08 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant (Signoff) Results - 10 of 73 Rules Failed
+  3. CDC-50001 - 1-Bit Asynchronous Transfer Not Synchronized
+  4. TMC-20012 - Missing Output Delay Constraint
+  5. TMC-20011 - Missing Input Delay Constraint
+  6. CLK-30026 - Missing Clock Assignment
+  7. RES-50001 - Asynchronous Reset Is Not Synchronized
+  8. RES-50002 - Asynchronous Reset is Insufficiently Synchronized
+  9. CLK-30030 - PLL Setting Violation
+ 10. TMC-20025 - Ignored or Overridden Constraints
+ 11. CLK-30032 - Improper Clock Targets
+ 12. TMC-20026 - Empty Collection Due To Unmatched Filter
+ 13. CDC-50002 - 1-Bit Asynchronous Transfer with Insufficient Constraints
+ 14. CDC-50003 - CE-Type CDC Transfer with Insufficient Constraints
+ 15. CDC-50004 - MUX-type CDC Transfer with Insufficient Constraints
+ 16. CDC-50005 - CDC Bus Constructed with Multi-bit Synchronizer Chains of Different Lengths
+ 17. CDC-50006 - CDC Bus Constructed with Unsynchronized Registers
+ 18. CDC-50007 - CDC Bus Constructed with Multi-bit Synchronizer Chains with Insufficient Constraints
+ 19. CDC-50011 - Combinational Logic Before Synchronizer Chain
+ 20. CDC-50012 - Multiple Clock Domains Driving a Synchronizer Chain
+ 21. CLK-30027 - Multiple Clock Assignments Found
+ 22. CLK-30028 - Invalid Generated Clock
+ 23. CLK-30029 - Invalid Clock Assignments
+ 24. CLK-30033 - Invalid Clock Group Assignment
+ 25. CLK-30034 - Clock Pairs Missing Logically Exclusive Clock Group Assignment
+ 26. CLK-30035 - Clock Pairs Missing Physically Exclusive Clock Group Assignment
+ 27. CLK-30042 - Incorrect Clock Group Type
+ 28. RES-50003 - Asynchronous Reset with Insufficient Constraints
+ 29. RES-50004 - Multiple Asynchronous Resets within Reset Synchronizer Chain
+ 30. TMC-20013 - Partial Input Delay
+ 31. TMC-20014 - Partial Output Delay
+ 32. TMC-20015 - Inconsistent Min-Max Delay
+ 33. TMC-20016 - Invalid Reference Pin
+ 34. TMC-20017 - Loops Detected
+ 35. TMC-20019 - Partial Multicycle Assignment
+ 36. TMC-20022 - I/O Delay Assignment Missing Parameters
+ 37. TMC-20023 - Invalid Set Net Delay Assignment
+ 38. TMC-20027 - Collection Filter Matching Multiple Types
+ 39. TMC-30041 - Constraint with Invalid Clock Reference
+ 40. CDC-50103 - Unsynchronized Intra-Clock Forced Synchronizer
+ 41. CLK-30031 - Input Delay Assigned to Clock
+ 42. FLP-10000 - Physical RAM with Utilization Below Threshold
+ 43. FLP-10501 - Top-Level Ports Without Pin Location Assignment
+ 44. LNT-30023 - Reset Nets with Polarity Conflict
+ 45. RDC-50003 - Multiple Asynchronous Reset Synchronizers in the Same Clock Domain
+ 46. TMC-20018 - Unsupported Latches Detected
+ 47. TMC-20021 - Partial Min-Max Delay Assignment
+ 48. TMC-20024 - Synchronous Data Delay Assignment
+ 49. TMC-20200 - Paths Failing Setup Analysis with Impossible Requirements
+ 50. TMC-20201 - Paths Failing Setup Analysis with High Clock Skew
+ 51. TMC-20206 - DSP Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis
+ 52. TMC-20207 - DSP Blocks with Unregistered Inputs that are the Destination of Paths Failing Setup Analysis
+ 53. TMC-20208 - RAM Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis
+ 54. TMC-20209 - Paths Failing Setup Analysis with High Routing Delay due to Congestion
+ 55. TMC-20210 - Paths Failing Setup Analysis with High Routing Delay Added for Hold
+ 56. TMC-20212 - Paths Failing Setup Analysis with Global Routing in Data Path
+ 57. TMC-20213 - Paths Failing Setup Analysis with Locally Routed Clock
+ 58. TMC-20214 - Buses with Incoming Paths Failing Setup Analysis with Multiple Sequential Adder Chains
+ 59. TMC-20215 - Buses with Incoming Paths Failing Setup Analysis with Multipliers Implemented in Logic
+ 60. TMC-20216 - Paths Failing Setup Analysis with Inferred-RAM Shift Register Endpoints
+ 61. TMC-20217 - Paths Failing Setup Analysis with Clock-As-Data
+ 62. CDC-50008 - CDC Bus Constructed with Multi-bit Synchronizer Chains
+ 63. CDC-50101 - Intra-Clock False Path Synchronizer
+ 64. CDC-50102 - Synchronizer after CDC Topology with Control Signal
+ 65. LNT-30010 - Nets Driving both Reset and Clock Enable Signals
+ 66. RES-50010 - Reset Synchronizer Chains with Constant Output
+ 67. RES-50101 - Intra-Clock False Path Reset Synchronizer
+ 68. TMC-20020 - Invalid Multicycle Assignment
+ 69. TMC-20550 - Automatically Selected Duplication Candidate Rejected for Placement Constraint
+ 70. TMC-20551 - Automatically Selected Duplication Candidate Likely Requires More Duplication
+ 71. TMC-20552 - User Selected Duplication Candidate was Rejected
+ 72. TMC-20601 - Registers with High Immediate Fan-Out Tension
+ 73. TMC-20602 - Registers with High Timing Path Endpoint Tension
+ 74. TMC-20603 - Registers with High Immediate Fan-Out Span
+ 75. TMC-20604 - Registers with High Timing Path Endpoint Span
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant (Signoff) Results - 10 of 73 Rules Failed                                                                                                                                 ;
++----------------------------------------------------------------------------------------------------------+----------+------------+--------+------------------------------------------------+
+; Rule                                                                                                     ; Severity ; Violations ; Waived ; Tags                                           ;
++----------------------------------------------------------------------------------------------------------+----------+------------+--------+------------------------------------------------+
+; CDC-50001 - 1-Bit Asynchronous Transfer Not Synchronized                                                 ; High     ; 198        ; 0      ; synchronizer                                   ;
+; TMC-20012 - Missing Output Delay Constraint                                                              ; High     ; 135        ; 0      ; sdc, system                                    ;
+; TMC-20011 - Missing Input Delay Constraint                                                               ; High     ; 36         ; 0      ; sdc, system                                    ;
+; CLK-30026 - Missing Clock Assignment                                                                     ; High     ; 3          ; 0      ; sdc                                            ;
+; RES-50001 - Asynchronous Reset Is Not Synchronized                                                       ; High     ; 3          ; 0      ; synchronizer                                   ;
+; RES-50002 - Asynchronous Reset is Insufficiently Synchronized                                            ; High     ; 2          ; 0      ; synchronizer                                   ;
+; CLK-30030 - PLL Setting Violation                                                                        ; High     ; 1          ; 0      ; sdc                                            ;
+; TMC-20025 - Ignored or Overridden Constraints                                                            ; Medium   ; 2          ; 0      ; sdc                                            ;
+; CLK-30032 - Improper Clock Targets                                                                       ; Medium   ; 1          ; 0      ; sdc                                            ;
+; TMC-20026 - Empty Collection Due To Unmatched Filter                                                     ; Medium   ; 1          ; 0      ; sdc                                            ;
+; CDC-50002 - 1-Bit Asynchronous Transfer with Insufficient Constraints                                    ; High     ; 0          ; 0      ; synchronizer                                   ;
+; CDC-50003 - CE-Type CDC Transfer with Insufficient Constraints                                           ; High     ; 0          ; 0      ; cdc-bus                                        ;
+; CDC-50004 - MUX-type CDC Transfer with Insufficient Constraints                                          ; High     ; 0          ; 0      ; cdc-bus                                        ;
+; CDC-50005 - CDC Bus Constructed with Multi-bit Synchronizer Chains of Different Lengths                  ; High     ; 0          ; 0      ; synchronizer, cdc-bus                          ;
+; CDC-50006 - CDC Bus Constructed with Unsynchronized Registers                                            ; High     ; 0          ; 0      ; synchronizer, cdc-bus                          ;
+; CDC-50007 - CDC Bus Constructed with Multi-bit Synchronizer Chains with Insufficient Constraints         ; High     ; 0          ; 0      ; synchronizer, cdc-bus                          ;
+; CDC-50011 - Combinational Logic Before Synchronizer Chain                                                ; High     ; 0          ; 0      ; synchronizer                                   ;
+; CDC-50012 - Multiple Clock Domains Driving a Synchronizer Chain                                          ; High     ; 0          ; 0      ; synchronizer                                   ;
+; CLK-30027 - Multiple Clock Assignments Found                                                             ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30028 - Invalid Generated Clock                                                                      ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30029 - Invalid Clock Assignments                                                                    ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30033 - Invalid Clock Group Assignment                                                               ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30034 - Clock Pairs Missing Logically Exclusive Clock Group Assignment                               ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30035 - Clock Pairs Missing Physically Exclusive Clock Group Assignment                              ; High     ; 0          ; 0      ; sdc                                            ;
+; CLK-30042 - Incorrect Clock Group Type                                                                   ; High     ; 0          ; 0      ; sdc                                            ;
+; RES-50003 - Asynchronous Reset with Insufficient Constraints                                             ; High     ; 0          ; 0      ; synchronizer                                   ;
+; RES-50004 - Multiple Asynchronous Resets within Reset Synchronizer Chain                                 ; High     ; 0          ; 0      ; synchronizer                                   ;
+; TMC-20013 - Partial Input Delay                                                                          ; High     ; 0          ; 0      ; sdc, system                                    ;
+; TMC-20014 - Partial Output Delay                                                                         ; High     ; 0          ; 0      ; sdc, system                                    ;
+; TMC-20015 - Inconsistent Min-Max Delay                                                                   ; High     ; 0          ; 0      ; sdc                                            ;
+; TMC-20016 - Invalid Reference Pin                                                                        ; High     ; 0          ; 0      ; sdc, system                                    ;
+; TMC-20017 - Loops Detected                                                                               ; High     ; 0          ; 0      ; sdc                                            ;
+; TMC-20019 - Partial Multicycle Assignment                                                                ; High     ; 0          ; 0      ; sdc                                            ;
+; TMC-20022 - I/O Delay Assignment Missing Parameters                                                      ; High     ; 0          ; 0      ; sdc, system                                    ;
+; TMC-20023 - Invalid Set Net Delay Assignment                                                             ; High     ; 0          ; 0      ; sdc                                            ;
+; TMC-20027 - Collection Filter Matching Multiple Types                                                    ; High     ; 0          ; 0      ; sdc                                            ;
+; TMC-30041 - Constraint with Invalid Clock Reference                                                      ; High     ; 0          ; 0      ; sdc                                            ;
+; CDC-50103 - Unsynchronized Intra-Clock Forced Synchronizer                                               ; Medium   ; 0          ; 0      ; synchronizer                                   ;
+; CLK-30031 - Input Delay Assigned to Clock                                                                ; Medium   ; 0          ; 0      ; sdc, system                                    ;
+; FLP-10000 - Physical RAM with Utilization Below Threshold                                                ; Medium   ; 0          ; 0      ; ram, resource-usage                            ;
+; FLP-10501 - Top-Level Ports Without Pin Location Assignment                                              ; Medium   ; 0          ; 0      ; system                                         ;
+; LNT-30023 - Reset Nets with Polarity Conflict                                                            ; Medium   ; 0          ; 0      ; reset-usage                                    ;
+; RDC-50003 - Multiple Asynchronous Reset Synchronizers in the Same Clock Domain                           ; Medium   ; 0          ; 0      ; reset-usage, reset-reachability                ;
+; TMC-20018 - Unsupported Latches Detected                                                                 ; Medium   ; 0          ; 0      ; latch                                          ;
+; TMC-20021 - Partial Min-Max Delay Assignment                                                             ; Medium   ; 0          ; 0      ; sdc                                            ;
+; TMC-20024 - Synchronous Data Delay Assignment                                                            ; Medium   ; 0          ; 0      ; sdc                                            ;
+; TMC-20200 - Paths Failing Setup Analysis with Impossible Requirements                                    ; Medium   ; 0          ; 0      ; intrinsic-margin, impossible-requirements, sdc ;
+; TMC-20201 - Paths Failing Setup Analysis with High Clock Skew                                            ; Medium   ; 0          ; 0      ; intrinsic-margin                               ;
+; TMC-20206 - DSP Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis     ; Medium   ; 0          ; 0      ; dsp                                            ;
+; TMC-20207 - DSP Blocks with Unregistered Inputs that are the Destination of Paths Failing Setup Analysis ; Medium   ; 0          ; 0      ; dsp                                            ;
+; TMC-20208 - RAM Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis     ; Medium   ; 0          ; 0      ; ram                                            ;
+; TMC-20209 - Paths Failing Setup Analysis with High Routing Delay due to Congestion                       ; Medium   ; 0          ; 0      ; route                                          ;
+; TMC-20210 - Paths Failing Setup Analysis with High Routing Delay Added for Hold                          ; Medium   ; 0          ; 0      ; route                                          ;
+; TMC-20212 - Paths Failing Setup Analysis with Global Routing in Data Path                                ; Medium   ; 0          ; 0      ; global-signal, route                           ;
+; TMC-20213 - Paths Failing Setup Analysis with Locally Routed Clock                                       ; Medium   ; 0          ; 0      ; global-signal, clock-skew                      ;
+; TMC-20214 - Buses with Incoming Paths Failing Setup Analysis with Multiple Sequential Adder Chains       ; Medium   ; 0          ; 0      ; logic-levels                                   ;
+; TMC-20215 - Buses with Incoming Paths Failing Setup Analysis with Multipliers Implemented in Logic       ; Medium   ; 0          ; 0      ; logic-levels, dsp                              ;
+; TMC-20216 - Paths Failing Setup Analysis with Inferred-RAM Shift Register Endpoints                      ; Medium   ; 0          ; 0      ; ram                                            ;
+; TMC-20217 - Paths Failing Setup Analysis with Clock-As-Data                                              ; Medium   ; 0          ; 0      ; nonstandard-timing                             ;
+; CDC-50008 - CDC Bus Constructed with Multi-bit Synchronizer Chains                                       ; Low      ; 0          ; 0      ; synchronizer, cdc-bus                          ;
+; CDC-50101 - Intra-Clock False Path Synchronizer                                                          ; Low      ; 0          ; 0      ; synchronizer, false-positive-synchronizer      ;
+; CDC-50102 - Synchronizer after CDC Topology with Control Signal                                          ; Low      ; 0          ; 0      ; synchronizer, false-positive-synchronizer      ;
+; LNT-30010 - Nets Driving both Reset and Clock Enable Signals                                             ; Low      ; 0          ; 0      ; reset-usage                                    ;
+; RES-50010 - Reset Synchronizer Chains with Constant Output                                               ; Low      ; 0          ; 0      ; synchronizer                                   ;
+; RES-50101 - Intra-Clock False Path Reset Synchronizer                                                    ; Low      ; 0          ; 0      ; synchronizer, false-positive-synchronizer      ;
+; TMC-20020 - Invalid Multicycle Assignment                                                                ; Low      ; 0          ; 0      ; sdc                                            ;
+; TMC-20550 - Automatically Selected Duplication Candidate Rejected for Placement Constraint               ; Low      ; 0          ; 0      ; register-duplication, place                    ;
+; TMC-20551 - Automatically Selected Duplication Candidate Likely Requires More Duplication                ; Low      ; 0          ; 0      ; register-duplication, place                    ;
+; TMC-20552 - User Selected Duplication Candidate was Rejected                                             ; Low      ; 0          ; 0      ; register-duplication, place                    ;
+; TMC-20601 - Registers with High Immediate Fan-Out Tension                                                ; Low      ; 0          ; 0      ; register-duplication, register-spread, place   ;
+; TMC-20602 - Registers with High Timing Path Endpoint Tension                                             ; Low      ; 0          ; 0      ; register-duplication, register-spread, place   ;
+; TMC-20603 - Registers with High Immediate Fan-Out Span                                                   ; Low      ; 0          ; 0      ; register-duplication, register-spread, place   ;
+; TMC-20604 - Registers with High Timing Path Endpoint Span                                                ; Low      ; 0          ; 0      ; register-duplication, register-spread, place   ;
++----------------------------------------------------------------------------------------------------------+----------+------------+--------+------------------------------------------------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	198
+Rule Parameters:      	max_violations = 500
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; CDC-50001 - 1-Bit Asynchronous Transfer Not Synchronized                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------------------------+-------------------------------------------------+----------------------------------------+-----------------------------+-----------------------+--------+
+; From                                                                                                               ; To                                              ; From Clock                             ; To Clock                    ; Reason                ; Waived ;
++--------------------------------------------------------------------------------------------------------------------+-------------------------------------------------+----------------------------------------+-----------------------------+-----------------------+--------+
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[0]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[10]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[11]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[12]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[13]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[14]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[15]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[16]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[17]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[18]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[19]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[1]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[20]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[21]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[22]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[23]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[2]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[3]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[4]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[5]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[6]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[7]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[8]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|addr_latch[9]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[0]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[10]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[11]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[12]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[13]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[14]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[15]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[16]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[17]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[18]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[19]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[1]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[20]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[21]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[22]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[23]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[24]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[25]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[26]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[27]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[28]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[29]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[2]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[30]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[31]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[3]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[4]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[5]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[6]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[7]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[8]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|dq_out_reg[9]                   ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|is_write                        ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[0]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[10]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[11]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[12]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[13]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[14]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[15]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[16]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[17]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[18]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[19]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[1]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[20]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[21]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[22]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[23]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[24]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[25]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[26]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[27]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[28]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[29]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[2]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[30]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[31]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[3]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[4]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[5]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[6]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[7]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[8]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|rd_data[9]                      ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|sdram_ba[0]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_ctrl_inst|sdram_ba[1]                     ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem_rtl_0_bypass[0] ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~25              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~26              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~27              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~28              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~29              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~30              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~31              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~32              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~33              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~34              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~35              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~36              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~37              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~38              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~39              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~40              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~41              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~42              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~43              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~44              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~45              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~46              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~47              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_addr_fifo|mem~48              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[0] ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~33              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~34              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~35              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~36              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~37              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~38              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~39              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~40              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~41              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~42              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~43              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~44              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~45              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~46              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~47              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~48              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~49              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~50              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~51              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~52              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~53              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~54              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~55              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~56              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~57              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~58              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~59              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~60              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~61              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~62              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~63              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|rd_data_fifo|mem~64              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem_rtl_0_bypass[0] ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~25              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~26              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~27              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~28              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~29              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~30              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~31              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~32              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~33              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~34              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~35              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~36              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~37              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~38              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~39              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~40              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~41              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~42              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~43              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~44              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~45              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~46              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~47              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; sdram_mgr_inst|wr_addr_fifo|mem~48              ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[0]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[1]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[2]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[3]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[4]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[5]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[6]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_b[7]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[0]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[1]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[2]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[3]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[4]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[5]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[6]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_g[7]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[0]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[1]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[2]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[3]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[4]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[5]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[6]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg ; u_vpg|u_vga_generator|vga_r[7]                  ; internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
++--------------------------------------------------------------------------------------------------------------------+-------------------------------------------------+----------------------------------------+-----------------------------+-----------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	135
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------------------------------+
+; TMC-20012 - Missing Output Delay Constraint                          ;
++---------------+---------------------------------------------+--------+
+; Port          ; Reason                                      ; Waived ;
++---------------+---------------------------------------------+--------+
+; LEDR[0]       ; No output delay was set on the output port. ;        ;
+; HEX0[1]       ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[1]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[2]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[3]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[4]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[5]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[6]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[7]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[8]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[9]    ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[10]   ; No output delay was set on the output port. ;        ;
+; HEX0[2]       ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[11]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[12]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[13]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[14]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[15]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[16]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[17]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[18]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[19]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[20]   ; No output delay was set on the output port. ;        ;
+; HEX0[3]       ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[21]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[22]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[23]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[24]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[25]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[26]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[27]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[28]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[29]   ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[30]   ; No output delay was set on the output port. ;        ;
+; HEX0[4]       ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[31]   ; No output delay was set on the output port. ;        ;
+; HDMI_LRCLK    ; No output delay was set on the output port. ;        ;
+; HDMI_SCLK     ; No output delay was set on the output port. ;        ;
+; HDMI_I2S0     ; No output delay was set on the output port. ;        ;
+; FPGA_I2C_SCL  ; No output delay was set on the output port. ;        ;
+; FPGA_I2C_SDA  ; No output delay was set on the output port. ;        ;
+; HEX0[5]       ; No output delay was set on the output port. ;        ;
+; HEX0[6]       ; No output delay was set on the output port. ;        ;
+; HEX1[0]       ; No output delay was set on the output port. ;        ;
+; HEX1[1]       ; No output delay was set on the output port. ;        ;
+; HEX1[2]       ; No output delay was set on the output port. ;        ;
+; HEX1[3]       ; No output delay was set on the output port. ;        ;
+; LEDR[1]       ; No output delay was set on the output port. ;        ;
+; HEX1[4]       ; No output delay was set on the output port. ;        ;
+; HEX1[5]       ; No output delay was set on the output port. ;        ;
+; HEX1[6]       ; No output delay was set on the output port. ;        ;
+; HEX2[0]       ; No output delay was set on the output port. ;        ;
+; HEX2[1]       ; No output delay was set on the output port. ;        ;
+; HEX2[2]       ; No output delay was set on the output port. ;        ;
+; HEX2[3]       ; No output delay was set on the output port. ;        ;
+; HEX2[4]       ; No output delay was set on the output port. ;        ;
+; HEX2[5]       ; No output delay was set on the output port. ;        ;
+; HEX2[6]       ; No output delay was set on the output port. ;        ;
+; LEDR[2]       ; No output delay was set on the output port. ;        ;
+; HEX3[0]       ; No output delay was set on the output port. ;        ;
+; HEX3[1]       ; No output delay was set on the output port. ;        ;
+; HEX3[2]       ; No output delay was set on the output port. ;        ;
+; HEX3[3]       ; No output delay was set on the output port. ;        ;
+; HEX3[4]       ; No output delay was set on the output port. ;        ;
+; HEX3[5]       ; No output delay was set on the output port. ;        ;
+; HEX3[6]       ; No output delay was set on the output port. ;        ;
+; HEX4[0]       ; No output delay was set on the output port. ;        ;
+; HEX4[1]       ; No output delay was set on the output port. ;        ;
+; HEX4[2]       ; No output delay was set on the output port. ;        ;
+; LEDR[3]       ; No output delay was set on the output port. ;        ;
+; HEX4[3]       ; No output delay was set on the output port. ;        ;
+; HEX4[4]       ; No output delay was set on the output port. ;        ;
+; HEX4[5]       ; No output delay was set on the output port. ;        ;
+; HEX4[6]       ; No output delay was set on the output port. ;        ;
+; HEX5[0]       ; No output delay was set on the output port. ;        ;
+; HEX5[1]       ; No output delay was set on the output port. ;        ;
+; HEX5[2]       ; No output delay was set on the output port. ;        ;
+; HEX5[3]       ; No output delay was set on the output port. ;        ;
+; HEX5[4]       ; No output delay was set on the output port. ;        ;
+; HEX5[5]       ; No output delay was set on the output port. ;        ;
+; LEDR[4]       ; No output delay was set on the output port. ;        ;
+; HEX5[6]       ; No output delay was set on the output port. ;        ;
+; DRAM_CKE      ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[0]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[1]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[2]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[3]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[4]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[5]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[6]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[7]  ; No output delay was set on the output port. ;        ;
+; LEDR[7]       ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[8]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[9]  ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[10] ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[11] ; No output delay was set on the output port. ;        ;
+; DRAM_ADDR[12] ; No output delay was set on the output port. ;        ;
+; DRAM_BA[0]    ; No output delay was set on the output port. ;        ;
+; DRAM_BA[1]    ; No output delay was set on the output port. ;        ;
+; DRAM_CS_n     ; No output delay was set on the output port. ;        ;
+; DRAM_WE_n     ; No output delay was set on the output port. ;        ;
+; DRAM_CAS_n    ; No output delay was set on the output port. ;        ;
+; LEDR[8]       ; No output delay was set on the output port. ;        ;
+; DRAM_RAS_n    ; No output delay was set on the output port. ;        ;
+; HDMI_TX_HS    ; No output delay was set on the output port. ;        ;
+; HDMI_TX_VS    ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[0]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[1]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[2]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[3]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[4]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[5]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[6]  ; No output delay was set on the output port. ;        ;
+; LEDR[9]       ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[7]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[8]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[9]  ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[10] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[11] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[12] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[13] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[14] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[15] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[16] ; No output delay was set on the output port. ;        ;
+; HEX0[0]       ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[17] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[18] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[19] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[20] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[21] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[22] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_D[23] ; No output delay was set on the output port. ;        ;
+; HDMI_TX_DE    ; No output delay was set on the output port. ;        ;
+; FPGA_UART_TX  ; No output delay was set on the output port. ;        ;
+; DRAM_DQ[0]    ; No output delay was set on the output port. ;        ;
++---------------+---------------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	36
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------------------------+
+; TMC-20011 - Missing Input Delay Constraint                        ;
++--------------+-------------------------------------------+--------+
+; Port         ; Reason                                    ; Waived ;
++--------------+-------------------------------------------+--------+
+; DRAM_DQ[0]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[9]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[10]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[11]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[12]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[13]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[14]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[15]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[16]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[17]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[18]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[1]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[19]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[20]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[21]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[22]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[23]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[24]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[25]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[26]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[27]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[28]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[2]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[29]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[30]  ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[31]  ; No input delay was set on the input port. ;        ;
+; FPGA_I2C_SDA ; No input delay was set on the input port. ;        ;
+; KEY[0]       ; No input delay was set on the input port. ;        ;
+; HDMI_TX_INT  ; No input delay was set on the input port. ;        ;
+; FPGA_UART_RX ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[3]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[4]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[5]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[6]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[7]   ; No input delay was set on the input port. ;        ;
+; DRAM_DQ[8]   ; No input delay was set on the input port. ;        ;
++--------------+-------------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	3
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; CLK-30026 - Missing Clock Assignment                                                                                                      ;
++---------------------------------+------------------------------------------------------------------------------------------------+--------+
+; Clock                           ; Reason                                                                                         ; Waived ;
++---------------------------------+------------------------------------------------------------------------------------------------+--------+
+; u_I2C_HDMI_Config|mI2C_CTRL_CLK ; Node was determined to feed a clock port but was found without an associated clock assignment. ;        ;
+; u_AUDIO_DAC|oAUD_BCK            ; Node was determined to feed a clock port but was found without an associated clock assignment. ;        ;
+; u_AUDIO_DAC|LRCK_1X             ; Node was determined to feed a clock port but was found without an associated clock assignment. ;        ;
++---------------------------------+------------------------------------------------------------------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	3
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; RES-50001 - Asynchronous Reset Is Not Synchronized                                                                                                                                                                                                                                                        ;
++-----------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-----------------------------+---------------------------------+------------------------------------+--------+
+; Reset Source                                                                                                                ; Reset Source Clock                                            ; Register Clock              ; Number of Registers Being Reset ; Sample Register Being Reset        ; Waived ;
++-----------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-----------------------------+---------------------------------+------------------------------------+--------+
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg          ; internal_clk   internal_clk (INVERTED)                        ; u_VEDIO_PLL|iopll_0_outclk0 ; 66                              ; u_vpg|u_vga_generator|h_count[5]   ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg   KEY[0] ; Unconstrained domain   internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; 1285                            ; sdram_mgr_inst|hdmi_pixel_valid    ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg   KEY[0] ; Unconstrained domain   internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_refclk  ; 19                              ; u_I2C_HDMI_Config|mI2C_CLK_DIV[11] ;        ;
++-----------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+-----------------------------+---------------------------------+------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	2
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; RES-50002 - Asynchronous Reset is Insufficiently Synchronized                                                                                                                                                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------+-----------------------------+-----------------------+--------+
+; From                                                                                                                        ; To                                     ; From Clock                                                    ; To Clock                    ; Reason                ; Waived ;
++-----------------------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------+-----------------------------+-----------------------+--------+
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg   KEY[0] ; sdram_ctrl_inst|state.S_INIT           ; Unconstrained domain   internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
+; auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg   KEY[0] ; sdram_ctrl_inst|state.S_INIT~DUPLICATE ; Unconstrained domain   internal_clk   internal_clk (INVERTED) ; u_VEDIO_PLL|iopll_0_outclk0 ; Asynchronous transfer ;        ;
++-----------------------------------------------------------------------------------------------------------------------------+----------------------------------------+---------------------------------------------------------------+-----------------------------+-----------------------+--------+
+
+
+Status:		FAIL
+Severity:		High
+Number of violations: 	1
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------------------------------------------------------------------------+
+; CLK-30030 - PLL Setting Violation                                                                                              ;
++-----------+-----------------------------------------------------------------------------------------------------------+--------+
+; Node      ; Reason                                                                                                    ; Waived ;
++-----------+-----------------------------------------------------------------------------------------------------------+--------+
+; CLOCK1_50 ; Clock has a frequency 20.000 MHz set in SDC that may conflict with the official PLL setting of 50.000 MHz ;        ;
++-----------+-----------------------------------------------------------------------------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		Medium
+Number of violations: 	2
+Rule Parameters:      	max_violations = 5000
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; TMC-20025 - Ignored or Overridden Constraints                                                                                                                                                                                         ;
++--------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------------------------+--------+
+; Ignored Constraint                                                                               ; Location          ; Reason                                                                                                ; Waived ;
++--------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------------------------+--------+
+; create_clock -name {CLOCK0_50} -period 50.000 -waveform { 0.000 25.000 } [get_ports {CLOCK0_50}] ; golden_top.sdc:10 ; Assignment contains errors and will not be analyzed. Verify that the assignment is entered correctly. ;        ;
+; create_clock -name {} -period 50.000 -waveform { 0.000 25.000 } [get_ports {CLOCK2_50}]          ; golden_top.sdc:12 ; Assignment contains errors and will not be analyzed. Verify that the assignment is entered correctly. ;        ;
++--------------------------------------------------------------------------------------------------+-------------------+-------------------------------------------------------------------------------------------------------+--------+
+
+
+Status:		FAIL
+Severity:		Medium
+Number of violations: 	1
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------------------------------------------------+
+; CLK-30032 - Improper Clock Targets                                                        ;
++-------------------------+------------------------------------+-------------------+--------+
+; Assignment              ; Reason                             ; Location          ; Waived ;
++-------------------------+------------------------------------+-------------------+--------+
+; [get_ports {CLOCK0_50}] ; Target already has clock assigned. ; golden_top.sdc:10 ;        ;
++-------------------------+------------------------------------+-------------------+--------+
+
+
+Status:		FAIL
+Severity:		Medium
+Number of violations: 	1
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------------------------------------+
+; TMC-20026 - Empty Collection Due To Unmatched Filter                       ;
++-------------------------+---------------------+-------------------+--------+
+; Empty Collection Filter ; SDC Command         ; Location          ; Waived ;
++-------------------------+---------------------+-------------------+--------+
+; CLOCK2_50               ; get_ports CLOCK2_50 ; golden_top.sdc:12 ;        ;
++-------------------------+---------------------+-------------------+--------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------------+
+; CDC-50002 - 1-Bit Asynchronous Transfer with Insufficient Constraints ;
++-----------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++----------------------------------------------------------------+
+; CDC-50003 - CE-Type CDC Transfer with Insufficient Constraints ;
++----------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------+
+; CDC-50004 - MUX-type CDC Transfer with Insufficient Constraints ;
++-----------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------------------------------+
+; CDC-50005 - CDC Bus Constructed with Multi-bit Synchronizer Chains of Different Lengths ;
++-----------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++---------------------------------------------------------------+
+; CDC-50006 - CDC Bus Constructed with Unsynchronized Registers ;
++---------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++--------------------------------------------------------------------------------------------------+
+; CDC-50007 - CDC Bus Constructed with Multi-bit Synchronizer Chains with Insufficient Constraints ;
++--------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------+
+; CDC-50011 - Combinational Logic Before Synchronizer Chain ;
++-----------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------+
+; CDC-50012 - Multiple Clock Domains Driving a Synchronizer Chain ;
++-----------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------+
+; CLK-30027 - Multiple Clock Assignments Found ;
++----------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------+
+; CLK-30028 - Invalid Generated Clock ;
++-------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++---------------------------------------+
+; CLK-30029 - Invalid Clock Assignments ;
++---------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------+
+; CLK-30033 - Invalid Clock Group Assignment ;
++--------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------------------------------------+
+; CLK-30034 - Clock Pairs Missing Logically Exclusive Clock Group Assignment ;
++----------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------------------------------+
+; CLK-30035 - Clock Pairs Missing Physically Exclusive Clock Group Assignment ;
++-----------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------+
+; CLK-30042 - Incorrect Clock Group Type ;
++----------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++--------------------------------------------------------------+
+; RES-50003 - Asynchronous Reset with Insufficient Constraints ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++--------------------------------------------------------------------------+
+; RES-50004 - Multiple Asynchronous Resets within Reset Synchronizer Chain ;
++--------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++---------------------------------+
+; TMC-20013 - Partial Input Delay ;
++---------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------+
+; TMC-20014 - Partial Output Delay ;
++----------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------+
+; TMC-20015 - Inconsistent Min-Max Delay ;
++----------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------+
+; TMC-20016 - Invalid Reference Pin ;
++-----------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------+
+; TMC-20017 - Loops Detected ;
++----------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------+
+; TMC-20019 - Partial Multicycle Assignment ;
++-------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------+
+; TMC-20022 - I/O Delay Assignment Missing Parameters ;
++-----------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------+
+; TMC-20023 - Invalid Set Net Delay Assignment ;
++----------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------------+
+; TMC-20027 - Collection Filter Matching Multiple Types ;
++-------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		High
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------------+
+; TMC-30041 - Constraint with Invalid Clock Reference ;
++-----------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++------------------------------------------------------------+
+; CDC-50103 - Unsynchronized Intra-Clock Forced Synchronizer ;
++------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------+
+; CLK-30031 - Input Delay Assigned to Clock ;
++-------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		device_ram_occupation = 80
+		low_utilization = 10
++-----------------------------------------------------------+
+; FLP-10000 - Physical RAM with Utilization Below Threshold ;
++-----------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------------------------+
+; FLP-10501 - Top-Level Ports Without Pin Location Assignment ;
++-------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------+
+; LNT-30023 - Reset Nets with Polarity Conflict ;
++-----------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------------------------+
+; RDC-50003 - Multiple Asynchronous Reset Synchronizers in the Same Clock Domain ;
++--------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++------------------------------------------+
+; TMC-20018 - Unsupported Latches Detected ;
++------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++----------------------------------------------+
+; TMC-20021 - Partial Min-Max Delay Assignment ;
++----------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-----------------------------------------------+
+; TMC-20024 - Synchronous Data Delay Assignment ;
++-----------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++-----------------------------------------------------------------------+
+; TMC-20200 - Paths Failing Setup Analysis with Impossible Requirements ;
++-----------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++---------------------------------------------------------------+
+; TMC-20201 - Paths Failing Setup Analysis with High Clock Skew ;
++---------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++------------------------------------------------------------------------------------------------------+
+; TMC-20206 - DSP Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis ;
++------------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++----------------------------------------------------------------------------------------------------------+
+; TMC-20207 - DSP Blocks with Unregistered Inputs that are the Destination of Paths Failing Setup Analysis ;
++----------------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++------------------------------------------------------------------------------------------------------+
+; TMC-20208 - RAM Blocks with Unregistered Outputs that are the Source of Paths Failing Setup Analysis ;
++------------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++------------------------------------------------------------------------------------+
+; TMC-20209 - Paths Failing Setup Analysis with High Routing Delay due to Congestion ;
++------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++---------------------------------------------------------------------------------+
+; TMC-20210 - Paths Failing Setup Analysis with High Routing Delay Added for Hold ;
++---------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++---------------------------------------------------------------------------+
+; TMC-20212 - Paths Failing Setup Analysis with Global Routing in Data Path ;
++---------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++--------------------------------------------------------------------+
+; TMC-20213 - Paths Failing Setup Analysis with Locally Routed Clock ;
++--------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
+		minimum_number_of_adders = 3
++----------------------------------------------------------------------------------------------------+
+; TMC-20214 - Buses with Incoming Paths Failing Setup Analysis with Multiple Sequential Adder Chains ;
++----------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
+		minimum_number_of_soft_mult_chains = 2
++----------------------------------------------------------------------------------------------------+
+; TMC-20215 - Buses with Incoming Paths Failing Setup Analysis with Multipliers Implemented in Logic ;
++----------------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++-------------------------------------------------------------------------------------+
+; TMC-20216 - Paths Failing Setup Analysis with Inferred-RAM Shift Register Endpoints ;
++-------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Medium
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		maximum_setup_slack = 0
+		to_clock_filter = "*"
++-------------------------------------------------------------+
+; TMC-20217 - Paths Failing Setup Analysis with Clock-As-Data ;
++-------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++--------------------------------------------------------------------+
+; CDC-50008 - CDC Bus Constructed with Multi-bit Synchronizer Chains ;
++--------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-------------------------------------------------+
+; CDC-50101 - Intra-Clock False Path Synchronizer ;
++-------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-----------------------------------------------------------------+
+; CDC-50102 - Synchronizer after CDC Topology with Control Signal ;
++-----------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------+
+; LNT-30010 - Nets Driving both Reset and Clock Enable Signals ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++------------------------------------------------------------+
+; RES-50010 - Reset Synchronizer Chains with Constant Output ;
++------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 500
++-------------------------------------------------------+
+; RES-50101 - Intra-Clock False Path Reset Synchronizer ;
++-------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++-------------------------------------------+
+; TMC-20020 - Invalid Multicycle Assignment ;
++-------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------------------------------------+
+; TMC-20550 - Automatically Selected Duplication Candidate Rejected for Placement Constraint ;
++--------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		avg_dup_fanout = 1000
++-------------------------------------------------------------------------------------------+
+; TMC-20551 - Automatically Selected Duplication Candidate Likely Requires More Duplication ;
++-------------------------------------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	max_violations = 5000
++--------------------------------------------------------------+
+; TMC-20552 - User Selected Duplication Candidate was Rejected ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		minimum_tension = 100000
+		minimum_sinks = 2
++-----------------------------------------------------------+
+; TMC-20601 - Registers with High Immediate Fan-Out Tension ;
++-----------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		minimum_tension = 100000
+		ignore_high_fanout_tension = False
+		minimum_sinks = 2
++--------------------------------------------------------------+
+; TMC-20602 - Registers with High Timing Path Endpoint Tension ;
++--------------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		minimum_span = 250
+		minimum_sinks = 2
++--------------------------------------------------------+
+; TMC-20603 - Registers with High Immediate Fan-Out Span ;
++--------------------------------------------------------+
+
+
+Status:		PASS
+Severity:		Low
+Number of violations: 	0
+Rule Parameters:      	
+		max_violations = 5000
+		minimum_span = 250
+		ignore_high_fanout_span = False
+		minimum_sinks = 2
++-----------------------------------------------------------+
+; TMC-20604 - Registers with High Timing Path Endpoint Span ;
++-----------------------------------------------------------+
+
+

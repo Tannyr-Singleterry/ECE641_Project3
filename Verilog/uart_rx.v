@@ -46,6 +46,7 @@ module uart_rx(ar, clk, rx, data, new_rx);
 
 				Start:
 				begin
+				//wait half a period to sample in the middle of start bit
 					if(ctr < 644 - 1)
 						ctr <= ctr + 1;
 					else
@@ -57,12 +58,13 @@ module uart_rx(ar, clk, rx, data, new_rx);
 
 				Data:
 				begin
+					//wait full period (1289 cycles) then sample. Repeat for all 8 bits. 
 					if(ctr < 1289 - 1)
 						ctr <= ctr + 1;
 					else
 					begin
 						ctr          <= 0;
-						rx_byte[idx] <= rx;
+						rx_byte[idx] <= rx; //Sample rx line at each bit
 						if(idx < 7)
 							idx <= idx + 1;
 						else
@@ -72,13 +74,14 @@ module uart_rx(ar, clk, rx, data, new_rx);
 
 				Stop:
 				begin
+					//wait one full bit period for the stop bit before signalling complete. 
 					if(ctr < 1289 - 1)
 						ctr <= ctr + 1;
 					else
 					begin
 						ctr    <= 0;
-						data   <= rx_byte;
-						new_rx <= 1'b1;
+						data   <= rx_byte; //latch completed byte to output. 
+						new_rx <= 1'b1;		//pulse to ntofiy uart_mgr a new byte is available. 
 						cs     <= Idle;
 					end
 				end

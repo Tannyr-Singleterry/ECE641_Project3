@@ -1,0 +1,613 @@
+Fitter Route Stage Report for golden_top
+Fri Apr 10 23:32:30 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Nets with Highest Wire Count
+  3. Delay Chain Summary
+  4. Routing Usage Summary
+  5. Route Messages
+  6. Estimated Delay Added for Hold Timing Summary
+  7. Estimated Delay Added for Hold Timing Details
+  8. Global Router Wire Utilization Map
+  9. Peak Wire Demand Summary
+ 10. Peak Wire Demand Details
+ 11. Peak Total Grid Crossings
+ 12. Global Router Congestion Hotspot Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-------------------------------------+
+; Nets with Highest Wire Count        ;
++-----+----------------------+--------+
+; Net ; Number of Wires Used ; Fanout ;
++-----+----------------------+--------+
+; ar  ; 209                  ; 220    ;
++-----+----------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                            ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name          ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; KEY[1]        ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; KEY[2]        ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[0]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[1]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[2]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[3]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[4]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[5]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[6]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[7]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[8]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; SW[9]         ; Input    ; --                  ; --                 ; --             ; --                                ; --                                  ;
+; LEDR[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[7]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[8]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; LEDR[9]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX0[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX1[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX2[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX3[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX4[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[0]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[1]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[2]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[3]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[4]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[5]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HEX5[6]       ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_CLK      ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_CKE      ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[0]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[1]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[2]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[3]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[4]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[5]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[6]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[7]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[8]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[9]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[10] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[11] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_ADDR[12] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_BA[0]    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_BA[1]    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_CS_n     ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_WE_n     ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_CAS_n    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_RAS_n    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_DQM[0]   ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_DQM[1]   ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_DQM[2]   ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; DRAM_DQM[3]   ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_CLK   ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_HS    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_VS    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[0]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[1]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[2]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[3]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[4]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[5]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[6]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[7]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[8]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[9]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[10] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[11] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[12] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[13] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[14] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[15] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[16] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[17] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[18] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[19] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[20] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[21] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[22] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_D[23] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; HDMI_TX_DE    ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; FPGA_UART_TX  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; GPIO_D[0]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[1]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[2]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[3]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[4]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[5]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[6]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[7]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[8]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[9]     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[10]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[11]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[12]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[13]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[14]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[15]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[16]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[17]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[18]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[19]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[20]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[21]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[22]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[23]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[24]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[25]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[26]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[27]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[28]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[29]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[30]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[31]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[32]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[33]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[34]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; GPIO_D[35]    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[0]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[1]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[2]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[3]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[4]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[5]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[6]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[7]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[8]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[9]    ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[10]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[11]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[12]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[13]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[14]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[15]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[16]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[17]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[18]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[19]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[20]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[21]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[22]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[23]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[24]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[25]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[26]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[27]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[28]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[29]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[30]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; DRAM_DQ[31]   ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; HDMI_LRCLK    ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; HDMI_MCLK     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; HDMI_SCLK     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; HDMI_I2S0     ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; FPGA_I2C_SCL  ; Bidir    ; --                  ; 0                  ; 0              ; --                                ; --                                  ;
+; FPGA_I2C_SDA  ; Bidir    ; 0                   ; 0                  ; 0              ; --                                ; --                                  ;
+; CLOCK0_50     ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; KEY[0]        ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; CLOCK1_50     ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; HDMI_TX_INT   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; KEY[3]        ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; FPGA_UART_RX  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++---------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------------+
+; Routing Usage Summary                                            ;
++--------------------------------------+---------------------------+
+; Routing Resource Type                ; Usage                     ;
++--------------------------------------+---------------------------+
+; Block Input Mux Wrapbacks            ; 19 / 43,616 ( < 1 % )     ;
+; Block Input Muxes                    ; 7,146 / 500,456 ( 1 % )   ;
+; Block interconnects                  ; 5,473 / 526,400 ( 1 % )   ;
+; C1 interconnects                     ; 1,897 / 234,240 ( < 1 % ) ;
+; C4 interconnects                     ; 714 / 229,360 ( < 1 % )   ;
+; C8 interconnects                     ; 34 / 22,936 ( < 1 % )     ;
+; DCM_muxes                            ; 5 / 216 ( 2 % )           ;
+; DELAY_CHAINs                         ; 0 / 1,262 ( 0 % )         ;
+; Direct links                         ; 1,314 / 526,400 ( < 1 % ) ;
+; HIO Buffers                          ; 38 / 10,528 ( < 1 % )     ;
+; IO75XDDRFMXCKTREE_CLKDRV_BIG_VCO_REs ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_GM0_REs     ; 0 / 8 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_INPUTs  ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_CLKDRV_VCO_OUTPUTs ; 0 / 4 ( 0 % )             ;
+; IO75XDDRFMXCKTREE_FB_MUX31_REs       ; 0 / 24 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_INPUTs            ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_C2P_BUF_OUTPUTs           ; 0 / 66 ( 0 % )            ;
+; IOFBRADAPT_FRZ_BUFS_REs              ; 0 / 308 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_INPUTs            ; 0 / 142 ( 0 % )           ;
+; IOFBRADAPT_P2C_BUF_OUTPUTs           ; 0 / 142 ( 0 % )           ;
+; Programmable Invert Buffers          ; 0 / 208 ( 0 % )           ;
+; Programmable Invert Inputs           ; 436 / 57,078 ( < 1 % )    ;
+; Programmable Inverts                 ; 436 / 57,078 ( < 1 % )    ;
+; R0 interconnects                     ; 2,860 / 401,380 ( < 1 % ) ;
+; R1 interconnects                     ; 1,927 / 229,360 ( < 1 % ) ;
+; R12 interconnects                    ; 16 / 34,404 ( < 1 % )     ;
+; R2 interconnects                     ; 633 / 115,620 ( < 1 % )   ;
+; R4 interconnects                     ; 279 / 117,500 ( < 1 % )   ;
+; R6 interconnects                     ; 142 / 118,440 ( < 1 % )   ;
+; Redundancy Muxes                     ; 182 / 20,728 ( < 1 % )    ;
+; Row Clock Tap-Offs                   ; 146 / 34,404 ( < 1 % )    ;
+; Switchbox_clock_muxes                ; 13 / 1,920 ( < 1 % )      ;
+; VIO Buffers                          ; 2 / 8,320 ( < 1 % )       ;
+; Vertical_seam_tap_muxes              ; 12 / 576 ( 2 % )          ;
++--------------------------------------+---------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+    Info: Processing started: Fri Apr 10 23:29:35 2026
+    Info: System process ID: 11852
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = golden_top
+Info: Revision = golden_top
+Info (22300): Design uses Placement Effort Multiplier = 0.8.
+Info (170193): Fitter routing operations beginning
+Info (20215): Router estimated peak short interconnect demand : 15% of right directional wire in region X108_Y16 to X119_Y23
+    Info (20265): Estimated peak short right directional wire demand : 15% in region X108_Y16 to X119_Y23
+    Info (20265): Estimated peak short left directional wire demand : 0% in region X108_Y48 to X119_Y54
+    Info (20265): Estimated peak short up directional wire demand : 2% in region X120_Y24 to X122_Y31
+    Info (20265): Estimated peak short down directional wire demand : 5% in region X120_Y16 to X122_Y23
+Info (20215): Router estimated peak long high speed interconnect demand : 97% of left directional wire in region X120_Y16 to X122_Y23
+    Info (20265): Estimated peak long high speed right directional wire demand : 83% in region X108_Y24 to X119_Y31
+    Info (20265): Estimated peak long high speed left directional wire demand : 97% in region X120_Y16 to X122_Y23
+    Info (20265): Estimated peak long high speed up directional wire demand : 66% in region X108_Y16 to X119_Y23
+    Info (20265): Estimated peak long high speed down directional wire demand : 80% in region X108_Y16 to X119_Y23
+    Info (20315): Note that the router may use short wires to implement long connections at higher delay
+Info (170239): Router is attempting to preserve 0.20 percent of routes from an earlier compilation, a user specified Routing Constraints File, or internal routing requirements.
+Info (21076): High junction temperature operating condition is not set. Assuming a default value of '100'.
+Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (11888): Total time spent on timing analysis during Routing is 0.58 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:00:31
+
+
++-------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary                                 ;
++-----------------------------+-----------------------------+-------------------+
+; Source Clock(s)             ; Destination Clock(s)        ; Delay Added in ns ;
++-----------------------------+-----------------------------+-------------------+
+; u_VEDIO_PLL|iopll_0_outclk0 ; u_VEDIO_PLL|iopll_0_outclk0 ; 2.6               ;
++-----------------------------+-----------------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                        ;
++--------------------------------------------------+-----------------------------------------------+-------------------+
+; Source Register                                  ; Destination Register                          ; Delay Added in ns ;
++--------------------------------------------------+-----------------------------------------------+-------------------+
+; sdram_mgr_inst|rd_data_fifo|wr_ptr_gray[0]       ; sdram_mgr_inst|rd_data_fifo|wr_ptr_gray_s1[0] ; 0.108             ;
+; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray[3]       ; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray_s1[3] ; 0.096             ;
+; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray[8]       ; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray_s1[8] ; 0.064             ;
+; sdram_mgr_inst|wr_addr_fifo|wr_ptr_gray[2]       ; sdram_mgr_inst|wr_addr_fifo|wr_ptr_gray_s1[2] ; 0.038             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[0]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[4]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[3]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[6]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[5]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[9]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[10] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[1]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[14] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[8]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[7]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[12] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[2]  ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[11] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[16] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[20] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[13] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[15] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[19] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[17] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[18] ; sdram_mgr_inst|hdmi_pixel_b[3]                ; 0.033             ;
+; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray[5]       ; sdram_mgr_inst|rd_data_fifo|rd_ptr_gray_s1[5] ; 0.028             ;
+; sdram_mgr_inst|rd_addr_fifo|wr_ptr_gray[0]       ; sdram_mgr_inst|rd_addr_fifo|wr_ptr_gray_s1[0] ; 0.018             ;
++--------------------------------------------------+-----------------------------------------------+-------------------+
+Note: This table only shows the top 27 path(s) that have the largest delay added for hold.
+
+
+--------------------------------------
+; Global Router Wire Utilization Map ;
+--------------------------------------
+This report is unavailable in plain text report export.
+
+
++-------------------------------------------------------------------------------+
+; Peak Wire Demand Summary                                                      ;
++-----------------+-----------+-----------------------------------+-------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ;
++-----------------+-----------+-----------------------------------+-------------+
+; short           ; right     ; [(108, 16), (119, 23)]            ; 15.417 %    ;
+; short           ; left      ; [(108, 48), (119, 54)]            ; 0.179 %     ;
+; short           ; up        ; [(120, 24), (122, 31)]            ; 2.500 %     ;
+; short           ; down      ; [(120, 16), (122, 23)]            ; 5.833 %     ;
+; long high speed ; right     ; [(108, 24), (119, 31)]            ; 83.333 %    ;
+; long high speed ; left      ; [(120, 16), (122, 23)]            ; 97.917 %    ;
+; long high speed ; up        ; [(108, 16), (119, 23)]            ; 66.071 %    ;
+; long high speed ; down      ; [(108, 16), (119, 23)]            ; 80.952 %    ;
++-----------------+-----------+-----------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Peak Wire Demand Details                                                                                                        ;
++-----------------+-----------+-----------------------------------+-------------+-------------------------------------------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ; Net Names                                       ;
++-----------------+-----------+-----------------------------------+-------------+-------------------------------------------------+
+; short           ; right     ; [(108, 16), (119, 23)]            ; 15.417 %    ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[1]                                 ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[0]                                 ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[0]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[1]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[2]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[3]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[4]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[5]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[6]           ;
+; short           ; right     ; [(108, 16), (119, 23)]            ; 15.417 %    ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; KEY[0]~input                                    ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[14]                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|state.S_WRITE_BURST             ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[13]                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|state.S_WRITE_CMD               ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[15]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[1]                                 ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[0]                                 ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[0]           ;
+; short           ; left      ; [(108, 48), (119, 54)]            ; 0.179 %     ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|busy                            ;
+; short           ; left      ; [(108, 48), (119, 54)]            ; 0.179 %     ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|busy                            ;
+; short           ; up        ; [(120, 24), (122, 31)]            ; 2.500 %     ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~41                                ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~42                                ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~44                                ;
+; short           ; up        ; [(120, 24), (122, 31)]            ; 2.500 %     ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~41                                ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~42                                ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[16]~44                                ;
+; short           ; down      ; [(120, 16), (122, 23)]            ; 5.833 %     ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[13]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[15]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[14]                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[1]                   ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[3]                   ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[12]                  ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[13]                  ;
+; short           ; down      ; [(120, 16), (122, 23)]            ; 5.833 %     ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[13]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[15]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[14]                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[1]                   ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[3]                   ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[12]                  ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[13]                  ;
+; long high speed ; right     ; [(108, 24), (119, 31)]            ; 83.333 %    ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; u_vpg|u_vga_generator|vga_hs                    ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~24                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~25                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~26                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~27                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~29                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~30                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~32                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~33                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~36                                 ;
+; long high speed ; right     ; [(108, 24), (119, 31)]            ; 83.333 %    ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; u_vpg|u_vga_generator|vga_hs                    ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~24                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~25                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~27                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~29                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[0]~30                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~32                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~33                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~36                                 ;
+;     --          ;           ;                                   ;             ; HDMI_TX_D[8]~39                                 ;
+; long high speed ; left      ; [(120, 16), (122, 23)]            ; 97.917 %    ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|i61~0               ;
+;     --          ;           ;                                   ;             ; FPGA_UART_RX~input                              ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|hdmi_cs.HDMI_Prefill             ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[11]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[12]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[14]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[16]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[17]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[18]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[19]                     ;
+; long high speed ; left      ; [(120, 16), (122, 23)]            ; 97.917 %    ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; FPGA_UART_RX~input                              ;
+;     --          ;           ;                                   ;             ; mgr_inst|Select_65~37xsyn                       ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|mem_rtl_0_bypass[0] ;
+;     --          ;           ;                                   ;             ; mgr_inst|Select_65~21xsyn                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[12]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[14]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[16]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[17]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[18]                     ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|rd_data[19]                     ;
+; long high speed ; up        ; [(108, 16), (119, 23)]            ; 66.071 %    ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; mgr_inst|cs.CR_Ror_W                            ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[1]                                 ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|i64                 ;
+;     --          ;           ;                                   ;             ; mgr_inst|idx[0]                                 ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[0]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[1]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[2]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[3]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|rd_data_fifo|wr_ptr[4]           ;
+; long high speed ; up        ; [(108, 16), (119, 23)]            ; 66.071 %    ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|busy                            ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[3]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[6]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[4]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[0]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[1]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[7]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[5]                        ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[2]                        ;
+; long high speed ; down      ; [(108, 16), (119, 23)]            ; 80.952 %    ;    High Routing Fan-Out                         ;
+;     --          ;           ;                                   ;             ; ~GND                                            ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[0]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[1]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[2]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[3]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[4]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[5]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[6]           ;
+;     --          ;           ;                                   ;             ; sdram_mgr_inst|wr_data_fifo|wr_ptr[7]           ;
+; long high speed ; down      ; [(108, 16), (119, 23)]            ; 80.952 %    ;    Long Distance                                ;
+;     --          ;           ;                                   ;             ; ar                                              ;
+;     --          ;           ;                                   ;             ; KEY[0]~input                                    ;
+;     --          ;           ;                                   ;             ; u_vpg|u_vga_generator|vga_hs                    ;
+;     --          ;           ;                                   ;             ; hex3_inst|segs[0]~0                             ;
+;     --          ;           ;                                   ;             ; hex2_inst|segs[6]~6                             ;
+;     --          ;           ;                                   ;             ; hex2_inst|segs[5]~5                             ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[18]                       ;
+;     --          ;           ;                                   ;             ; sdram_ctrl_inst|dq_out_reg[15]                  ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[16]                       ;
+;     --          ;           ;                                   ;             ; mgr_inst|control_reg0[17]                       ;
++-----------------+-----------+-----------------------------------+-------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Peak Total Grid Crossings                                         ;
++--------------------------------------------+----------------------+
+; Net Name                                   ; Total Grid Crossings ;
++--------------------------------------------+----------------------+
+; ar                                         ; 15                   ;
+; KEY[0]~input                               ; 11                   ;
+; sdram_ctrl_inst|busy                       ; 6                    ;
+; mgr_inst|control_reg0[5]                   ; 5                    ;
+; mgr_inst|control_reg0[2]                   ; 5                    ;
+; mgr_inst|control_reg0[7]                   ; 5                    ;
+; mgr_inst|control_reg0[3]                   ; 5                    ;
+; mgr_inst|control_reg0[6]                   ; 5                    ;
+; mgr_inst|control_reg0[4]                   ; 5                    ;
+; mgr_inst|control_reg0[0]                   ; 5                    ;
+; mgr_inst|control_reg0[1]                   ; 5                    ;
+; u_vpg|u_vga_generator|vga_hs               ; 5                    ;
+; u_I2C_HDMI_Config|u0|SDO                   ; 5                    ;
+; u_I2C_HDMI_Config|u0|I2C_SCLK_             ; 5                    ;
+; mgr_inst|control_reg0[10]                  ; 4                    ;
+; mgr_inst|control_reg0[8]                   ; 4                    ;
+; mgr_inst|control_reg0[9]                   ; 4                    ;
+; mgr_inst|control_reg0[11]                  ; 4                    ;
+; HDMI_TX_INT~input                          ; 4                    ;
+; FPGA_I2C_SDA~input                         ; 4                    ;
+; uart_tx_inst|tx                            ; 4                    ;
+; u_vpg|u_vga_generator|vga_de               ; 4                    ;
+; HDMI_TX_D[16]~43                           ; 4                    ;
+; HDMI_TX_D[8]~35                            ; 4                    ;
+; HDMI_TX_D[8]~34                            ; 4                    ;
+; HDMI_TX_D[0]~31                            ; 4                    ;
+; HDMI_TX_D[0]~28                            ; 4                    ;
+; u_vpg|u_vga_generator|vga_vs               ; 4                    ;
+; hex5_inst|segs[6]~6                        ; 4                    ;
+; hex5_inst|segs[5]~5                        ; 4                    ;
+; uart_tx_inst|tx_busy                       ; 4                    ;
+; uart_rx_inst|new_rx                        ; 4                    ;
+; u_VEDIO_PLL|iopll_0|tennm_ph2_iopll~O_LOCK ; 4                    ;
+; u_I2C_HDMI_Config|LessThan_1~0             ; 3                    ;
+; HDMI_TX_D[16]~47                           ; 3                    ;
+; HDMI_TX_D[16]~44                           ; 3                    ;
+; HDMI_TX_D[16]~42                           ; 3                    ;
+; HDMI_TX_D[16]~41                           ; 3                    ;
+; HDMI_TX_D[8]~39                            ; 3                    ;
+; HDMI_TX_D[8]~36                            ; 3                    ;
+; HDMI_TX_D[8]~33                            ; 3                    ;
+; HDMI_TX_D[8]~32                            ; 3                    ;
+; HDMI_TX_D[0]~30                            ; 3                    ;
+; HDMI_TX_D[0]~29                            ; 3                    ;
+; HDMI_TX_D[0]~27                            ; 3                    ;
+; HDMI_TX_D[0]~25                            ; 3                    ;
+; HDMI_TX_D[0]~24                            ; 3                    ;
+; hex3_inst|segs[0]~0                        ; 3                    ;
+; hex2_inst|segs[6]~6                        ; 3                    ;
+; hex2_inst|segs[5]~5                        ; 3                    ;
++--------------------------------------------+----------------------+
+
+
+--------------------------------------------
+; Global Router Congestion Hotspot Summary ;
+--------------------------------------------
+No congestion hotspots found where global router short wire usage exceeded 100%.
+If the design is hard to route, use other techniques to analyze congestion. Refer to the Estimated Delay Added for Hold Timing section in the Fitter report and routing utilization in the Chip Planner.
+
+

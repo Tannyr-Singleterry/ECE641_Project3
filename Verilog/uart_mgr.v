@@ -31,15 +31,17 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 	input sdram_rd_data_valid;
 	input [31:0] sdram_rd_data;
 	
+	//Command. Checks the incoming byte against ASCII value per command. 
 	reg [3:0] data_value;
 	wire R, W, W_bulk, A, C;
 	
-	assign R = (rx_word == 8'h52 || rx_word == 8'h72) ? 1'b1 : 1'b0;
-	assign W = (rx_word == 8'h57) ? 1'b1 : 1'b0;
-	assign W_bulk = (rx_word == 8'h77) ? 1'b1 : 1'b0;
-	assign A = (rx_word == 8'h41 || rx_word == 8'h61) ? 1'b1 : 1'b0;
-	assign C = (rx_word == 8'h43 || rx_word == 8'h63) ? 1'b1 : 1'b0;
+	assign R = (rx_word == 8'h52 || rx_word == 8'h72) ? 1'b1 : 1'b0; // R or r for read
+	assign W = (rx_word == 8'h57) ? 1'b1 : 1'b0; //W for normal write in terminal.
+	assign W_bulk = (rx_word == 8'h77) ? 1'b1 : 1'b0; //w my solution for reading in the burst write file. 
+	assign A = (rx_word == 8'h41 || rx_word == 8'h61) ? 1'b1 : 1'b0; // A or a for address
+	assign C = (rx_word == 8'h43 || rx_word == 8'h63) ? 1'b1 : 1'b0; // C or c for control register
 	
+	//ASCII converter. 0-9, A-F, a-f, converts to 4 bit binary value.
 	always @(rx_word)
 		case(rx_word)
 			8'h30: data_value = 4'h0;
@@ -70,6 +72,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 	reg rxnew_old, txdone_old;
 	wire rxnew_posedge, txdone_posedge;
 	
+	//Decect edge for registers. 
 	always @(negedge ar or posedge clk)
 		if(~ar)
 		begin
@@ -85,6 +88,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 	assign rxnew_posedge = new_rx & ~rxnew_old;
 	assign txdone_posedge = tx_done & ~txdone_old;
 	
+	//FSM states. 
 	parameter [4:0] Idle = 5'd0, Command_Type = 5'd1, Read_Mem = 5'd2, Write_Mem = 5'd3,
 					Address_Mem = 5'd4, Control_Reg = 5'd5, Wait_Mem = 5'd6, 
 					Tx_Mem_Byte = 5'd7, Wait_Tx_Mem = 5'd8, Mem_Incr_Addr = 5'd9, 
@@ -94,13 +98,14 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					Bulk_Write = 5'd21, Bulk_Get_Addr = 5'd22, Bulk_Get_Data = 5'd23;
 					
 	reg [4:0] cs;
-	reg [11:0] ctr;
-	reg [1:0] idx;
-	reg [31:0] tx_reg;
-	reg [31:0] buffer;
+	reg [11:0] ctr; //General counter. is 12 bits ot handle bulk write. 
+	reg [1:0] idx;	//Control register index (0-3)
+	reg [31:0] tx_reg; //shift reg used to serialize 32 bit value for trasmit
+	reg [31:0] buffer; 
 	reg is_read;
-	reg [23:0] current_addr;
+	reg [23:0] current_addr; //Tracks current SDAM address. 
 	
+	//Converts 4 bit binary to ASCII hex
 	function [7:0] binary_to_hex;
 		input [3:0] bin;
 		begin
@@ -155,6 +160,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				//Decode which command was recieved and go to relative state. 
 				Command_Type:
 				begin
 					if(R)
@@ -178,6 +184,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					cs <= Wait_Mem;
 				end
 				
+				//Wait for sdram_mgr to return valid read data before going to tx.
 				Wait_Mem:
 				begin
 					if(sdram_rd_data_valid)
@@ -188,13 +195,15 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				//Load next 4 bits into tx_word and shfit tx_reg left, ready to tx. 
 				Prep_Tx_Mem:
 				begin
 					tx_word <= binary_to_hex(tx_reg[31:28]);
 					tx_reg <= {tx_reg[27:0], 4'h0};
 					cs <= Tx_Mem_Byte;
 				end
-
+				
+				//Separate state to assert tx_start so tx_word is stable for a full cycle before tx. 
 				Tx_Mem_Byte:
 				begin
 					tx_start <= 1'b1;
@@ -215,6 +224,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				//Increment current addres after each read or write and put into control_reg0. 
 				Mem_Incr_Addr:
 				begin
 					current_addr <= current_addr + 1;
@@ -229,6 +239,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					cs <= Get_Write_Data_Mem;
 				end
 				
+				//Recieve 8 hex 4 bit values and shfit them into buffer to form 32 bit word for write. 
 				Get_Write_Data_Mem:
 				begin
 					if(rxnew_posedge)
@@ -241,6 +252,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end	
 				end
 				
+				//Issue the write address and data to the SDRAM FIFO in a single cycle. 
 				Write_Mem_Cmd:
 				begin
 					sdram_wr_addr <= current_addr;
@@ -257,6 +269,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					cs <= Get_Mem_Addr;
 				end
 				
+				//Recieve 6 hex 4 bit values to form the new 24 bit SDRAM address
 				Get_Mem_Addr:
 				begin
 					if(rxnew_posedge)
@@ -273,6 +286,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				// Receive the register number (0-3) to determine which control reg to access. 
 				Control_Reg:
 				begin
 					if(rxnew_posedge)
@@ -287,6 +301,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				//Recieve R or W to determine whether to read or write the selected control reg. 
 				CR_Ror_W:
 				begin
 					if(rxnew_posedge)
@@ -342,6 +357,7 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 				
+				//Recieve 8 hex 4 bit valuies and write the assembled 32 bit value into the relative control register. 
 				Rx_CR_Byte:
 				begin
 					if(rxnew_posedge)
@@ -369,7 +385,8 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					buffer <= 32'd0;
 					cs <= Bulk_Get_Addr;
 				end
-
+				
+				//Recieve 6 hex 4 bit values to form the 24 bit starting address. 
 				Bulk_Get_Addr:
 				begin
 					if(rxnew_posedge)
@@ -390,6 +407,8 @@ module uart_mgr(ar, clk, new_rx, tx_done, tx_start, rx_word, tx_word, control_re
 					end
 				end
 
+				//Recieve the 512 x 24 bit value (4096)
+				//Assert wr_data_valid every 24 bits to push each word into the FIFO. 
 				Bulk_Get_Data:
 				begin
 					if(rxnew_posedge)

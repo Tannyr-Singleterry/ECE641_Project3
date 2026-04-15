@@ -32,17 +32,20 @@ module fifo_24_dc(wrclk, rdclk, aclr, wrreq, rdreq, data, q, wrempty, wrfull, rd
 	reg [AW:0] rd_ptr;
 	reg [AW:0] rd_ptr_gray;
 
-	// Synchronizers
+	// Synchronizers for gray code
 	reg [AW:0] wr_ptr_gray_s1, wr_ptr_gray_s2;
 	reg [AW:0] rd_ptr_gray_s1, rd_ptr_gray_s2;
-
+	
+	//Converts binary to Gray code so only one bit changes per increment
+	//mkaing easier to synch clock domains
 	function [AW:0] bin2gray;
 		input [AW:0] b;
 		begin
 			bin2gray = b ^ (b >> 1);
 		end
 	endfunction
-
+	
+	//Converts gray code to binary.
 	function [AW:0] gray2bin;
 		input [AW:0] g;
 		integer i;

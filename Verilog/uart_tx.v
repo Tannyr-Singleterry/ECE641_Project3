@@ -29,7 +29,7 @@ module uart_tx(ar, clk, data, tx_start, tx, tx_busy);
 			ctr     <= 0;
 			idx     <= 0;
 			tx_byte <= 8'd0;
-			tx      <= 1'b1;
+			tx      <= 1'b1; //tx line idles high. 
 			tx_busy <= 1'b0;
 		end
 		else
@@ -41,8 +41,8 @@ module uart_tx(ar, clk, data, tx_start, tx, tx_busy);
 				idx     <= 0;
 				tx_busy <= 1'b0;
 				if(tx_start)
-				begin
-					tx_byte <= data;
+				begin 
+					tx_byte <= data; //latch data on tx_start so it is stable for full tx. 
 					tx_busy <= 1'b1;
 					cs      <= Start;
 				end
@@ -50,7 +50,7 @@ module uart_tx(ar, clk, data, tx_start, tx, tx_busy);
 
 			Start:
 			begin
-				tx <= 1'b0;
+				tx <= 1'b0; //pull tx low for one bit period to signal start bit. 
 				if(ctr < 1289 - 1)
 					ctr <= ctr + 1;
 				else
@@ -62,7 +62,7 @@ module uart_tx(ar, clk, data, tx_start, tx, tx_busy);
 
 			Data:
 			begin
-				tx <= tx_byte[idx];
+				tx <= tx_byte[idx]; //transmit LSB first, one bit per 1289 cycle period
 				if(ctr < 1289 - 1)
 					ctr <= ctr + 1;
 				else
@@ -77,7 +77,7 @@ module uart_tx(ar, clk, data, tx_start, tx, tx_busy);
 
 			Stop:
 			begin
-				tx <= 1'b1;
+				tx <= 1'b1; //drive tx high for one bit period as the stop bit
 				if(ctr < 1289 - 1)
 					ctr <= ctr + 1;
 				else

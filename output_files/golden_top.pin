@@ -1,0 +1,558 @@
+ -- Copyright (C) 2025  Altera Corporation. All rights reserved.
+ -- Your use of Altera Corporation's design tools, logic functions 
+ -- and other software and tools, and any partner logic 
+ -- functions, and any output files from any of the foregoing 
+ -- (including device programming or simulation files), and any 
+ -- associated documentation or information are expressly subject 
+ -- to the terms and conditions of the Altera Program License 
+ -- Subscription Agreement, the Altera Quartus Prime License Agreement,
+ -- the Altera IP License Agreement, or other applicable license
+ -- agreement, including, without limitation, that your use is for
+ -- the sole purpose of programming logic devices manufactured by
+ -- Altera and sold by Altera or its authorized distributors.  Please
+ -- refer to the Altera Software License Subscription Agreements 
+ -- on the Quartus Prime software download page.
+ -- 
+ -- This is a Quartus Prime output file. It is for reporting purposes only, and is
+ -- not intended for use as a Quartus Prime input file. This file cannot be used
+ -- to make Quartus Prime pin assignments - for instructions on how to make pin
+ -- assignments, please see Quartus Prime help.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- NC            : No Connect. This pin has no internal connection to the device.
+ -- DNU           : Do Not Use. This pin MUST NOT be connected.
+ -- VCCINT        : Dedicated power pin, which MUST be connected to VCC  (FIX6).
+ -- VCCIO         : Dedicated power pin, which MUST be connected to specific voltage
+ --                 of its bank.
+ --                  Bank 3A_T:       1.2V
+ --                  Bank 3A_B:       1.2V
+ --                  Bank 6A:  1.8V
+ --                  Bank 6B:  1.8V
+ --                  Bank 6C:  3.3V
+ --                  Bank 6D:  3.3V
+ --                  Bank 6E:  3.3V
+ --                  Bank 6F:  1.8V
+ --                  Bank 6G:  3.3V
+ --                  Bank 6H:  3.3V
+ -- GND           : Dedicated ground pin. Dedicated GND pins MUST be connected to GND.
+ --                  It can also be used to report unused dedicated pins. The connection
+ --                  on the board for unused dedicated pins depends on whether this will
+ --                  be used in a future design. One example is device migration. When
+ --                  using device migration, refer to the device pin-tables. If it is a
+ --                  GND pin in the pin table or if it will not be used in a future design
+ --                  for another purpose the it MUST be connected to GND. If it is an unused
+ --                  dedicated pin, then it can be connected to a valid signal on the board
+ --                  (low, high, or toggling) if that signal is required for a different
+ --                  revision of the design.
+ -- GND+          : Unused input pin. It can also be used to report unused dual-purpose pins.
+ --                  This pin should be connected to GND. It may also be connected  to a
+ --                  valid signal  on the board  (low, high, or toggling)  if that signal
+ --                  is required for a different revision of the design.
+ -- RESERVED      : Unused I/O pin, which MUST be left unconnected.
+ -- RESERVED_INPUT    : Pin is tri-stated and should be connected to the board.
+ -- RESERVED_INPUT_WITHOUT_WEAK_PULLUP : Pin is tri-stated without internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_WEAK_PULLUP    : Pin is tri-stated with internal weak pull-up resistor.
+ -- RESERVED_INPUT_WITH_BUS_HOLD       : Pin is tri-stated with bus-hold circuitry.
+ -- RESERVED_OUTPUT_DRIVEN_HIGH        : Pin is output driven high.
+ -- VREFP_ADC      : If no external reference is supplied, always connect the VREFP_ADC pin to GND.
+ --                  See Pin Connection Guidelines for details.
+ -- VREFN_ADC      : If no external reference is supplied, always connect the VREFN_ADC pin to GND.
+ --                  See Pin Connection Guidelines for details.
+ -- VSIGP          : Tie this pin to GND if you do not use the Voltage Sensor feature.
+ --                  See Pin Connection Guidelines for details.
+ -- VSIGN          : Tie this pin to GND if you do not use the Voltage Sensor feature.
+ --                  See Pin Connection Guidelines for details.
+ -- DTS_CALIB      : Pins are used for Calibration of the temperature sensor during manufacturing.
+ --                  They can be left open on board when not in use.
+ -- RREF_SDM       : Pin is reference resister input for the PLLs of the SDM interface. 
+ --                  See Pin Connection Guidelines for details.
+ ---------------------------------------------------------------------------------
+
+
+
+ ---------------------------------------------------------------------------------
+ -- Pin directions (input, output or bidir) are based on device operating in user mode.
+ ---------------------------------------------------------------------------------
+
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+CHIP  "golden_top"  ASSIGNED TO AN: A3CZ135BB18AE7S
+
+Pin Name/Usage               : Location  : Dir.   : I/O Standard      : Voltage : I/O Bank  : User Assignment : Package Delay
+-----------------------------------------------------------------------------------------------------------------------------
+GND                          : A3        : gnd    :                   :         :           :                 : --           
+GND                          : A5        : gnd    :                   :         :           :                 : --           
+CLOCK1_50                    : A8        : input  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 85ps         
+GPIO_D[19]                   : A9        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 83ps         
+GPIO_D[21]                   : A11       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 78ps         
+GPIO_D[23]                   : A14       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 83ps         
+GND                          : A16       : gnd    :                   :         :           :                 : --           
+LEDR[4]                      : A19       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 72ps         
+HDMI_TX_CLK                  : A22       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 72ps         
+LEDR[6]                      : A24       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 70ps         
+SW[5]                        : A26       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 72ps         
+GND                          : A27       : gnd    :                   :         :           :                 : --           
+SW[7]                        : A29       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 80ps         
+HEX2[2]                      : A31       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 82ps         
+SW[9]                        : A34       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 84ps         
+SW[0]                        : A37       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 81ps         
+GND                          : A39       : gnd    :                   :         :           :                 : --           
+SW[3]                        : A42       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 89ps         
+LEDR[7]                      : A44       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 93ps         
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : A45       :        :                   : 1.2V    : 3A_T      :                 : 105ps        
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : A47       :        :                   : 1.2V    : 3A_T      :                 : 109ps        
+GND                          : A50       : gnd    :                   :         :           :                 : --           
+GND                          : A51       : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[7]                 : AA4       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 53ps         
+HDMI_TX_D[5]                 : AA6       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 47ps         
+TCK                          : AA48      : input  :                   :         : SDM       :                 : 126ps        
+TDI                          : AA49      : input  :                   :         : SDM       :                 : 123ps        
+HDMI_TX_D[8]                 : AB9       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 75ps         
+GND                          : AB12      : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6H                : AB15      : power  :                   : 3.3V    : 6H        :                 : --           
+VCCIO_HVIO_6H                : AB17      : power  :                   : 3.3V    : 6H        :                 : --           
+GND                          : AB20      : gnd    :                   :         :           :                 : --           
+DNU                          : AB23      :        :                   :         :           :                 : --           
+VCC                          : AB25      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AB28      : gnd    :                   :         :           :                 : --           
+VCC                          : AB30      : power  :                   : 0.75V   :           :                 : --           
+VCC                          : AB33      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AB36      : gnd    :                   :         :           :                 : --           
+VCCRCORE                     : AB38      : power  :                   : 1.2V    :           :                 : --           
+GND                          : AB41      : gnd    :                   :         :           :                 : --           
+NC                           : AB44      :        :                   :         :           :                 : --           
+HDMI_TX_D[9]                 : AC1       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 56ps         
+HDMI_TX_D[0]                 : AC2       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 52ps         
+GND                          : AC51      : gnd    :                   :         :           :                 : --           
+RREF_SDM                     : AC52      :        :                   :         : SDM       :                 : 111ps        
+GND                          : AD4       : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[6]                 : AD6       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 48ps         
+TDO                          : AD48      : output :                   :         : SDM       :                 : 130ps        
+TMS                          : AD49      : input  :                   :         : SDM       :                 : 120ps        
+GND                          : AE9       : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[19]                : AE12      : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 88ps         
+VCCIO_HVIO_6G                : AE15      : power  :                   : 3.3V    : 6G        :                 : --           
+GND                          : AE17      : gnd    :                   :         :           :                 : --           
+VCCPT_HVIO                   : AE20      : power  :                   : 1.8V    :           :                 : --           
+VCC                          : AE23      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AE25      : gnd    :                   :         :           :                 : --           
+VCC                          : AE28      : power  :                   : 0.75V   :           :                 : --           
+VCC                          : AE30      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AE33      : gnd    :                   :         :           :                 : --           
+VCC                          : AE36      : power  :                   : 0.75V   :           :                 : --           
+VCCRCORE                     : AE38      : power  :                   : 1.2V    :           :                 : --           
+NC                           : AE41      :        :                   :         :           :                 : --           
+NC                           : AE44      :        :                   :         :           :                 : --           
+HDMI_TX_D[11]                : AF1       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 55ps         
+HDMI_TX_D[10]                : AF2       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 49ps         
+GND                          : AF51      : gnd    :                   :         :           :                 : --           
+GND                          : AF52      : gnd    :                   :         :           :                 : --           
+GND                          : AG1       : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[12]                : AG2       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 48ps         
+VSIGP_0                      : AG51      :        :                   :         : SDM       :                 : 107ps        
+VSIGN_0                      : AG52      :        :                   :         : SDM       :                 : 109ps        
+HDMI_TX_D[20]                : AH9       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 53ps         
+HDMI_TX_D[23]                : AH12      : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 70ps         
+GND                          : AH15      : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6G                : AH17      : power  :                   : 3.3V    : 6G        :                 : --           
+VCCPT_HVIO                   : AH20      : power  :                   : 1.8V    :           :                 : --           
+GND                          : AH23      : gnd    :                   :         :           :                 : --           
+VCC                          : AH25      : power  :                   : 0.75V   :           :                 : --           
+VCC                          : AH28      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AH30      : gnd    :                   :         :           :                 : --           
+VCCLSENSE                    : AH33      :        :                   :         :           :                 : --           
+VCC                          : AH36      : power  :                   : 0.75V   :           :                 : --           
+VCC_HSSI_L1                  : AH38      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AH41      : gnd    :                   :         :           :                 : --           
+~ALTERA_AS_nCSO0,ALTERA_MSEL0~ : AH44      : output, input : 1.8-V             :         : SDM       : N               : 137ps        
+HDMI_TX_D[21]                : AJ4       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 48ps         
+HDMI_TX_D[22]                : AJ6       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 44ps         
+nSTATUS                      : AJ48      :        :                   :         : SDM       :                 : 125ps        
+GND                          : AJ49      : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[13]                : AK1       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 55ps         
+HDMI_TX_D[14]                : AK2       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 55ps         
+VREFN_ADC                    : AK51      :        :                   :         : SDM       :                 : 92ps         
+VREFP_ADC                    : AK52      :        :                   :         : SDM       :                 : 91ps         
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : AL9       :        :                   : 3.3V    : 6G        :                 : 53ps         
+HDMI_TX_INT                  : AL12      : input  : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 70ps         
+VCCIO_HVIO_6F                : AL15      : power  :                   : 1.8V    : 6F        :                 : --           
+VCCIO_HVIO_6F                : AL17      : power  :                   : 1.8V    : 6F        :                 : --           
+GND                          : AL20      : gnd    :                   :         :           :                 : --           
+VCC                          : AL23      : power  :                   : 0.75V   :           :                 : --           
+VCC                          : AL25      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AL28      : gnd    :                   :         :           :                 : --           
+VCC                          : AL30      : power  :                   : 0.75V   :           :                 : --           
+GNDSENSE                     : AL33      :        :                   :         :           :                 : --           
+GND                          : AL36      : gnd    :                   :         :           :                 : --           
+VCCL_ADC_SDM                 : AL38      : power  :                   : 0.75V   :           :                 : --           
+VCC_HSSI_L1                  : AL41      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AL44      : gnd    :                   :         :           :                 : --           
+GND                          : AM4       : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[15]                : AM6       : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 70ps         
+DNU                          : AM48      :        :                   :         :           :                 : --           
+DNU                          : AM49      :        :                   :         :           :                 : --           
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : AN1       :        :                   : 3.3V    : 6G        :                 : 56ps         
+GND                          : AN2       : gnd    :                   :         :           :                 : --           
+VSIGP_1                      : AN51      :        :                   :         : SDM       :                 : 96ps         
+GND                          : AN52      : gnd    :                   :         :           :                 : --           
+HEX4[2]                      : AP9       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 56ps         
+GND                          : AP12      : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6E                : AP15      : power  :                   : 3.3V    : 6E        :                 : --           
+GND                          : AP17      : gnd    :                   :         :           :                 : --           
+VCCPT_HVIO                   : AP20      : power  :                   : 1.8V    :           :                 : --           
+VCC                          : AP23      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AP25      : gnd    :                   :         :           :                 : --           
+VCCPT                        : AP28      : power  :                   : 1.8V    :           :                 : --           
+VCCPT                        : AP30      : power  :                   : 1.8V    :           :                 : --           
+GND                          : AP33      : gnd    :                   :         :           :                 : --           
+VCCFUSEWR_SDM                : AP36      : power  :                   : 1.8V    :           :                 : --           
+VCCIO_PIO_SDM                : AP38      : power  :                   : 1.2V    :           :                 : --           
+GND                          : AP41      : gnd    :                   :         :           :                 : --           
+TEMPDIODE0An                 : AP44      :        :                   :         : SDM       :                 : 79ps         
+HDMI_TX_D[16]                : AR1       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 57ps         
+HDMI_TX_D[17]                : AR2       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 55ps         
+GND                          : AR51      : gnd    :                   :         :           :                 : --           
+VSIGN_1                      : AR52      :        :                   :         : SDM       :                 : 100ps        
+HEX4[0]                      : AT9       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 62ps         
+HEX4[1]                      : AT12      : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 67ps         
+GND                          : AT15      : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6E                : AT17      : power  :                   : 3.3V    : 6E        :                 : --           
+VCCPT_HVIO                   : AT20      : power  :                   : 1.8V    :           :                 : --           
+DNU                          : AT23      :        :                   :         :           :                 : --           
+VCCP                         : AT25      : power  :                   : 0.75V   :           :                 : --           
+VCCL_SDM                     : AT28      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AT30      : gnd    :                   :         :           :                 : --           
+VCCL_SDM                     : AT33      : power  :                   : 0.75V   :           :                 : --           
+VCCADC                       : AT36      : power  :                   : 1.8V    :           :                 : --           
+GND                          : AT38      : gnd    :                   :         :           :                 : --           
+VCCPT_HVIO                   : AT41      : power  :                   : 1.8V    :           :                 : --           
+TEMPDIODE0Ap                 : AT44      :        :                   :         : SDM       :                 : 82ps         
+HEX3[5]                      : AU4       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 46ps         
+HEX3[4]                      : AU6       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 46ps         
+~ALTERA_AS_CLK~              : AU48      : output : 1.8-V             :         : SDM       : N               : 106ps        
+GND                          : AU49      : gnd    :                   :         :           :                 : --           
+HDMI_TX_D[18]                : AV1       : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 59ps         
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : AV2       :        :                   : 3.3V    : 6G        :                 : 58ps         
+GND                          : AV51      : gnd    :                   :         :           :                 : --           
+DNU                          : AV52      :        :                   :         :           :                 : --           
+GND                          : AW9       : gnd    :                   :         :           :                 : --           
+HEX3[6]                      : AW12      : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 85ps         
+VCCIO_HVIO_6B                : AW15      : power  :                   : 1.8V    : 6B        :                 : --           
+VCCPT_HVIO                   : AW17      : power  :                   : 1.8V    :           :                 : --           
+GND                          : AW20      : gnd    :                   :         :           :                 : --           
+VCCP                         : AW23      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AW25      : gnd    :                   :         :           :                 : --           
+GND                          : AW28      : gnd    :                   :         :           :                 : --           
+VCCL_SDM                     : AW30      : power  :                   : 0.75V   :           :                 : --           
+VCCL_SDM                     : AW33      : power  :                   : 0.75V   :           :                 : --           
+GND                          : AW36      : gnd    :                   :         :           :                 : --           
+VCCH_SDM                     : AW38      : power  :                   : 1.0V    :           :                 : --           
+VCCPT_HVIO                   : AW41      : power  :                   : 1.8V    :           :                 : --           
+SDM_IO14                     : AW44      :        :                   :         : SDM       :                 : 133ps        
+GND                          : AY4       : gnd    :                   :         :           :                 : --           
+HEX3[3]                      : AY6       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 53ps         
+SDM_IO10                     : AY48      :        :                   :         : SDM       :                 : 130ps        
+~ALTERA_AS_nCSO2,ALTERA_MSEL1~ : AY49      : output, input : 1.8-V             :         : SDM       : N               : 109ps        
+GND                          : B2        : gnd    :                   :         :           :                 : --           
+GPIO_D[0]                    : B3        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 88ps         
+GPIO_D[9]                    : B5        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 86ps         
+GPIO_D[8]                    : B8        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 76ps         
+GND                          : B9        : gnd    :                   :         :           :                 : --           
+GPIO_D[18]                   : B11       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 76ps         
+GPIO_D[20]                   : B14       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 76ps         
+GPIO_D[25]                   : B16       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 75ps         
+GPIO_D[24]                   : B19       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 85ps         
+GND                          : B22       : gnd    :                   :         :           :                 : --           
+LEDR[5]                      : B24       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 69ps         
+SW[2]                        : B26       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 71ps         
+SW[6]                        : B27       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 78ps         
+HEX2[3]                      : B29       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 81ps         
+GND                          : B31       : gnd    :                   :         :           :                 : --           
+LEDR[8]                      : B34       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 81ps         
+SW[1]                        : B37       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 82ps         
+LEDR[0]                      : B39       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 87ps         
+LEDR[1]                      : B42       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 91ps         
+GND                          : B44       : gnd    :                   :         :           :                 : --           
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : B45       :        :                   : 1.2V    : 3A_T      :                 : 105ps        
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : B47       :        :                   : 1.2V    : 3A_T      :                 : 109ps        
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : B50       :        :                   : 1.2V    : 3A_T      :                 : 118ps        
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : B51       :        :                   : 1.2V    : 3A_T      :                 : 118ps        
+GND                          : B52       : gnd    :                   :         :           :                 : --           
+GND                          : BA1       : gnd    :                   :         :           :                 : --           
+DRAM_DQM[1]                  : BA2       : output : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 55ps         
+~ALTERA_AS_nRST~             : BA51      : output : 1.8-V             :         : SDM       : N               : 100ps        
+~ALTERA_AS_nCSO3~            : BA52      : output : 1.8-V             :         : SDM       : N               : 102ps        
+HEX5[4]                      : BB9       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 70ps         
+HEX5[3]                      : BB12      : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 84ps         
+VCCIO_HVIO_6B                : BB15      : power  :                   : 1.8V    : 6B        :                 : --           
+GND                          : BB17      : gnd    :                   :         :           :                 : --           
+VCCPT_HVIO                   : BB20      : power  :                   : 1.8V    :           :                 : --           
+DNU                          : BB23      :        :                   :         :           :                 : --           
+GND                          : BB25      : gnd    :                   :         :           :                 : --           
+VCCIO_SDM                    : BB28      : power  :                   : 1.8V    :           :                 : --           
+VCCPLLDIG_SDM                : BB30      : power  :                   : 0.75V   :           :                 : --           
+GND                          : BB33      : gnd    :                   :         :           :                 : --           
+GND                          : BB36      : gnd    :                   :         :           :                 : --           
+VCCPLL_SDM                   : BB38      : power  :                   : 1.8V    :           :                 : --           
+GND                          : BB41      : gnd    :                   :         :           :                 : --           
+~ALTERA_OSC_CLK_1~           : BB44      : input  : 1.8-V             :         : SDM       : N               : 99ps         
+DRAM_DQ[17]                  : BC1       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 61ps         
+DRAM_DQ[22]                  : BC2       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 57ps         
+~ALTERA_AS_DATA3~            : BC51      : bidir  : 1.8-V             :         : SDM       : N               : 95ps         
+~ALTERA_AS_DATA2~            : BC52      : bidir  : 1.8-V             :         : SDM       : N               : 98ps         
+DRAM_DQM[3]                  : BD1       : output : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 70ps         
+GND                          : BD2       : gnd    :                   :         :           :                 : --           
+SDM_IO13                     : BD51      :        :                   :         : SDM       :                 : 95ps         
+GND                          : BD52      : gnd    :                   :         :           :                 : --           
+DRAM_DQM[0]                  : BE4       : output : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 71ps         
+DRAM_DQM[2]                  : BE6       : output : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 79ps         
+~ALTERA_AS_nCSO1,ALTERA_MSEL2~ : BE48      : output, input : 1.8-V             :         : SDM       : N               : 78ps         
+~CONF_DONE~                  : BE49      : output : 1.8-V             :         : SDM       : N               : 76ps         
+HEX5[2]                      : BF9       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 75ps         
+HEX5[1]                      : BF12      : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 81ps         
+VCCIO_HVIO_6A                : BF15      : power  :                   : 1.8V    : 6A        :                 : --           
+VCCIO_HVIO_6A                : BF17      : power  :                   : 1.8V    : 6A        :                 : --           
+GND                          : BF20      : gnd    :                   :         :           :                 : --           
+DNU                          : BF23      :        :                   :         :           :                 : --           
+DNU                          : BF25      :        :                   :         :           :                 : --           
+DNU                          : BF28      :        :                   :         :           :                 : --           
+GND                          : BF30      : gnd    :                   :         :           :                 : --           
+DNU                          : BF33      :        :                   :         :           :                 : --           
+DNU                          : BF36      :        :                   :         :           :                 : --           
+DNU                          : BF38      :        :                   :         :           :                 : --           
+VCC_IO_SDM                   : BF41      : power  :                   : 0.75V   :           :                 : --           
+GND                          : BF44      : gnd    :                   :         :           :                 : --           
+DRAM_DQ[23]                  : BG1       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 68ps         
+DRAM_DQ[21]                  : BG2       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 70ps         
+nCONFIG                      : BG51      :        :                   :         : SDM       :                 : 89ps         
+SDM_IO11                     : BG52      :        :                   :         : SDM       :                 : 92ps         
+HEX5[0]                      : BH3       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 63ps         
+HEX4[6]                      : BH7       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 90ps         
+FPGA_UART_RX                 : BH10      : input  : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 73ps         
+HEX3[1]                      : BH13      : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 123ps        
+DRAM_ADDR[3]                 : BH18      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 163ps        
+DRAM_ADDR[6]                 : BH21      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 143ps        
+DRAM_ADDR[4]                 : BH26      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 101ps        
+DRAM_ADDR[1]                 : BH27      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 98ps         
+DRAM_ADDR[7]                 : BH32      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 93ps         
+DRAM_ADDR[9]                 : BH35      : output : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 88ps         
+DRAM_CKE                     : BH40      : output : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 94ps         
+DRAM_BA[0]                   : BH43      : output : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 101ps        
+DRAM_DQ[7]                   : BH46      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 125ps        
+DRAM_DQ[5]                   : BH50      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 129ps        
+DRAM_DQ[19]                  : BJ1       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 71ps         
+DRAM_DQ[20]                  : BJ2       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 73ps         
+GND                          : BJ51      : gnd    :                   :         :           :                 : --           
+SDM_IO0                      : BJ52      :        :                   :         : SDM       :                 : 90ps         
+GND                          : BK3       : gnd    :                   :         :           :                 : --           
+HEX4[3]                      : BK7       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 84ps         
+KEY[2]                       : BK10      : input  : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 71ps         
+GND                          : BK13      : gnd    :                   :         :           :                 : --           
+DRAM_ADDR[5]                 : BK18      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 169ps        
+GND                          : BK21      : gnd    :                   :         :           :                 : --           
+DRAM_ADDR[8]                 : BK26      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 135ps        
+GND                          : BK27      : gnd    :                   :         :           :                 : --           
+DRAM_CLK                     : BK32      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 104ps        
+GND                          : BK35      : gnd    :                   :         :           :                 : --           
+DRAM_CAS_n                   : BK40      : output : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 100ps        
+GND                          : BK43      : gnd    :                   :         :           :                 : --           
+GND                          : BK46      : gnd    :                   :         :           :                 : --           
+DRAM_DQ[2]                   : BK50      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 129ps        
+GND                          : BL1       : gnd    :                   :         :           :                 : --           
+HEX4[5]                      : BL2       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 91ps         
+DRAM_DQ[6]                   : BL51      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 129ps        
+GND                          : BL52      : gnd    :                   :         :           :                 : --           
+GND                          : BM1       : gnd    :                   :         :           :                 : --           
+HEX4[4]                      : BM2       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 87ps         
+HEX3[2]                      : BM3       : output : 3.3-V LVCMOS      : 3.3V    : 6E        : Y               : 79ps         
+GND                          : BM5       : gnd    :                   :         :           :                 : --           
+DRAM_DQ[26]                  : BM8       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 80ps         
+DRAM_DQ[16]                  : BM9       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 88ps         
+DRAM_DQ[28]                  : BM11      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 81ps         
+DRAM_DQ[27]                  : BM14      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 84ps         
+GND                          : BM16      : gnd    :                   :         :           :                 : --           
+DRAM_DQ[31]                  : BM19      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 88ps         
+HEX3[0]                      : BM22      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 85ps         
+DRAM_ADDR[12]                : BM24      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 87ps         
+DRAM_ADDR[2]                 : BM26      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 89ps         
+GND                          : BM27      : gnd    :                   :         :           :                 : --           
+DRAM_BA[1]                   : BM29      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 96ps         
+DRAM_RAS_n                   : BM31      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 104ps        
+DRAM_WE_n                    : BM34      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 98ps         
+DRAM_DQ[9]                   : BM37      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 118ps        
+GND                          : BM39      : gnd    :                   :         :           :                 : --           
+DRAM_DQ[12]                  : BM42      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 121ps        
+DRAM_DQ[11]                  : BM44      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 129ps        
+DRAM_DQ[13]                  : BM45      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 128ps        
+DRAM_DQ[4]                   : BM47      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 127ps        
+DRAM_DQ[1]                   : BM50      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 130ps        
+DRAM_DQ[0]                   : BM51      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 141ps        
+GND                          : BM52      : gnd    :                   :         :           :                 : --           
+GND                          : BN2       : gnd    :                   :         :           :                 : --           
+GND                          : BN3       : gnd    :                   :         :           :                 : --           
+DRAM_DQ[18]                  : BN5       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 87ps         
+DRAM_DQ[24]                  : BN8       : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 87ps         
+GND                          : BN9       : gnd    :                   :         :           :                 : --           
+DRAM_DQ[25]                  : BN11      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 83ps         
+DRAM_DQ[30]                  : BN14      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 84ps         
+DRAM_DQ[29]                  : BN16      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6F        : Y               : 88ps         
+HEX2[6]                      : BN19      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 91ps         
+GND                          : BN22      : gnd    :                   :         :           :                 : --           
+HEX2[5]                      : BN24      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 94ps         
+DRAM_ADDR[0]                 : BN26      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 93ps         
+DRAM_ADDR[10]                : BN27      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 99ps         
+DRAM_ADDR[11]                : BN29      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 102ps        
+GND                          : BN31      : gnd    :                   :         :           :                 : --           
+DRAM_CS_n                    : BN34      : output : 1.8-V LVCMOS      : 1.8V    : 6A        : Y               : 105ps        
+DRAM_DQ[8]                   : BN37      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 123ps        
+DRAM_DQ[10]                  : BN39      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 124ps        
+DRAM_DQ[14]                  : BN42      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 125ps        
+GND                          : BN44      : gnd    :                   :         :           :                 : --           
+DRAM_DQ[15]                  : BN45      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 128ps        
+DRAM_DQ[3]                   : BN47      : bidir  : 1.8-V LVCMOS      : 1.8V    : 6B        : Y               : 132ps        
+GND                          : BN50      : gnd    :                   :         :           :                 : --           
+GND                          : BN51      : gnd    :                   :         :           :                 : --           
+GND                          : C1        : gnd    :                   :         :           :                 : --           
+GPIO_D[1]                    : C2        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 95ps         
+DNU                          : C51       :        :                   :         :           :                 : --           
+GND                          : C52       : gnd    :                   :         :           :                 : --           
+GPIO_D[17]                   : D3        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 81ps         
+GND                          : D7        : gnd    :                   :         :           :                 : --           
+GPIO_D[13]                   : D10       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 80ps         
+GND                          : D13       : gnd    :                   :         :           :                 : --           
+GPIO_D[2]                    : D18       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 88ps         
+GND                          : D21       : gnd    :                   :         :           :                 : --           
+GPIO_D[29]                   : D26       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 93ps         
+GND                          : D27       : gnd    :                   :         :           :                 : --           
+SW[8]                        : D32       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 67ps         
+GND                          : D35       : gnd    :                   :         :           :                 : --           
+LEDR[9]                      : D40       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 88ps         
+GND                          : D43       : gnd    :                   :         :           :                 : --           
+DNU                          : D46       :        :                   :         :           :                 : --           
+GND                          : D50       : gnd    :                   :         :           :                 : --           
+GND                          : E1        : gnd    :                   :         :           :                 : --           
+HEX5[5]                      : E2        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 85ps         
+GPIO_D[3]                    : F3        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 82ps         
+GPIO_D[6]                    : F7        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 89ps         
+GPIO_D[11]                   : F10       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 89ps         
+GPIO_D[12]                   : F13       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 97ps         
+GPIO_D[26]                   : F18       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 87ps         
+GPIO_D[31]                   : F21       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 84ps         
+GPIO_D[28]                   : F26       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 87ps         
+GPIO_D[35]                   : F27       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 97ps         
+LEDR[3]                      : F32       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 67ps         
+HEX2[1]                      : F35       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 73ps         
+HEX1[0]                      : F40       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 87ps         
+RESERVED_INPUT_WITHOUT_WEAK_PULLUP : F43       :        :                   : 1.2V    : 3A_T      :                 : 95ps         
+DNU                          : F46       :        :                   :         :           :                 : --           
+DNU                          : F50       :        :                   :         :           :                 : --           
+HEX0[2]                      : G51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 107ps        
+HEX1[6]                      : G52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 108ps        
+GND                          : H3        : gnd    :                   :         :           :                 : --           
+GPIO_D[7]                    : H7        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 97ps         
+GND                          : H10       : gnd    :                   :         :           :                 : --           
+GPIO_D[15]                   : H13       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 84ps         
+GND                          : H18       : gnd    :                   :         :           :                 : --           
+GPIO_D[33]                   : H21       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 82ps         
+GND                          : H26       : gnd    :                   :         :           :                 : --           
+GPIO_D[32]                   : H27       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 87ps         
+GND                          : H32       : gnd    :                   :         :           :                 : --           
+HEX2[4]                      : H35       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 72ps         
+GND                          : H40       : gnd    :                   :         :           :                 : --           
+HEX2[0]                      : H43       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 95ps         
+GND                          : H46       : gnd    :                   :         :           :                 : --           
+DNU                          : H50       :        :                   :         :           :                 : --           
+FPGA_UART_TX                 : J1        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 82ps         
+HDMI_SCLK                    : J2        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 78ps         
+HEX0[1]                      : J51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 105ps        
+HEX0[3]                      : J52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 106ps        
+HEX5[6]                      : K3        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 96ps         
+GPIO_D[5]                    : K7        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 75ps         
+GPIO_D[10]                   : K10       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 73ps         
+GPIO_D[14]                   : K13       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 79ps         
+GPIO_D[34]                   : K18       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 72ps         
+GPIO_D[30]                   : K21       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 103ps        
+KEY[0]                       : K26       : input  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 81ps         
+KEY[1]                       : K27       : input  : 3.3-V LVCMOS      : 3.3V    : 6D        : Y               : 82ps         
+SW[4]                        : K32       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 74ps         
+LEDR[2]                      : K35       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 77ps         
+HEX1[1]                      : K40       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 98ps         
+CLOCK0_50                    : K43       : input  : 1.2-V             : 1.2V    : 3A_T      : Y               : 97ps         
+DNU                          : K46       :        :                   :         :           :                 : --           
+DNU                          : K50       :        :                   :         :           :                 : --           
+HDMI_LRCLK                   : L1        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 75ps         
+GND                          : L2        : gnd    :                   :         :           :                 : --           
+HEX0[0]                      : L51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 107ps        
+GND                          : L52       : gnd    :                   :         :           :                 : --           
+HDMI_I2S0                    : M1        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 73ps         
+FPGA_I2C_SCL                 : M2        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 68ps         
+HEX0[4]                      : M51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 119ps        
+HEX0[5]                      : M52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 107ps        
+HDMI_TX_D[1]                 : N1        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 68ps         
+FPGA_I2C_SDA                 : N2        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 63ps         
+GND                          : N51       : gnd    :                   :         :           :                 : --           
+HEX1[2]                      : N52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 118ps        
+HDMI_TX_D[2]                 : P4        : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 69ps         
+HDMI_TX_D[4]                 : P6        : output : 3.3-V LVCMOS      : 3.3V    : 6G        : Y               : 73ps         
+GPIO_D[27]                   : P9        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 81ps         
+GND                          : P12       : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6D                : P15       : power  :                   : 3.3V    : 6D        :                 : --           
+VCCIO_HVIO_6D                : P17       : power  :                   : 3.3V    : 6D        :                 : --           
+DNU                          : P20       :        :                   :         :           :                 : --           
+GND                          : P23       : gnd    :                   :         :           :                 : --           
+VCCIO_PIO_3A_T               : P25       : power  :                   : 1.2V    : 3A_T      :                 : --           
+VCCIO_PIO_3A_T               : P28       : power  :                   : 1.2V    : 3A_B      :                 : --           
+DNU                          : P30       :        :                   :         :           :                 : --           
+DNU                          : P33       :        :                   :         :           :                 : --           
+GND                          : P36       : gnd    :                   :         :           :                 : --           
+GND                          : P38       : gnd    :                   :         :           :                 : --           
+GND                          : P41       : gnd    :                   :         :           :                 : --           
+NC                           : P44       :        :                   :         :           :                 : --           
+SDM_IO12                     : P48       :        :                   :         : SDM       :                 : 150ps        
+~ALTERA_AS_DATA0~            : P49       : bidir  : 1.8-V             :         : SDM       : N               : 136ps        
+GND                          : R1        : gnd    :                   :         :           :                 : --           
+HDMI_TX_VS                   : R2        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 60ps         
+HEX0[6]                      : R51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 116ps        
+HEX1[4]                      : R52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 117ps        
+GND                          : T4        : gnd    :                   :         :           :                 : --           
+HDMI_MCLK                    : T6        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 98ps         
+~ALTERA_AS_DATA1~            : T48       : bidir  : 1.8-V             :         : SDM       : N               : 138ps        
+GND                          : T49       : gnd    :                   :         :           :                 : --           
+GPIO_D[16]                   : U9        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 92ps         
+GPIO_D[22]                   : U12       : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 100ps        
+GND                          : U15       : gnd    :                   :         :           :                 : --           
+VCCIO_HVIO_6C                : U17       : power  :                   : 3.3V    : 6C        :                 : --           
+VCCPT_HVIO                   : U20       : power  :                   : 1.8V    :           :                 : --           
+DNU                          : U23       :        :                   :         :           :                 : --           
+VCCIO_PIO_3A_T               : U25       : power  :                   : 1.2V    : 3A_T      :                 : --           
+GND                          : U28       : gnd    :                   :         :           :                 : --           
+VCCIO_PIO_3A_T               : U30       : power  :                   : 1.2V    : 3A_B      :                 : --           
+NC                           : U33       :        :                   :         :           :                 : --           
+GND                          : U36       : gnd    :                   :         :           :                 : --           
+GND                          : U38       : gnd    :                   :         :           :                 : --           
+GND                          : U41       : gnd    :                   :         :           :                 : --           
+NC                           : U44       :        :                   :         :           :                 : --           
+HDMI_TX_HS                   : V1        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 56ps         
+HDMI_TX_D[3]                 : V2        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 58ps         
+HEX1[3]                      : V51       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 117ps        
+HEX1[5]                      : V52       : output : 1.2-V             : 1.2V    : 3A_T      : Y               : 117ps        
+GPIO_D[4]                    : W9        : bidir  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 86ps         
+KEY[3]                       : W12       : input  : 3.3-V LVCMOS      : 3.3V    : 6C        : Y               : 87ps         
+VCCIO_HVIO_6C                : W15       : power  :                   : 3.3V    : 6C        :                 : --           
+GND                          : W17       : gnd    :                   :         :           :                 : --           
+VCCPT_HVIO                   : W20       : power  :                   : 1.8V    :           :                 : --           
+VCCPT                        : W23       : power  :                   : 1.8V    :           :                 : --           
+VCCPT                        : W25       : power  :                   : 1.8V    :           :                 : --           
+VCCP                         : W28       : power  :                   : 0.75V   :           :                 : --           
+GND                          : W30       : gnd    :                   :         :           :                 : --           
+VCCP                         : W33       : power  :                   : 0.75V   :           :                 : --           
+VCCP                         : W36       : power  :                   : 0.75V   :           :                 : --           
+GND                          : W38       : gnd    :                   :         :           :                 : --           
+NC                           : W41       :        :                   :         :           :                 : --           
+GND                          : W44       : gnd    :                   :         :           :                 : --           
+HDMI_TX_DE                   : Y1        : output : 3.3-V LVCMOS      : 3.3V    : 6H        : Y               : 72ps         
+GND                          : Y2        : gnd    :                   :         :           :                 : --           
+DNU                          : Y51       :        :                   :         :           :                 : --           
+GND                          : Y52       : gnd    :                   :         :           :                 : --           

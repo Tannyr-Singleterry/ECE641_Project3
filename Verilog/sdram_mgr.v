@@ -48,7 +48,9 @@ module sdram_mgr(ar, clk, clk_hdmi,
 	input [31:0] sdram_rd_data;
 	input sdram_rd_valid;
 	input sdram_wr_next;
-
+	
+	
+	//Main SDRAM FSM.
 	parameter [2:0] Idle        = 3'd0, Check_Write = 3'd1, Start_Write = 3'd2,
 					Write_Burst = 3'd3, Check_Read  = 3'd4, Start_Read  = 3'd5,
 					Read_Burst  = 3'd6;
@@ -208,13 +210,13 @@ module sdram_mgr(ar, clk, clk_hdmi,
 	parameter [1:0] HDMI_Idle    = 2'd0,
 	                HDMI_Prefill = 2'd1,
 	                HDMI_Stream  = 2'd2;
-
+	
+	//HDMI FSM state encoding. 
 	reg [1:0]  hdmi_cs;
 	reg [23:0] hdmi_frame_addr;
 	reg [11:0] hdmi_burst_count;
 
 	// Image pixel and line counters - track position within the FIFO data
-	/
 	reg [10:0] img_pixel_cnt;  
 	reg [9:0]  img_line_cnt;   
 	reg        img_done;        
@@ -269,6 +271,7 @@ module sdram_mgr(ar, clk, clk_hdmi,
 
 				HDMI_Idle:
 				begin
+					//Wait for first vsynch after image is loaded before prefill
 					if(vsync_posedge && image_loaded)
 					begin
 						hdmi_frame_addr  <= FRAME_START_ADDR;
@@ -276,7 +279,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 						hdmi_cs          <= HDMI_Prefill;
 					end
 				end
-
+				
+				//Push 512 word read address request into the FIFO
 				HDMI_Prefill:
 				begin
 					if(vsync_posedge)
@@ -318,13 +322,16 @@ module sdram_mgr(ar, clk, clk_hdmi,
 					end
 					else
 					begin
+						//On each hsync, activate pixel output for next image line
+						//if it is still within the image height
 						if(hsync_posedge && img_line_cnt < IMAGE_HEIGHT && !img_done)
 						begin
 							img_line_active <= 1'b1;
 							img_draining    <= 1'b0;
 							img_drain_cnt   <= 9'd0;
 						end
-
+						
+						//During display enable, read one pixel per cycle from FIFO.
 						if(hdmi_de && img_line_active && !img_done && !rd_data_fifo_rdempty)
 						begin
 							hdmi_pixel_r       <= rd_data_fifo_q[31:24];
@@ -339,6 +346,7 @@ module sdram_mgr(ar, clk, clk_hdmi,
 							end
 							else
 							begin
+								//End of 1280 pixel line. Begin draining 256 extra pixels. 
 								img_pixel_cnt   <= 11'd0;
 								img_line_active <= 1'b0;
 								img_draining    <= 1'b1;
@@ -349,7 +357,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 									img_done <= 1'b1;
 							end
 						end
-
+						
+						//Drain leftover 256 pixels after each line. 
 						if(img_draining && !rd_data_fifo_rdempty)
 						begin
 							rd_data_fifo_rdreq <= 1'b1;
@@ -358,7 +367,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 							else
 								img_draining <= 1'b0;
 						end
-
+						
+						//Contine issuing read address bursts in background.
 						if(!rd_addr_fifo_wrfull && hdmi_burst_count < BURSTS_PER_FRAME)
 						begin
 							hdmi_rd_addr       <= hdmi_frame_addr;
@@ -411,7 +421,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 							cs <= Check_Read;
 					end
 				end
-
+				
+				//Only do write if the write data FIFO has a full 512 word
 				Check_Write:
 				begin
 					if(wr_data_fifo_usedw >= 11'd512)
@@ -424,7 +435,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 							cs <= Idle;
 					end
 				end
-
+				
+				//Latch the burst start address. Pop from FIFO, and assert wr_req to controller
 				Start_Write:
 				begin
 					sdram_addr         <= wr_addr_fifo_q;
@@ -433,7 +445,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 					burst_cnt          <= 10'd0;
 					cs                 <= Write_Burst;
 				end
-
+				
+				//Feed one word per sdram_wr_next pulse until 512 words have been sent.
 				Write_Burst:
 				begin
 					sdram_wr_data <= wr_data_fifo_q;
@@ -448,13 +461,15 @@ module sdram_mgr(ar, clk, clk_hdmi,
 							cs <= Idle;
 					end
 				end
-
+				
+				//Only proceed with the read if the read data FIFO has room for another word
 				Check_Read:
 				begin
 					if(!rd_data_fifo_wrfull)
 						cs <= Start_Read;
 				end
-
+				
+				//Latch the burst state address, pop it from the FIFO, and assert rd_req to the controller
 				Start_Read:
 				begin
 					sdram_addr         <= rd_addr_fifo_q;
@@ -463,7 +478,8 @@ module sdram_mgr(ar, clk, clk_hdmi,
 					burst_cnt          <= 10'd0;
 					cs                 <= Read_Burst;
 				end
-
+				
+				//Store each valid read word into the read data FIFO until 512 words. 
 				Read_Burst:
 				begin
 					if(sdram_rd_valid)

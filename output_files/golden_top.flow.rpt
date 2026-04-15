@@ -1,0 +1,131 @@
+Flow report for golden_top
+Fri Apr 10 23:33:31 2026
+Quartus Prime Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Flow Summary
+  2. Flow Settings
+  3. Flow Non-Default Global Settings
+  4. Flow Elapsed Time
+  5. Flow OS Summary
+  6. Flow Log
+  7. Legal Notice
+
+
+
++-------------------------------------------------------------------------------------------+
+; Flow Summary                                                                              ;
++---------------------------------+---------------------------------------------------------+
+; Flow Status                     ; Successful - Fri Apr 10 23:33:31 2026                   ;
+; Quartus Prime Version           ; 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition ;
+; Revision Name                   ; golden_top                                              ;
+; Top-level Entity Name           ; golden_top                                              ;
+; Family                          ; Agilex 3                                                ;
+; Device                          ; A3CZ135BB18AE7S                                         ;
+; Timing Models                   ; Final                                                   ;
+; Power Models                    ; Final                                                   ;
+; Device Status                   ; Final                                                   ;
+; Logic utilization (in ALMs)     ; 1,074 / 45,800 ( 2 % )                                  ;
+; Total dedicated logic registers ; 1821                                                    ;
+; Total pins                      ; 198 / 208 ( 95 % )                                      ;
+; Total block memory bits         ; 66,304 / 7,229,440 ( < 1 % )                            ;
+; Total RAM Blocks                ; 6 / 353 ( 2 % )                                         ;
+; Total DSP Blocks                ; 0 / 184 ( 0 % )                                         ;
+; Total HSSI HPS                  ; 0 / 1 ( 0 % )                                           ;
+; Total PLLs                      ; 2 / 11 ( 18 % )                                         ;
++---------------------------------+---------------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 04/10/2026 23:28:49 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; golden_top          ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                      ;
++--------------------------------+--------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+------------+
+; Assignment Name                ; Value                                                                                                              ; Default Value                        ; Entity Name ; Section Id ;
++--------------------------------+--------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+------------+
+; COMPILER_SIGNATURE_ID          ; 152171233558867.177588172901452                                                                                    ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/AUDIO_PLL/AUDIO_PLL.cmp                                                         ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/AUDIO_PLL.ip                                                                    ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/ResetRelease/ResetRelease.cmp                                                   ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/ResetRelease.ip                                                                 ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/VEDIO_PLL/VEDIO_PLL.cmp                                                         ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/V/VEDIO_PLL.ip                                                                    ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/dni/sandboxes/TannyrsLaptop_1452_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_0.cmp      ; --                                   ; --          ; --         ;
+; MISC_FILE                      ; D:/altera/ECE641/ECE641_Project3/dni/sandboxes/TannyrsLaptop_1452_0/sld/ipgen/alt_sld_fab_0.ip                     ; --                                   ; --          ; --         ;
+; POWER_APPLY_THERMAL_MARGIN     ; ADDITIONAL                                                                                                         ; Off                                  ; --          ; --         ;
+; PROJECT_IP_REGENERATION_POLICY ; ALWAYS_REGENERATE_IP                                                                                               ; SKIP_REGENERATING_IP_IF_HDL_MODIFIED ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY       ; D:/altera/ECE641/ECE641_Project3/output_files                                                                      ; --                                   ; --          ; --         ;
+; SOPCINFO_FILE                  ; D:/altera/ECE641/ECE641_Project3/V/AUDIO_PLL/AUDIO_PLL.sopcinfo                                                    ; --                                   ; --          ; --         ;
+; SOPCINFO_FILE                  ; D:/altera/ECE641/ECE641_Project3/V/ResetRelease/ResetRelease.sopcinfo                                              ; --                                   ; --          ; --         ;
+; SOPCINFO_FILE                  ; D:/altera/ECE641/ECE641_Project3/V/VEDIO_PLL/VEDIO_PLL.sopcinfo                                                    ; --                                   ; --          ; --         ;
+; SOPCINFO_FILE                  ; D:/altera/ECE641/ECE641_Project3/dni/sandboxes/TannyrsLaptop_1452_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_0.sopcinfo ; --                                   ; --          ; --         ;
++--------------------------------+--------------------------------------------------------------------------------------------------------------------+--------------------------------------+-------------+------------+
+
+
++------------------------------------------------------+
+; Flow Elapsed Time                                    ;
++-----------------+--------------+---------------------+
+; Module Name     ; Elapsed Time ; Peak Virtual Memory ;
++-----------------+--------------+---------------------+
+; Synthesis       ; 00:00:44     ; 1271 MB             ;
+; Fitter          ; 00:03:21     ; 4423 MB             ;
+; Timing Analyzer ; 00:00:11     ; 1208 MB             ;
+; Assembler       ; 00:00:20     ; 2765 MB             ;
+; Total           ; 00:04:36     ; --                  ;
++-----------------+--------------+---------------------+
+
+
++-------------------------------------------------------------------------------+
+; Flow OS Summary                                                               ;
++-----------------+------------------+------------+------------+----------------+
+; Module Name     ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++-----------------+------------------+------------+------------+----------------+
+; Synthesis       ; TannyrsLaptop    ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Fitter          ; TannyrsLaptop    ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Timing Analyzer ; TannyrsLaptop    ; Windows 11 ; 10.0.26200 ; x86_64         ;
+; Assembler       ; TannyrsLaptop    ; Windows 11 ; 10.0.26200 ; x86_64         ;
++-----------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_syn --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+quartus_fit --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+quartus_sta golden_top -c golden_top --mode=finalize
+quartus_asm --read_settings_files=on --write_settings_files=off golden_top -c golden_top
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+

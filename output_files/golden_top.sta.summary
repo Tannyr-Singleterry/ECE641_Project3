@@ -1,0 +1,80 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'u_VEDIO_PLL|iopll_0_outclk0'
+Slack : 3.239
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Setup 'u_VEDIO_PLL|iopll_0_refclk'
+Slack : 17.299
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Setup 'u_AUDIO_PLL|iopll_0_outclk0'
+Slack : 200.679
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Hold 'u_AUDIO_PLL|iopll_0_outclk0'
+Slack : 0.058
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Hold 'u_VEDIO_PLL|iopll_0_outclk0'
+Slack : 0.058
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Hold 'u_VEDIO_PLL|iopll_0_refclk'
+Slack : 0.060
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_VEDIO_PLL|iopll_0_outclk1'
+Slack : 2.246
+TNS   : 0.000
+Corner: Slow fix6 100C Model
+
+Type  : Minimum Pulse Width 'u_VEDIO_PLL|iopll_0_outclk0'
+Slack : 2.435
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_VEDIO_PLL|iopll_0|tennm_ph2_iopll|ref_clk0'
+Slack : 8.954
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_VEDIO_PLL|iopll_0_refclk'
+Slack : 9.419
+TNS   : 0.000
+Corner: Slow fix6a 0C Model
+
+Type  : Minimum Pulse Width 'u_AUDIO_PLL|iopll_0|tennm_ph2_iopll|ref_clk0'
+Slack : 23.683
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'CLOCK1_50'
+Slack : 24.255
+TNS   : 0.000
+Corner: Fast fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_VEDIO_PLL|iopll_0_n_cnt_clk'
+Slack : 28.859
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_AUDIO_PLL|iopll_0_n_cnt_clk'
+Slack : 49.596
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+Type  : Minimum Pulse Width 'u_AUDIO_PLL|iopll_0_outclk0'
+Slack : 100.506
+TNS   : 0.000
+Corner: Slow fix6 0C Model
+
+------------------------------------------------------------

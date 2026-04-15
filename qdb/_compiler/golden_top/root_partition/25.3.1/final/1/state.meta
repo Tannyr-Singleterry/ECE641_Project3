@@ -1,0 +1,13 @@
+{
+	"validity" : "LEGAL_STATE",
+	"user_modified" : false,
+	"predecessor" : "_compiler/golden_top/root_partition/25.3.1/retimed/1/",
+	"imported" : false,
+	"internal" : false,
+	"emptied" : false,
+	"sdc_preserved" : false,
+	"design_generated_flow" : "dni",
+	"compatible" : false,
+	"version" : "Version 25.3.1 Build 100 12/19/2025 Patches 1.02 SC Pro Edition",
+	"version_index" : 788554753
+}
